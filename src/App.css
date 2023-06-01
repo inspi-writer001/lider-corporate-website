@@ -1,0 +1,23 @@
+.App {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  background: #1e1e1e;
+  /* background-image: url("./assets/particles.png"); */
+}
+
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.35;
+  z-index: 1;
+  background-size: repeat;
+  /* background-color: greenyellow; */
+  pointer-events: none;
+  background-image: url("./assets/2bap.gif");
+}
