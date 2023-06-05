@@ -9,6 +9,7 @@ import Insurance from "./pages/Insurance";
 import Registration from "./pages/Registration";
 import Translations from "./pages/Translation";
 import { theme } from "./theme/theme";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/documents" element={<Document />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

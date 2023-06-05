@@ -26,3 +26,28 @@
   display: flex;
   justify-content: center;
 }
+
+.footer_div {
+  height: 10rem;
+  display: flex;
+  width: 100%;
+  align-self: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  /* position: fixed; */
+  bottom: 0;
+  color: white;
+  /* background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 189, 93, 0.08); */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  /* border-bottom: 2px solid rgba(255, 255, 255, 0.3); */
+}
+
+.footer_inner_container {
+  display: flex;
+  justify-content: stretch;
+}
