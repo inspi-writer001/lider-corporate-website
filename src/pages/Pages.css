@@ -175,3 +175,123 @@ font-family: 'Montaga', serif; */
   width: 30rem;
   border-bottom: 5px solid rgba(255, 255, 255, 0.3);
 }
+
+.footer_div {
+  position: relative;
+  bottom: 0;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  /* top: 100vh; */
+}
+.footer_inner_container {
+  position: relative;
+  bottom: 0;
+  /* height: 100vh; */
+}
+
+.insurance_body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Orbitron", sans-serif;
+  color: white;
+  position: relative;
+  /* z-index: 3; */
+}
+
+.second_banner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  /* background-color: red; */
+  z-index: 3;
+  text-align: center;
+  /* background-color: red; */
+}
+
+.background_ball {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgba(0, 189, 93, 0.01);
+  width: 25em;
+
+  height: 25em;
+
+  flex-direction: column;
+  /* transform: translateX(3rem); */
+
+  transition: all 0.035s ease-in-out;
+
+  position: relative;
+  top: -10rem;
+}
+
+.another_div {
+  display: flex;
+  width: 100%;
+  position: relative;
+  top: -4rem;
+  flex-direction: column;
+  padding: 5rem;
+  row-gap: 10rem;
+}
+
+.top_div,
+.bottom_div {
+  display: flex;
+  height: 15rem;
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 3;
+}
+
+.left_,
+.right_ {
+  display: flex;
+  height: 23rem;
+  width: 23rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem 0 2rem;
+  /* background-color: red; */
+  /* color: white; */
+  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 189, 93, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  /* border-bottom: 2px solid rgba(255, 255, 255, 0.3); */
+}
+
+.arc_container {
+  width: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+
+.top_arc {
+  display: flex;
+  justify-self: center;
+  /* background-color: red; */
+  width: 40rem;
+  height: 30rem;
+  position: absolute;
+  z-index: 2;
+  border-radius: 100% 100% 0 0;
+  border-top: 2px solid rgba(0, 189, 93, 1);
+}
+
+.top_arc:hover {
+  border-top: 2px solid rgb(255, 255, 255);
+}

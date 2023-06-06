@@ -48,7 +48,7 @@ const Home = () => {
             bottom: "17vw"
           }}
         >
-          {/* <Spline scene="https://prod.spline.design/sGYnbbFVK7gP52N1/scene.splinecode" /> */}
+          <Spline scene="https://prod.spline.design/sGYnbbFVK7gP52N1/scene.splinecode" />
         </div>
 
         <div className="text_container">

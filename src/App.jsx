@@ -22,7 +22,7 @@ function App() {
       <div className="noise"></div>
       <Router>
         <Navbar />
-        <div style={{ height: "50px" }} />
+        <div style={{ height: "90px" }} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/insurance" element={<Insurance />} />
