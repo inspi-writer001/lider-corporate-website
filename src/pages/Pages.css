@@ -268,7 +268,14 @@ font-family: 'Montaga', serif; */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 4;
   /* border-bottom: 2px solid rgba(255, 255, 255, 0.3); */
+}
+
+.left_:hover,
+.right_:hover {
+  background: rgba(0, 189, 93, 3);
 }
 
 .arc_container {
@@ -285,13 +292,79 @@ font-family: 'Montaga', serif; */
   justify-self: center;
   /* background-color: red; */
   width: 40rem;
-  height: 30rem;
+  height: 33rem;
   position: absolute;
-  z-index: 2;
+  z-index: 4;
   border-radius: 100% 100% 0 0;
   border-top: 2px solid rgba(0, 189, 93, 1);
 }
 
 .top_arc:hover {
   border-top: 2px solid rgb(255, 255, 255);
+}
+
+.partners {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  z-index: 4;
+  /* height: 30rem; */
+  position: relative;
+  align-items: center;
+  /* background-color: #f2f2f2; */
+}
+
+.partners_ {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  /* background-color: antiquewhite; */
+  width: 100%;
+  margin: auto;
+  position: relative;
+  place-items: center;
+}
+
+.grid-item {
+  /* background-color: #f2f2f2; */
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.grid-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(0, 189, 93, 1); */
+  box-shadow: 0 4px 30px rgba(93, 90, 90, 0.4);
+  filter: drop-shadow(0 4px 4px rgb(0, 0, 0));
+  /* border-radius: 0px 50% 50% 50%; */
+  /* backdrop-filter: blur(5px); */
+  /* -webkit-backdrop-filter: blur(5px); */
+  border-bottom: 3px solid rgba(0, 189, 93, 1);
+
+  z-index: 4;
+}
+
+.those {
+  font-weight: bold;
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  border-top: 3px solid rgba(0, 189, 93, 1);
+  border-radius: 60% 60% 0 0;
+}
+
+.those:hover {
+  border-top: 3px solid rgb(255, 255, 255);
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Pages.css";
 import BlurryBlob from "../components/BlurryBlob";
+import PartnersList from "../components/PartnersList";
 
 const Insurance = () => {
   return (
@@ -21,7 +22,7 @@ const Insurance = () => {
           />
         </div>
         <div className="arc_container">
-          <div className="top_arc" style={{ top: "12rem" }}></div>
+          <div className="top_arc" style={{ top: "10rem" }}></div>
         </div>
         <div className="second_banner">
           <div className="background_ball">
@@ -74,7 +75,7 @@ const Insurance = () => {
             style={{ top: "6rem", top: "-18rem", transform: "rotate(180deg)" }}
           ></div>
         </div>
-        <div className="best_offer second_banner" style={{ top: "9rem" }}>
+        <div className="best_offer second_banner" style={{ top: "12rem" }}>
           <div className="background_ball">
             <div
               className="_low_price"
@@ -101,7 +102,7 @@ const Insurance = () => {
             height={90}
             style={{
               position: "absolute",
-              bottom: "-25rem",
+              top: "50rem",
               left: "auto",
               right: "auto",
               marginLeft: "0",
@@ -110,7 +111,27 @@ const Insurance = () => {
             }}
           />
         </div>
-        <div className="partners"></div>
+        <div className="partners">
+          <div className="those_container">
+            <div className="those">THOSE WHO TRUST US</div>
+            {/* <div className="those">THOSE</div> */}
+          </div>
+          <div className="partners_">
+            <div className="grid">
+              {PartnersList.map((item, index) => {
+                return (
+                  <div className="grid-item" key={index}>
+                    <img
+                      src={item.img}
+                      alt={item.desc}
+                      style={{ width: "9rem" }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

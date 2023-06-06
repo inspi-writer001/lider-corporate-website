@@ -38,16 +38,61 @@
   position: relative;
   /* position: fixed; */
   bottom: 0;
+  font-family: "Orbitron", sans-serif;
   color: white;
   /* background: rgba(255, 255, 255, 0.12);
   background: rgba(0, 189, 93, 0.08); */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  z-index: 9;
   /* border-bottom: 2px solid rgba(255, 255, 255, 0.3); */
 }
 
 .footer_inner_container {
   display: flex;
   justify-content: stretch;
+}
+
+.btn_green {
+  background-color: rgba(0, 189, 93, 1);
+}
+
+.footer_section1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.fast {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.contact {
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.services,
+.questions {
+  font-size: smaller;
+}
+
+.footer_section_one {
+  width: 30%;
+}
+
+.footer_section_two {
+  width: 30%;
+}
+.footer_section_three {
+  width: 30%;
+}
+
+.footer_inner_container {
+  width: 100%;
+  display: "flex";
 }
