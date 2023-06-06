@@ -2,7 +2,7 @@ import React from "react";
 import "./Pages.css";
 import BlurryBlob from "../components/BlurryBlob";
 
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+// import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 const Contact = () => {
   return (
@@ -46,7 +46,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <Wrapper apiKey={"YOUR_API_KEY"} render={render}></Wrapper>
+        {/* <Wrapper apiKey={"YOUR_API_KEY"} render={render}></Wrapper> */}
       </div>
     </div>
   );

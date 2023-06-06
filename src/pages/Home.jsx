@@ -1,7 +1,7 @@
 import React from "react";
 import BlurryBlob from "../components/BlurryBlob";
 import "./Pages.css";
-import Spline from "@splinetool/react-spline";
+// import Spline from "@splinetool/react-spline";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -48,7 +48,13 @@ const Home = () => {
             bottom: "17vw"
           }}
         >
-          <Spline scene="https://prod.spline.design/sGYnbbFVK7gP52N1/scene.splinecode" />
+          {/* <Spline scene="https://prod.spline.design/sGYnbbFVK7gP52N1/scene.splinecode" /> */}
+          <iframe
+            src="https://my.spline.design/3dpathsgeometricalcopy-3e6657d9284f2f48c79b3f8356224cec/"
+            frameborder="0"
+            width="100%"
+            height="100%"
+          ></iframe>
         </div>
 
         <div className="text_container">
@@ -71,7 +77,18 @@ const Home = () => {
             justifyContent: "space-around"
           }}
         >
-          <div className="section_2div_left" style={{ width: "45%" }}></div>
+          <div
+            className="section_2div_left"
+            style={{ width: "45%", height: "30rem" }}
+          >
+            {/* <Spline scene="https://prod.spline.design/NXOsMcvBlTD40ItM/scene.splinecode" /> */}
+            <iframe
+              src="https://my.spline.design/clockdigitalinteractioncopy-0b31bdfac1d22474554806dae4671dce/"
+              frameborder="0"
+              width="100%"
+              height="100%"
+            ></iframe>
+          </div>
           <div className="section_2div_right" style={{ width: "45%" }}>
             <div className="text_in">
               Lider has been on the market since 2006 and is the first such
