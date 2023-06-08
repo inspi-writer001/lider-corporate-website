@@ -49,12 +49,12 @@ const Home = () => {
           }}
         >
           {/* <Spline scene="https://prod.spline.design/sGYnbbFVK7gP52N1/scene.splinecode" /> */}
-          <iframe
+          {/* <iframe
             src="https://my.spline.design/3dpathsgeometricalcopy-3e6657d9284f2f48c79b3f8356224cec/"
             frameborder="0"
             width="100%"
             height="100%"
-          ></iframe>
+          ></iframe> */}
         </div>
 
         <div className="text_container">
@@ -82,12 +82,12 @@ const Home = () => {
             style={{ width: "45%", height: "30rem" }}
           >
             {/* <Spline scene="https://prod.spline.design/NXOsMcvBlTD40ItM/scene.splinecode" /> */}
-            <iframe
+            {/* <iframe
               src="https://my.spline.design/clockdigitalinteractioncopy-0b31bdfac1d22474554806dae4671dce/"
               frameborder="0"
               width="100%"
               height="100%"
-            ></iframe>
+            ></iframe> */}
           </div>
           <div className="section_2div_right" style={{ width: "45%" }}>
             <div className="text_in">

@@ -72,7 +72,7 @@ const Insurance = () => {
         <div className="arc_container">
           <div
             className="top_arc"
-            style={{ top: "6rem", top: "-18rem", transform: "rotate(180deg)" }}
+            style={{ top: "-18rem", transform: "rotate(180deg)" }}
           ></div>
         </div>
         <div className="best_offer second_banner" style={{ top: "12rem" }}>
