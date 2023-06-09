@@ -11,6 +11,7 @@ import Translations from './pages/Translation';
 import { theme } from './theme/theme';
 import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Client from './liveChat/Client';
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
           <Route path="/documents" element={<Document />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Client />
+
         <Footer />
       </Router>
     </div>

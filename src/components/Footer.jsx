@@ -16,7 +16,12 @@ const Footer = () => {
           '-webkit-backdrop-filter': 'blur(5px)',
         }}
       >
-        <Row xs={2} md={3} lg={3} className="mx-auto  ">
+        <Row
+          xs={2}
+          md={3}
+          lg={3}
+          className="mx-auto  justify-content-md-center"
+        >
           <Col className="my-auto">
             {' '}
             <h3 className="text-white fast">Fast</h3>
@@ -30,10 +35,11 @@ const Footer = () => {
               + 48 887 770 774 ( Białka Tatrzańska )
             </h6>
           </Col>
-          <Col className="my-auto">
+          <Col lg="2" className="my-auto ">
             <Button
               backgroundColor={'rgba(0, 189, 93, 1)'}
               className="btn_green text-white"
+              style={{ width: '100%' }}
             >
               Reach out to us
             </Button>
