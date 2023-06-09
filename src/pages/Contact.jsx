@@ -1,11 +1,25 @@
 import './Pages.css';
 import BlurryBlob from '../components/BlurryBlob';
-import {  Container, Form } from 'react-bootstrap';
+import { Container, Form, Spinner } from 'react-bootstrap';
 import { Button } from '@chakra-ui/react';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 // import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 const Contact = () => {
+  const [load, setLoad] = useState(false);
+  const handleSubmit = () => {
+    setLoad(true);
+    setTimeout(() => {
+      setLoad(false);
+      Swal.fire({
+        icon: 'success',
+        title: 'Thank You',
+        text: "We'll Respond to You Shortly",
+      });
+    }, 2000);
+  };
   return (
     <>
       <div>
@@ -77,10 +91,17 @@ const Contact = () => {
               </Form.Group>
 
               <Button
-                backgroundColor={'rgba(0, 189, 93, 1)'}
+                onClick={handleSubmit}
+                backgroundColor={'#1a1a1a'}
                 className="btn_green text-white"
+                style={{
+                  '&:hover': {
+                    backgroundColor: 'rgba(0, 189, 93, 1) !important',
+                    color :'#1a1a1a'
+                  },
+                }}
               >
-                Submit
+                {!load ? 'Submit' : <Spinner />}
               </Button>
             </Form>
           </Container>
