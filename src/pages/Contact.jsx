@@ -1,7 +1,7 @@
-import './Pages.css';
-import BlurryBlob from '../components/BlurryBlob';
-import {  Container, Form } from 'react-bootstrap';
-import { Button } from '@chakra-ui/react';
+import "./Pages.css";
+import BlurryBlob from "../components/BlurryBlob";
+import { Container, Form } from "react-bootstrap";
+import { Button } from "@chakra-ui/react";
 
 // import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
@@ -14,50 +14,50 @@ const Contact = () => {
             <BlurryBlob
               height={90}
               style={{
-                position: 'absolute',
-                top: '-35rem',
-                left: 'auto',
-                right: 'auto',
-                marginLeft: '0',
-                marginRight: '0',
-                zIndex: '0 !important',
+                position: "absolute",
+                top: "-35rem",
+                left: "auto",
+                right: "auto",
+                marginLeft: "0",
+                marginRight: "0",
+                zIndex: "0 !important"
               }}
             />
           </div>
           <div className="arc_container">
-            <div className="top_arc" style={{ top: '10rem' }}></div>
+            <div className="top_arc" style={{ top: "10rem" }}></div>
           </div>
           <div className="second_banner">
             <div className="background_ball">
               <div
                 className="_low_price"
                 style={{
-                  marginTop: '9rem',
-                  fontSize: '1.8rem',
-                  color: 'white',
+                  marginTop: "9rem",
+                  fontSize: "1.8rem",
+                  color: "white"
                 }}
               >
-                _{' '}
+                _{" "}
               </div>
               <div
                 className="_insurance"
                 style={{
-                  marginTop: '-11rem',
-                  fontSize: '2.5rem',
-                  color: 'white',
-                  fontWeight: 'bold',
+                  marginTop: "-11rem",
+                  fontSize: "2.5rem",
+                  color: "white",
+                  fontWeight: "bold"
                 }}
               >
-                CONTACT US{' '}
+                CONTACT US{" "}
               </div>
             </div>
           </div>
-          <Container style={{ zIndex: '999' }}>
+          <Container style={{ zIndex: "999" }}>
             <Form
-              className="p-5 mx-auto mt-2"
+              className="p-5 mx-auto mt-2 containn"
               style={{
-                width: '700px',
-                backgroundColor: 'rgba(0, 189, 93, 1)',
+                width: "700px",
+                backgroundColor: "rgba(0, 189, 93, 1)"
               }}
             >
               <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -77,8 +77,8 @@ const Contact = () => {
               </Form.Group>
 
               <Button
-                backgroundColor={'rgba(0, 189, 93, 1)'}
-                className="btn_green text-white"
+                backgroundColor={"rgba(0, 189, 93, 1)"}
+                className="btn_green text-white button_color"
               >
                 Submit
               </Button>

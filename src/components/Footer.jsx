@@ -1,6 +1,6 @@
-import { Button } from '@chakra-ui/react';
-import './Navbar.css';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button } from "@chakra-ui/react";
+import "./Navbar.css";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Footer = () => {
   return (
@@ -8,12 +8,13 @@ const Footer = () => {
       <Container
         className="mt-5 px-5 py-5 "
         style={{
-          zIndex: '9',
-          backgroundColor: '#1a1a1a',
-          minWidth: '100vw',
-          boxShadow: ' 0 4px 30px rgba(0, 0, 0, 0.1)',
-          backdropFilter: 'blur(5px)',
-          '-webkit-backdrop-filter': 'blur(5px)',
+          zIndex: "9",
+          backgroundColor: "#1a1a1a",
+          minWidth: "100vw",
+          boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
+          backdropFilter: "blur(5px)",
+          "-webkit-backdrop-filter": "blur(5px)",
+          fontFamily: "'Orbitron', sans-serif"
         }}
       >
         <Row
@@ -23,7 +24,7 @@ const Footer = () => {
           className="mx-auto  justify-content-md-center"
         >
           <Col className="my-auto">
-            {' '}
+            {" "}
             <h3 className="text-white fast">Fast</h3>
             <h2 className="fw-bold text-white">CONTACT</h2>
             <h6 className="text-white">Do you want to use our services?</h6>
@@ -37,9 +38,8 @@ const Footer = () => {
           </Col>
           <Col lg="2" className="my-auto ">
             <Button
-              backgroundColor={'rgba(0, 189, 93, 1)'}
-              className="btn_green text-white"
-              style={{ width: '100%' }}
+              className="btn_green text-white button_color"
+              style={{ width: "100%" }}
             >
               Reach out to us
             </Button>
