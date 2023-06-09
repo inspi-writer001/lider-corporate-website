@@ -1,5 +1,5 @@
 .Navbar {
-  font-family: "Montaga", serif;
+  font-family: 'Montaga', serif;
   font-weight: bold;
   display: flex;
   row-gap: 20;
@@ -27,6 +27,7 @@
   justify-content: center;
 }
 
+ 
 .footer_div {
   height: 10rem;
   display: flex;
@@ -34,11 +35,12 @@
   align-self: center;
   align-items: center;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   position: relative;
+
   /* position: fixed; */
   bottom: 0;
-  font-family: "Orbitron", sans-serif;
+  font-family: 'Orbitron', sans-serif;
   color: white;
   /* background: rgba(255, 255, 255, 0.12);
   background: rgba(0, 189, 93, 0.08); */
@@ -51,7 +53,9 @@
 
 .footer_inner_container {
   display: flex;
-  justify-content: stretch;
+  padding-top: 50px;
+  padding-left: 30px;
+  margin-bottom: 50px;
 }
 
 .btn_green {
@@ -94,5 +98,5 @@
 
 .footer_inner_container {
   width: 100%;
-  display: "flex";
+  display: 'flex';
 }

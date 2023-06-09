@@ -1,7 +1,7 @@
-import React from "react";
-import "./Pages.css";
-import BlurryBlob from "../components/BlurryBlob";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './Pages.css';
+import BlurryBlob from '../components/BlurryBlob';
+import { Link } from 'react-router-dom';
 
 const Translation = () => {
   return (
@@ -11,37 +11,37 @@ const Translation = () => {
           <BlurryBlob
             height={90}
             style={{
-              position: "absolute",
-              top: "-35rem",
-              left: "auto",
-              right: "auto",
-              marginLeft: "0",
-              marginRight: "0",
-              zIndex: "0 !important"
+              position: 'absolute',
+              top: '-35rem',
+              left: 'auto',
+              right: 'auto',
+              marginLeft: '0',
+              marginRight: '0',
+              zIndex: '0 !important',
             }}
           />
         </div>
         <div className="arc_container">
-          <div className="top_arc" style={{ top: "10rem" }}></div>
+          <div className="top_arc" style={{ top: '10rem' }}></div>
         </div>
         <div className="second_banner">
           <div className="background_ball">
             <div
               className="_low_price"
-              style={{ marginTop: "9rem", fontSize: "1.8rem", color: "white" }}
+              style={{ marginTop: '9rem', fontSize: '1.8rem', color: 'white' }}
             >
-              TRANSLATIONS{" "}
+              TRANSLATIONS{' '}
             </div>
             <div
               className="_insurance"
               style={{
-                marginTop: "-11rem",
-                fontSize: "2.5rem",
-                color: "white",
-                fontWeight: "bold"
+                marginTop: '-11rem',
+                fontSize: '2.5rem',
+                color: 'white',
+                fontWeight: 'bold',
               }}
             >
-              DOCUMENTS{" "}
+              DOCUMENTS{' '}
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ const Translation = () => {
               Years of experience have enabled us to provide you with the
               certainty of a perfect translation. By providing us with texts you
               receive their most faithful translation into any language you
-              choose.{" "}
+              choose.{' '}
             </div>
             <div className="right_">
               Excellent knowledge of foreign languages, careful tracking of all
@@ -60,27 +60,27 @@ const Translation = () => {
             </div>
           </div>
           <div className="second_banner">
-            <div className="background_ball" style={{ top: "0" }}>
+            <div className="background_ball" style={{ top: '0' }}>
               <div
                 className="_low_price"
                 style={{
-                  marginTop: "9rem",
-                  fontSize: "1.8rem",
-                  color: "white"
+                  marginTop: '9rem',
+                  fontSize: '1.8rem',
+                  color: 'white',
                 }}
               >
-                LOW{" "}
+                LOW{' '}
               </div>
               <div
                 className="_insurance"
                 style={{
-                  marginTop: "-11rem",
-                  fontSize: "2.5rem",
-                  color: "white",
-                  fontWeight: "bold"
+                  marginTop: '-11rem',
+                  fontSize: '2.5rem',
+                  color: 'white',
+                  fontWeight: 'bold',
                 }}
               >
-                PRICES{" "}
+                PRICES{' '}
               </div>
             </div>
             <div className="instant">
@@ -89,7 +89,7 @@ const Translation = () => {
           </div>
           <div className="bottom_div">
             <Link>
-              <div className="left_" style={{ borderRadius: "50%" }}>
+              <div className="left_" style={{ borderRadius: '50%' }}>
                 We register all types of vehicles, including passenger cars,
                 trucks, specialized cars, agricultural tractors, mopeds,
                 motorcycles, trailers, etc.
@@ -97,7 +97,7 @@ const Translation = () => {
             </Link>
 
             <Link>
-              <div className="right_" style={{ borderRadius: "50%" }}>
+              <div className="right_" style={{ borderRadius: '50%' }}>
                 Comprehensive fees ( Customs Office, Tax Office, Department of
                 Communication, document translations, recycling ) and complete
                 re-Translation of vehicles imported from abroad.
@@ -108,7 +108,7 @@ const Translation = () => {
         <div className="arc_container">
           <div
             className="top_arc"
-            style={{ top: "6rem", top: "-18rem", transform: "rotate(180deg)" }}
+            style={{ top: '6rem', top: '-18rem', transform: 'rotate(180deg)' }}
           ></div>
         </div>
         {/* <div className="best_offer second_banner" style={{ top: "12rem" }}>
@@ -137,17 +137,17 @@ const Translation = () => {
           <div className="background_ball">
             <div
               className="_low_price"
-              style={{ marginTop: "9rem", fontSize: "1.8rem", color: "white" }}
+              style={{ marginTop: '9rem', fontSize: '1.8rem', color: 'white' }}
             >
               {/* COMPREHENSIVE */}
             </div>
             <div
               className="_insurance"
               style={{
-                marginTop: "-11rem",
-                fontSize: "2.5rem",
-                color: "white",
-                fontWeight: "bold"
+                marginTop: '-11rem',
+                fontSize: '2.5rem',
+                color: 'white',
+                fontWeight: 'bold',
               }}
             >
               {/* FORMALISM */}
@@ -155,7 +155,7 @@ const Translation = () => {
           </div>
           <div
             className="trust_us"
-            style={{ position: "relative", top: "-3rem" }}
+            style={{ position: 'relative', top: '-3rem' }}
           >
             {/* We provide full professionalism completing formalities */}
           </div>
@@ -164,13 +164,13 @@ const Translation = () => {
           <BlurryBlob
             height={90}
             style={{
-              position: "absolute",
-              top: "50rem",
-              left: "auto",
-              right: "auto",
-              marginLeft: "0",
-              marginRight: "0",
-              zIndex: "0 !important"
+              position: 'absolute',
+              top: '50rem',
+              left: 'auto',
+              right: 'auto',
+              marginLeft: '0',
+              marginRight: '0',
+              zIndex: '0 !important',
             }}
           />
         </div>
