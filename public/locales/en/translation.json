@@ -1,0 +1,42 @@
+{
+  "navbar": [
+    { "title": "Home", "link": "/" },
+    { "title": "Insurance", "link": "/insurance" },
+    { "title": "Registration", "link": "/registration" },
+    { "title": "Translations", "link": "/translations" },
+    { "title": "Downloads", "link": "/downloads" },
+    { "title": "Documents", "link": "/documents" }
+  ],
+  "contact_us": "Contact Us",
+  "language": "Language",
+  "header1": "Multi-Agency",
+  "header2": "Leader",
+  "why_us": {
+    "title": "Why Us",
+    "text1": "Lider has been on the market since 2006 and is the first such office in this region. In our business, we offer a wide selection of motor, property, life and agricultural insurance.",
+    "super_fast": "Super fast",
+    "realization": "Realization",
+    "you_save": "You Save Time With Us, Health And Money",
+    "text2": "The 'LIDER ' office offers mediation in the registration of vehicles both imported from abroad and purchased in Poland together with the necessary fees in all offices.",
+    "attractive": "Attractive",
+    "offers": "Offers",
+    "explore": "Explore a wide range of office formalities",
+    "text3": " Excellent knowledge of foreign languages, careful tracking of all linguistic changes is our passion. We guarantee accurate and reliable translation, regardless of language and subject!",
+    "comprehensive": "Comprehensive",
+    "formalities": "Formalities",
+    "formalities2": "We'll do all of them for your formalities and more",
+    "registration2": "Check our registration price vehicle in its area",
+    "cheap": "Cheap insurance OC and AC"
+  },
+  "insurance": {
+    "price": "LOW PRICE",
+    "insurance": "INSURANCE",
+    "why_us": "Why Us",
+    "text1": "All risks, i.e. insurance against all risks - AC insurance covers damage to the vehicle, its destruction or loss due to all events.",
+    "text2": "The subject of insurance is the civil liability of any person who, while driving a motor vehicle during the duration of the insurance contract, caused damage in connection with the movement of that vehicle.",
+    "text3": " 'Lider ' offers you the best offers on the market of known insurance companies. We guarantee the greatest professionalism and advice regarding vehicle insurance.",
+    "best": "Best",
+    "offers": "Offers",
+    "trust": "THOSE WHO TRUST US"
+  }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import "./Pages.css";
 import BlurryBlob from "../components/BlurryBlob";
 import PartnersList from "../components/PartnersList";
+import { t } from "i18next";
 
 const Insurance = () => {
   return (
@@ -26,47 +27,20 @@ const Insurance = () => {
         </div>
         <div className="second_banner">
           <div className="background_ball">
-            <div
-              className="_low_price"
-              style={{ marginTop: "9rem", fontSize: "1.8rem", color: "white" }}
-            >
-              LOW PRICE
-            </div>
-            <div
-              className="_insurance"
-              style={{
-                marginTop: "-11rem",
-                fontSize: "2.5rem",
-                color: "white",
-                fontWeight: "bold"
-              }}
-            >
-              INSURANCE
-            </div>
+            <div className="_low_price">{t("insurance.price")}</div>
+            <div className="_insurance">{t("insurance.insurance")}</div>
           </div>
         </div>
         <div className="another_div">
           <div className="top_div">
             <div className="left_ why_us" style={{ fontSize: "2.5rem" }}>
-              Why Us?
+              {t("insurance.why_us")}
             </div>
-            <div className="right_">
-              All risks, i.e. insurance against all risks - AC insurance covers
-              damage to the vehicle, its destruction or loss due to all events.
-            </div>
+            <div className="right_">{t("insurance.text1")}</div>
           </div>
           <div className="bottom_div">
-            <div className="left_">
-              The subject of insurance is the civil liability of any person who,
-              while driving a motor vehicle during the duration of the insurance
-              contract, caused damage in connection with the movement of that
-              vehicle.
-            </div>
-            <div className="right_">
-              “ Lider "offers you the best offers on the market of known
-              insurance companies. We guarantee the greatest professionalism and
-              advice regarding vehicle insurance.
-            </div>
+            <div className="left_ a">{t("insurance.text2")}</div>
+            <div className="right_ a">{t("insurance.text3")}</div>
           </div>
         </div>
         <div className="arc_container">
@@ -77,8 +51,19 @@ const Insurance = () => {
         </div>
         <div className="best_offer second_banner" style={{ top: "12rem" }}>
           <div className="background_ball">
-            <div className="_low_price">Best</div>
-            <div className="_insurance">Offers</div>
+            <div className="_low_price">{t("insurance.best")}</div>
+            <div
+              className="_insurance"
+              style={{
+                marginTop: "-11rem",
+                fontSize: "2.5rem",
+                color: "white",
+                fontWeight: "bold",
+                textTransform: "uppercase"
+              }}
+            >
+              {t("insurance.offers")}
+            </div>
           </div>
         </div>
         <div className="first_banner">
@@ -97,7 +82,7 @@ const Insurance = () => {
         </div>
         <div className="partners">
           <div className="those_container">
-            <div className="those">THOSE WHO TRUST US</div>
+            <div className="those">{t("insurance.trust")}</div>
             {/* <div className="those">THOSE</div> */}
           </div>
           <div className="partners_">

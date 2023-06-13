@@ -4,8 +4,10 @@ import "./Pages.css";
 import { Flex, Text, useColorMode } from "@chakra-ui/react";
 // import Spline from "@splinetool/react-spline";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation();
   const { colorMode, toggleColorMode } = useColorMode();
   let whiteText = colorMode == "light" ? "black" : "white";
   const green = "#00bd5d";
@@ -62,22 +64,17 @@ const Home = () => {
 
         <div className="text_container">
           <div className="multi-agency">
-            <Text color={whiteText}>Multi-Agency</Text>
+            <Text color={whiteText}>{t("header1")}</Text>
           </div>
-          <div className="leader">Leader</div>
+          <div className="leader">{t("header2")}</div>
         </div>
       </section>
       <section
         style={{ ...section1, section2, height: "fit-content !important" }}
       >
-        <Text
-          color={whiteText}
-          className="section_two_top"
-          style={{ textAlign: "center" }}
-        >
-          {" "}
-          Why Us
-        </Text>
+        <div className="section_two_top" style={{ textAlign: "center" }}>
+          {t("why_us.title")}
+        </div>
         <br />
         <div
           className="section_two_bottom"
@@ -100,20 +97,14 @@ const Home = () => {
             ></iframe> */}
           </div>
           <div className="section_2div_right" style={{ width: "45%" }}>
-            <Text color={whiteText} className="text_in ma">
-              Lider has been on the market since 2006 and is the first such
-              office in this region. In our business, we offer a wide selection
-              of motor, property, life and agricultural insurance.
-            </Text>
+            <div className="text_in ma">{t("why_us.text1")}</div>
             <div className="gap" style={{ height: "30%" }} />
             <div className="header_div">
-              <div className="superfast chrome_text">superfast</div>
-              <Text color={whiteText} className="realization">
-                Realization
-              </Text>
-              <div className="you_save">
-                You save time with us, health and money
+              <div className="superfast chrome_text">
+                {t("why_us.super_fast")}
               </div>
+              <div className="realization">{t("why_us.realization")}</div>
+              <div className="you_save">{t("why_us.you_save")}</div>
             </div>
 
             <div className="lower_body" style={{ width: "100%" }}>
@@ -125,23 +116,17 @@ const Home = () => {
                   justifyContent: "space-around"
                 }}
               >
-                <Text color={whiteText} className="text ma">
-                  The „ LIDER ” office offers mediation in the registration of
-                  vehicles both imported from abroad and purchased in Poland
-                  together with the necessary fees in all offices.
-                </Text>
+                <div className="text ma">{t("why_us.text2")}</div>
                 <div className="immg chrome_text">"</div>
               </div>
             </div>
             <div className="gap" />
             <div className="header_div">
-              <div className="superfast chrome_text">Attractive</div>
-              <Text color={whiteText} className="realization">
-                Offers
-              </Text>
-              <div className="you_save">
-                Explore a wide range of office formalities
+              <div className="superfast chrome_text">
+                {t("why_us.attractive")}
               </div>
+              <div className="realization">{t("why_us.offers")}</div>
+              <div className="you_save">{t("why_us.explore")}</div>
             </div>
 
             <div className="lower_body" style={{ width: "100%" }}>
@@ -153,11 +138,7 @@ const Home = () => {
                   justifyContent: "space-around"
                 }}
               >
-                <Text color={whiteText} className="text">
-                  Excellent knowledge of foreign languages, careful tracking of
-                  all linguistic changes is our passion. We guarantee accurate
-                  and reliable translation, regardless of language and subject!
-                </Text>
+                <div className="text">{t("why_us.text3")}</div>
                 <div className="immg chrome_text">""</div>
               </div>
             </div>
@@ -191,18 +172,14 @@ const Home = () => {
         <div className="formalities_container">
           <Text color={whiteText} className="formalities_banner">
             <div className="threed_scene"></div>
-            <div className="comprehensive">comprehensive</div>
-            <div className="formalities">Formalities</div>
-            <div className="we_do">
-              We'll do all of them for your formalities and more
-            </div>
+            <div className="comprehensive">{t("why_us.comprehensive")}</div>
+            <div className="formalities">{t("why_us.formalities")}</div>
+            <div className="we_do">{t("why_us.formalities2")}</div>
           </Text>
           <div className="formalities_banner_div">
             <Link to="/registration">
               <div className="inner_formalities1 to_hover">
-                <div className="dix">
-                  Check our registration price vehicle in its area
-                </div>
+                <div className="dix">{t("why_us.registration2")}</div>
               </div>
             </Link>
             <Flex
@@ -215,7 +192,7 @@ const Home = () => {
             ></Flex>
             <Link to="/insurance">
               <div className="inner_formalities2 to_hover ">
-                <div className="dix">Cheap insurance OC and AC</div>
+                <div className="dix">{t("why_us.cheap")}</div>
               </div>
             </Link>
           </div>
