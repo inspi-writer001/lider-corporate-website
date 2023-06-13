@@ -1,0 +1,33 @@
+{
+  "navbar": [
+    { "title": "Dom", "link": "/" },
+    { "title": "Ubezpieczenie", "link": "/insurance" },
+    { "title": "Rejestracja", "link": "/registration" },
+    { "title": "Tłumaczenia", "link": "/translations" },
+    { "title": "Pobieranie", "link": "/downloads" },
+    { "title": "Dokumenty", "link": "/documents" },
+    { "title": "Dokumenty", "link": "/documents" }
+  ],
+  "contact_us": "Kontakt",
+  "language": "Język",
+  "header1": "Wieloagencja",
+  "header2": "Lider",
+
+  "why_us": {
+    "title": "DLACZEGO MY",
+    "text1": "Lider działa na rynku od 2006 roku i jest pierwszym takim biurem w tej okolicy. W naszej działalności oferujemy szeroki wybór ubezpieczeń komunikacyjnych, nieruchomościowych, na życie oraz rolniczych.",
+    "super_fast": "Super szybko",
+    "realization": "Realizacja",
+    "you_save": "Oszczędzasz czas z nami, zdrowie i pieniądze",
+    "text2": "Biuro 'LIDER' oferuje pośrednictwo w rejestracji pojazdów zarówno sprowadzonych z zagranicy, jak i zakupionych w Polsce, wraz z niezbędnymi opłatami we wszystkich urzędach.",
+    "attractive": "Atrakcyjny",
+    "offers": "Oferty",
+    "explore": "Zapoznaj się z szerokim zakresem formalności biurowych.",
+    "text3": " Doskonała znajomość języków obcych, staranne śledzenie wszelkich zmian językowych to nasza pasja. Gwarantujemy precyzyjne i niezawodne tłumaczenia, bez względu na język i temat!",
+    "comprehensive": "Kompleksowy",
+    "formalities": "Formalności",
+    "formalities2": "Zajmiemy się wszystkimi formalnościami oraz więcej.",
+    "registration2": "Sprawdź cenę rejestracji pojazdu w swoim regionie.",
+    "cheap": "Tanie ubezpieczenia OC i AC."
+  }
+}

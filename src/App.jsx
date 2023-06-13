@@ -12,6 +12,8 @@ import { theme } from './theme/theme';
 import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Client from './liveChat/Client';
+import './i18n';
+import { Suspense } from 'react';
 
 function App() {
   return (
@@ -22,22 +24,24 @@ function App() {
       }}
     >
       <div className="noise"></div>
-      <Router>
-        <Navbar />
-        <div style={{ height: '90px' }} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/insurance" element={<Insurance />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/translations" element={<Translations />} />
-          <Route path="/downloads" element={<Download />} />
-          <Route path="/documents" element={<Document />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Client />
+      <Suspense fallback={null}>
+        <Router>
+          <Navbar />
+          <div style={{ height: '90px' }} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/insurance" element={<Insurance />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/translations" element={<Translations />} />
+            <Route path="/downloads" element={<Download />} />
+            <Route path="/documents" element={<Document />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Client />
 
-        <Footer />
-      </Router>
+          <Footer />
+        </Router>
+      </Suspense>
     </div>
   );
 }
