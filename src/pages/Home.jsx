@@ -1,10 +1,13 @@
 import React from "react";
 import BlurryBlob from "../components/BlurryBlob";
 import "./Pages.css";
+import { Text, useColorMode } from "@chakra-ui/react";
 // import Spline from "@splinetool/react-spline";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+  let whiteText = colorMode == "light" ? "black" : "white";
   const green = "#00bd5d";
   return (
     <div style={{ overflow: "hidden" }}>
@@ -58,7 +61,9 @@ const Home = () => {
         </div>
 
         <div className="text_container">
-          <div className="multi-agency">Multi-Agency</div>
+          <div className="multi-agency">
+            <Text color={whiteText}>Multi-Agency</Text>
+          </div>
           <div className="leader">Leader</div>
         </div>
       </section>
@@ -90,7 +95,7 @@ const Home = () => {
             ></iframe> */}
           </div>
           <div className="section_2div_right" style={{ width: "45%" }}>
-            <div className="text_in">
+            <div className="text_in ma">
               Lider has been on the market since 2006 and is the first such
               office in this region. In our business, we offer a wide selection
               of motor, property, life and agricultural insurance.
@@ -113,20 +118,15 @@ const Home = () => {
                   justifyContent: "space-around"
                 }}
               >
-                <div className="text">
+                <div className="text ma">
                   The „ LIDER ” office offers mediation in the registration of
                   vehicles both imported from abroad and purchased in Poland
                   together with the necessary fees in all offices.
                 </div>
-                <div
-                  className="immg chrome_text"
-                  style={{ fontSize: "30px", color: green }}
-                >
-                  "
-                </div>
+                <div className="immg chrome_text">"</div>
               </div>
             </div>
-            <div className="gap" style={{ height: "30%" }} />
+            <div className="gap" />
             <div className="header_div">
               <div className="superfast chrome_text">Attractive</div>
               <div className="realization">Offers</div>
@@ -149,12 +149,7 @@ const Home = () => {
                   all linguistic changes is our passion. We guarantee accurate
                   and reliable translation, regardless of language and subject!
                 </div>
-                <div
-                  className="immg chrome_text"
-                  style={{ fontSize: "30px", color: green }}
-                >
-                  ""
-                </div>
+                <div className="immg chrome_text">""</div>
               </div>
             </div>
           </div>

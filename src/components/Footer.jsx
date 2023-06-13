@@ -1,6 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import "./Navbar.css";
 import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -37,12 +38,28 @@ const Footer = () => {
             </h6>
           </Col>
           <Col lg="2" className="my-auto ">
-            <Button
+            <Link to="/contact">
+              <Button
+                as={"a"}
+                display={{ base: "none", md: "inline-flex" }}
+                fontSize={"sm"}
+                fontWeight={600}
+                color={"white"}
+                bg={"rgb(0,156,224)"}
+                href={"#"}
+                _hover={{
+                  bg: "rgb(17,48,65)"
+                }}
+              >
+                Reach out to us
+              </Button>
+            </Link>
+            {/* <Button
               className="btn_green text-white button_color"
               style={{ width: "100%" }}
             >
               Reach out to us
-            </Button>
+            </Button> */}
           </Col>
         </Row>
       </Container>

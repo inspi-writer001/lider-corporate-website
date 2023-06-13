@@ -2,7 +2,8 @@
   display: flex;
   width: 100vw;
   flex-direction: column;
-  background: #1e1e1e;
+  /* background: #1e1e1e; */
+  /* background-color: #c9e6f9; */
   /* background-image: url("./assets/particles.png"); */
 }
 
@@ -19,5 +20,5 @@
   background-size: repeat;
   /* background-color: greenyellow; */
   pointer-events: none;
-  background-image: url("./assets/2bap.gif");
+  /* background-image: url("./assets/2bap.gif"); */
 }

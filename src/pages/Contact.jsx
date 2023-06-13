@@ -66,6 +66,32 @@ const Contact = () => {
               </div>
             </div>
           </div>
+          <div className="another_div">
+            <div className="top_div">
+              <div className="left_" style={{ fontSize: "2.5rem" }}>
+                Why Us?
+              </div>
+              <div className="right_">
+                The „ LIDER ” office offers mediation in the Document of
+                vehicles both imported from abroad and purchased in Poland
+                together with the necessary fees in all offices.
+              </div>
+            </div>
+
+            <div className="bottom_div">
+              <div className="left_">
+                We register all types of vehicles, including passenger cars,
+                trucks, specialized cars, agricultural tractors, mopeds,
+                motorcycles, trailers, etc.
+              </div>
+
+              <div className="right_">
+                Comprehensive fees ( Customs Office, Tax Office, Department of
+                Communication, document translations, recycling ) and complete
+                re-Document of vehicles imported from abroad.
+              </div>
+            </div>
+          </div>
           <Container style={{ zIndex: "999" }}>
             <Form
               className="p-5 mx-auto mt-2 containn"

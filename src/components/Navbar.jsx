@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import loggo from "../assets/lider_logo.png";
+
+import "./Navbar.css";
 import {
   Box,
   Flex,
@@ -12,7 +16,8 @@ import {
   PopoverContent,
   useColorModeValue,
   useBreakpointValue,
-  useDisclosure
+  useDisclosure,
+  useColorMode
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -20,30 +25,31 @@ import {
   ChevronDownIcon,
   ChevronRightIcon
 } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
-import loggo from "../assets/lider_logo.png";
-
-import "./Navbar.css";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 export default function WithSubnavigation() {
+  const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <div className="NavbarContainer">
-      <div
-        className="Navbar"
-
-        // bg={useColorModeValue("white", "gray.800")}
-        // color={useColorModeValue("gray.600", "white")}
-        // minH={"60px"}
-        // py={{ base: 2 }}
-        // px={{ base: 4 }}
-        // borderBottom={1}
-        // borderStyle={"solid"}
-        // borderColor={useColorModeValue("gray.200", "gray.900")}
-        // align={"center"}
+    <Box>
+      <Flex
+        bg={useColorModeValue("white", "gray.800")}
+        color={useColorModeValue("gray.600", "white")}
+        minH={"60px"}
+        py={{ base: 2 }}
+        px={{ base: 4 }}
+        borderBottom={1}
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.900")}
+        align={"center"}
+        style={{ position: "fixed", zIndex: "200000", width: "100vw" }}
       >
-        <div style={{ display: "none" }}>
+        <Flex
+          flex={{ base: 1, md: "auto" }}
+          ml={{ base: -2 }}
+          display={{ base: "flex", md: "none" }}
+        >
           <IconButton
             onClick={onToggle}
             icon={
@@ -52,18 +58,62 @@ export default function WithSubnavigation() {
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
           />
-        </div>
-        <div>
-          <div>
+        </Flex>
+        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+          <Text
+            textAlign={useBreakpointValue({ base: "center", md: "left" })}
+            fontFamily={"heading"}
+            color={useColorModeValue("gray.800", "white")}
+          >
+            <img src={loggo} style={{ width: "5rem" }} />
+          </Text>
+
+          <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
-          </div>
-        </div>
-      </div>
+          </Flex>
+        </Flex>
+
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={"flex-end"}
+          direction={"row"}
+          spacing={6}
+        >
+          {/* <Button
+            as={"a"}
+            fontSize={"sm"}
+            fontWeight={400}
+            variant={"link"}
+            href={"#"}
+          >
+            Sign In
+          </Button> */}
+          <Link to="/contact">
+            <Button
+              as={"a"}
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"rgb(0,156,224)"}
+              href={"#"}
+              _hover={{
+                bg: "rgb(17,48,65)"
+              }}
+            >
+              Contact us
+            </Button>
+          </Link>
+          <Button onClick={toggleColorMode}>
+            {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+          </Button>
+        </Stack>
+      </Flex>
 
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
-    </div>
+    </Box>
   );
 }
 
@@ -71,26 +121,19 @@ const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
-
+  // NAV_ITEMS.splice(-1, 1);
   return (
     <Stack direction={"row"} spacing={4} style={{ alignItems: "center" }}>
-      <div className="logo">
-        <img
-          src={loggo}
-          alt="lider_logo"
-          className="lider_logo"
-          style={{ width: "4rem" }}
-        />
-      </div>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
-                className="text-decoration-none text-white link_text"
                 p={2}
+                // href={navItem.href ?? "#"}
                 to={navItem.href ?? "#"}
-                fontSize={"sm"}
+                // fontSize={"sm"}
+                style={{ fontSize: "1.2rem" }}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -128,7 +171,7 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
     <Link
-      to={href}
+      href={href}
       role={"group"}
       display={"block"}
       p={2}
@@ -168,8 +211,9 @@ const MobileNav = () => {
       bg={useColorModeValue("white", "gray.800")}
       p={4}
       display={{ md: "none" }}
+      style={{ position: "relative", zIndex: "2000" }}
     >
-      {NAV_ITEMS.map((navItem) => (
+      {NAVV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
     </Stack>
@@ -181,10 +225,10 @@ const MobileNavItem = ({ label, children, href }) => {
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
-      <Link
+      <Flex
         py={2}
         as={Link}
-        to={href ?? "#"}
+        href={href ?? "#"}
         justify={"space-between"}
         align={"center"}
         _hover={{
@@ -206,7 +250,7 @@ const MobileNavItem = ({ label, children, href }) => {
             h={6}
           />
         )}
-      </Link>
+      </Flex>
 
       <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
         <Stack
@@ -219,7 +263,7 @@ const MobileNavItem = ({ label, children, href }) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Link key={child.label} py={2} to={child.href}>
                 {child.label}
               </Link>
             ))}
@@ -230,6 +274,58 @@ const MobileNavItem = ({ label, children, href }) => {
 };
 
 const NAV_ITEMS = [
+  {
+    label: "Home",
+    href: "/"
+    // children: [
+    //   {
+    //     label: "Explore Design Work",
+    //     subLabel: "Trending Design to inspire you",
+    //     href: "#"
+    //   },
+    //   {
+    //     label: "Insurance",
+    //     subLabel: "Up-and-coming Designers",
+    //     href: "#"
+    //   }
+    // ]
+  },
+  {
+    label: "Insurance",
+    href: "/insurance"
+  },
+  {
+    label: "Registration",
+    href: "/registration"
+    // children: [
+    //   {
+    //     label: "Job Board",
+    //     subLabel: "Find your dream design job",
+    //     href: "#"
+    //   },
+    //   {
+    //     label: "Translations",
+    //     subLabel: "An exclusive list for contract work",
+    //     href: "#"
+    //   }
+    // ]
+  },
+
+  {
+    label: "Translations",
+    href: "/translations"
+  },
+  {
+    label: "Downloads",
+    href: "/downloads"
+  },
+  {
+    label: "Documents",
+    href: "/documents"
+  }
+];
+
+const NAVV_ITEMS = [
   {
     label: "Home",
     href: "/"
