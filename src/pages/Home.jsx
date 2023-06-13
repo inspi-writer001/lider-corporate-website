@@ -1,7 +1,7 @@
 import React from "react";
 import BlurryBlob from "../components/BlurryBlob";
 import "./Pages.css";
-import { Text, useColorMode } from "@chakra-ui/react";
+import { Flex, Text, useColorMode } from "@chakra-ui/react";
 // import Spline from "@splinetool/react-spline";
 import { Link } from "react-router-dom";
 
@@ -70,9 +70,14 @@ const Home = () => {
       <section
         style={{ ...section1, section2, height: "fit-content !important" }}
       >
-        <div className="section_two_top" style={{ textAlign: "center" }}>
+        <Text
+          color={whiteText}
+          className="section_two_top"
+          style={{ textAlign: "center" }}
+        >
+          {" "}
           Why Us
-        </div>
+        </Text>
         <br />
         <div
           className="section_two_bottom"
@@ -95,15 +100,17 @@ const Home = () => {
             ></iframe> */}
           </div>
           <div className="section_2div_right" style={{ width: "45%" }}>
-            <div className="text_in ma">
+            <Text color={whiteText} className="text_in ma">
               Lider has been on the market since 2006 and is the first such
               office in this region. In our business, we offer a wide selection
               of motor, property, life and agricultural insurance.
-            </div>
+            </Text>
             <div className="gap" style={{ height: "30%" }} />
             <div className="header_div">
               <div className="superfast chrome_text">superfast</div>
-              <div className="realization">Realization</div>
+              <Text color={whiteText} className="realization">
+                Realization
+              </Text>
               <div className="you_save">
                 You save time with us, health and money
               </div>
@@ -118,18 +125,20 @@ const Home = () => {
                   justifyContent: "space-around"
                 }}
               >
-                <div className="text ma">
+                <Text color={whiteText} className="text ma">
                   The „ LIDER ” office offers mediation in the registration of
                   vehicles both imported from abroad and purchased in Poland
                   together with the necessary fees in all offices.
-                </div>
+                </Text>
                 <div className="immg chrome_text">"</div>
               </div>
             </div>
             <div className="gap" />
             <div className="header_div">
               <div className="superfast chrome_text">Attractive</div>
-              <div className="realization">Offers</div>
+              <Text color={whiteText} className="realization">
+                Offers
+              </Text>
               <div className="you_save">
                 Explore a wide range of office formalities
               </div>
@@ -144,11 +153,11 @@ const Home = () => {
                   justifyContent: "space-around"
                 }}
               >
-                <div className="text">
+                <Text color={whiteText} className="text">
                   Excellent knowledge of foreign languages, careful tracking of
                   all linguistic changes is our passion. We guarantee accurate
                   and reliable translation, regardless of language and subject!
-                </div>
+                </Text>
                 <div className="immg chrome_text">""</div>
               </div>
             </div>
@@ -180,14 +189,14 @@ const Home = () => {
           }}
         />
         <div className="formalities_container">
-          <div className="formalities_banner">
+          <Text color={whiteText} className="formalities_banner">
             <div className="threed_scene"></div>
             <div className="comprehensive">comprehensive</div>
             <div className="formalities">Formalities</div>
             <div className="we_do">
               We'll do all of them for your formalities and more
             </div>
-          </div>
+          </Text>
           <div className="formalities_banner_div">
             <Link to="/registration">
               <div className="inner_formalities1 to_hover">
@@ -196,7 +205,14 @@ const Home = () => {
                 </div>
               </div>
             </Link>
-            <div className="rounded_formalities"></div>
+            <Flex
+              borderBottom={
+                colorMode == "light"
+                  ? "5px solid rgba(6, 5, 5, 0.3)"
+                  : "5px solid rgba(255, 255, 255, 0.3)"
+              }
+              className="rounded_formalities"
+            ></Flex>
             <Link to="/insurance">
               <div className="inner_formalities2 to_hover ">
                 <div className="dix">Cheap insurance OC and AC</div>

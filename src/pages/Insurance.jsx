@@ -26,13 +26,28 @@ const Insurance = () => {
         </div>
         <div className="second_banner">
           <div className="background_ball">
-            <div className="_low_price">LOW PRICE</div>
-            <div className="_insurance">INSURANCE</div>
+            <div
+              className="_low_price"
+              style={{ marginTop: "9rem", fontSize: "1.8rem", color: "white" }}
+            >
+              LOW PRICE
+            </div>
+            <div
+              className="_insurance"
+              style={{
+                marginTop: "-11rem",
+                fontSize: "2.5rem",
+                color: "white",
+                fontWeight: "bold"
+              }}
+            >
+              INSURANCE
+            </div>
           </div>
         </div>
         <div className="another_div">
           <div className="top_div">
-            <div className="left_" style={{ fontSize: "2.5rem" }}>
+            <div className="left_ why_us" style={{ fontSize: "2.5rem" }}>
               Why Us?
             </div>
             <div className="right_">
@@ -41,13 +56,13 @@ const Insurance = () => {
             </div>
           </div>
           <div className="bottom_div">
-            <div className="left_ a">
+            <div className="left_">
               The subject of insurance is the civil liability of any person who,
               while driving a motor vehicle during the duration of the insurance
               contract, caused damage in connection with the movement of that
               vehicle.
             </div>
-            <div className="right_ a">
+            <div className="right_">
               “ Lider "offers you the best offers on the market of known
               insurance companies. We guarantee the greatest professionalism and
               advice regarding vehicle insurance.
@@ -62,24 +77,8 @@ const Insurance = () => {
         </div>
         <div className="best_offer second_banner" style={{ top: "12rem" }}>
           <div className="background_ball">
-            <div
-              className="_low_price"
-              style={{ marginTop: "9rem", fontSize: "1.8rem", color: "white" }}
-            >
-              Best
-            </div>
-            <div
-              className="_insurance"
-              style={{
-                marginTop: "-11rem",
-                fontSize: "2.5rem",
-                color: "white",
-                fontWeight: "bold",
-                textTransform: "uppercase"
-              }}
-            >
-              Offers
-            </div>
+            <div className="_low_price">Best</div>
+            <div className="_insurance">Offers</div>
           </div>
         </div>
         <div className="first_banner">
