@@ -5,10 +5,12 @@ import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [load, setLoad] = useState(false);
   const handleSubmit = () => {
     setLoad(true);
@@ -63,7 +65,7 @@ const Contact = () => {
                   fontWeight: "bold"
                 }}
               >
-                CONTACT US{" "}
+                {t("contact.contact")}{" "}
               </div>
             </div>
           </div>
@@ -97,23 +99,23 @@ const Contact = () => {
             <Form
               className="p-5 mx-auto mt-2 containn"
               style={{
-                width: "700px",
-                backgroundColor: "rgba(0, 189, 93, 1)"
+                width: '700px',
+                backgroundColor: 'rgba(0, 189, 93, 1)',
               }}
             >
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>name</Form.Label>
+                <Form.Label>{t('contact.name')}</Form.Label>
                 <Form.Control type="email" placeholder="Enter name" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label>{t('contact.email')}</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                  We will never share your email with anyone else.
+                <Form.Text className="text-warning">
+                  {t('contact.share')}
                 </Form.Text>
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Message</Form.Label>
+                <Form.Label>{t('contact.message')}</Form.Label>
                 <Form.Control as="textarea" rows={3} />
               </Form.Group>
 
@@ -121,13 +123,13 @@ const Contact = () => {
                 className="btn_green text-white button_color"
                 onClick={handleSubmit}
                 style={{
-                  "&:hover": {
-                    backgroundColor: "rgba(0, 189, 93, 1) !important",
-                    color: "#1a1a1a"
-                  }
+                  '&:hover': {
+                    backgroundColor: 'rgba(0, 189, 93, 1) !important',
+                    color: '#1a1a1a',
+                  },
                 }}
               >
-                {!load ? "Submit" : <Spinner />}
+                {!load ? t('contact.submit') : <Spinner />}
               </Button>
             </Form>
           </Container> */}

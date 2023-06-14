@@ -94,7 +94,7 @@ export default function WithSubnavigation() {
           </Button> */}
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Language
+              {t('language')}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
@@ -122,7 +122,7 @@ export default function WithSubnavigation() {
                 bg: 'rgb(17,48,65)',
               }}
             >
-              Contact us
+              {t('contact_us')}
             </Button>
           </Link>
           <Button onClick={toggleColorMode}>
