@@ -93,6 +93,9 @@
     "contact": "CONTACT",
     "services": "Do you want to use our services?",
     "questions": "Do you have additional questions?",
-    "reach_out": "Reach out to us"
+    "reach_out": "Reach out to us",
+    "branch": "branch",
+    "branch1": "Monday - Friday from 8:00 to 17:00 Saturday from 10:00 to 13:00",
+    "branch2": "Monday - Friday from 9:00 to 17:00 Saturday, Sunday - closed"
   }
 }

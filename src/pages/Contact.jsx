@@ -73,7 +73,7 @@ const Contact = () => {
             <div className="top_div">
               <Link className="left_" to={"tel:+4848662969662"}>
                 NOWY TARG (branch) <br />
-                Monday - Friday from 8:00 to 17:00 Saturday from 10:00 to 13:00{" "}
+                Monday - Friday from 8:00 to 17:00 Saturday from 10:00 to 13:00
               </Link>
               <Link className="right_" to={"tel:+48887770774"}>
                 BIALKA TATRZANSKA (branch) <br /> Monday - Friday from 9:00 to

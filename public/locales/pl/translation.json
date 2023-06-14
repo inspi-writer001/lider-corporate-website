@@ -95,6 +95,9 @@
     "contact": "Kontakt",
     "services": "Czy chcesz skorzystać z naszych usług?",
     "questions": "Czy masz dodatkowe pytania?",
-    "reach_out": "Skontaktuj się z nami po polsku."
+    "reach_out": "Skontaktuj się z nami po polsku.",
+    "branch": "Oddział",
+    "branch1": "Poniedziałek - piątek od 8:00 do 17:00, sobota od 10:00 do 13:00.",
+    "branch2": "Poniedziałek - piątek od 9:00 do 17:00, sobota i niedziela - zamknięte."
   }
 }
