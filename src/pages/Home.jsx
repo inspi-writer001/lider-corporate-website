@@ -10,8 +10,20 @@ import carJ from "../assets/carr_front.png";
 import carF from "../assets/car_back.png";
 import carT from "../assets/third_car.png";
 import house from "../assets/house3d.png";
+import obj from "../assets/bughatti.fbx";
 import "animate.css";
+
 import { motion } from "framer-motion";
+
+import { Canvas } from "@react-three/fiber";
+import { Environment, OrbitControls, useFBX } from "@react-three/drei";
+import { Suspense } from "react";
+
+const Scene = () => {
+  const fbx = useFBX(obj);
+
+  return <primitive object={fbx} scale={0.05} />;
+};
 
 const Home = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -52,6 +64,26 @@ const Home = () => {
 
   return (
     <div style={{ overflow: "hidden" }}>
+      <Canvas
+        style={{
+          position: "absolute",
+          height: "100vh",
+          width: "100vw",
+          zIndex: "40000"
+        }}
+      >
+        <Suspense fallback={null}>
+          <Scene />
+          <ambientLight />
+
+          <pointLight position={[200, 0, 0]} intensity={1.5} />
+          <pointLight position={[0, 0, 200]} intensity={3.5} />
+          {/* <pointLight position={[10, 0, 0]} intensity={3.5} /> */}
+          <pointLight position={[0, 20, 0]} intensity={10.5} />
+          <OrbitControls />
+          {/* <Environment preset="sunset" background /> */}
+        </Suspense>
+      </Canvas>
       {/* Spline web view of 3d vehicle */}
       <BlurryBlob
         height={90}
