@@ -94,7 +94,7 @@ export default function WithSubnavigation() {
           </Button> */}
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Language
+              {t('language')}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
