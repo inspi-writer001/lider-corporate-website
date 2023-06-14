@@ -7,10 +7,12 @@ import flago from "../assets/flago.png";
 import { useTranslation } from "react-i18next";
 import "animate.css";
 import { motion } from "framer-motion";
+import { Text, useColorMode } from "@chakra-ui/react";
 
 const Translation = () => {
   const { t } = useTranslation();
-
+  const { colorMode, toggleColorMode } = useColorMode();
+  let whiteText = colorMode == "light" ? "black" : "white";
   const flagKeyframes = {
     // initial: {
     //   rotateZ: 0
@@ -82,67 +84,85 @@ const Translation = () => {
             />
           </div>
           <div className="background_ball">
-            <div
+            <Text
               className="_low_price"
-              style={{ marginTop: "9rem", fontSize: "1.8rem", color: "white" }}
+              color={whiteText}
+              style={{ marginTop: "9rem", fontSize: "1.8rem" }}
             >
-              {t("translations.translation")}{" "}
-            </div>
-            <div
+              {t("translations.translation")}
+            </Text>
+            <Text
+              color={whiteText}
               className="_insurance"
               style={{
                 marginTop: "-11rem",
                 fontSize: "2.5rem",
-                color: "white",
+                // color: "white",
                 fontWeight: "bold"
               }}
             >
               {t("translations.documents")}{" "}
-            </div>
+            </Text>
           </div>
         </div>
         <div className="another_div">
           <div className="top_div">
-            <div className="left_">{t("translations.text1")} </div>
-            <div className="right_">{t("translations.text2")}</div>
+            <Text color={whiteText} className="left_">
+              {t("translations.text1")}{" "}
+            </Text>
+            <Text color={whiteText} className="right_">
+              {t("translations.text2")}
+            </Text>
           </div>
           <div className="second_banner">
             <div className="background_ball" style={{ top: "0" }}>
-              <div
+              <Text
+                color={whiteText}
                 className="_low_price"
                 style={{
                   marginTop: "9rem",
-                  fontSize: "1.8rem",
-                  color: "white"
+                  fontSize: "1.8rem"
+                  // color: "white"
                 }}
               >
                 {t("translations.low")}{" "}
-              </div>
-              <div
+              </Text>
+              <Text
+                color={whiteText}
                 className="_insurance"
                 style={{
                   marginTop: "-11rem",
                   fontSize: "2.5rem",
-                  color: "white",
+                  // color: "white",
                   fontWeight: "bold"
                 }}
               >
                 {t("translations.prices")}{" "}
-              </div>
+              </Text>
             </div>
-            <div className="instant">{t("translations.best_price")}</div>
+            <Text color={whiteText} className="instant">
+              {t("translations.best_price")}
+            </Text>
           </div>
           <div className="bottom_div">
             <Link>
-              <div className="left_" style={{ borderRadius: "50%" }}>
+              <Text
+                color={whiteText}
+                className="left_"
+                style={{ borderRadius: "50%" }}
+              >
                 {t("translations.text3")}
-              </div>
+              </Text>
             </Link>
 
             <Link>
-              <div className="right_" style={{ borderRadius: "50%" }}>
+              <Text
+                color={whiteText}
+                className="right_"
+                style={{ borderRadius: "50%" }}
+              >
                 {t("translations.text4")}
-              </div>
+              </Text>
             </Link>
           </div>
         </div>
