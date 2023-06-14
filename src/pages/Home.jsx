@@ -38,7 +38,7 @@ const Home = () => {
       x: 0
     },
     hover: {
-      // rotateZ: [0, -2, 2, -1, 1, 0],
+      rotateZ: [0, -1.4, 1.4, -1, 1, 0],
       y: [0, -4, 4, -3, 3, 0],
       x: [0, -5, 5, -7, 7, 0],
       transition: {
@@ -136,7 +136,8 @@ const Home = () => {
                 (isInView && " animate__animated")
               }
               style={{}}
-              src={isHovering ? carF : carT}
+              // src={isHovering ? carJ : carT}
+              src={carT}
               alt="image flip"
               transition="spring"
             />

@@ -32,7 +32,7 @@ const Footer = () => {
             <h6 className="text-white">Do you have additional questions?</h6>
           </Col>
           <Col className="my-auto">
-            <h6 className="text-white">+ 48 662 969 662 ( New Market )</h6>
+            <h6 className="text-white">+ 48 662 969 662 ( Nowy Targ )</h6>
             <h6 className="text-white">
               + 48 887 770 774 ( Białka Tatrzańska )
             </h6>

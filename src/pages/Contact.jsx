@@ -4,6 +4,7 @@ import { Container, Form, Spinner } from "react-bootstrap";
 import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 // import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
@@ -68,17 +69,17 @@ const Contact = () => {
           </div>
           <div className="another_div">
             <div className="top_div">
-              <div className="left_" style={{ fontSize: "2.5rem" }}>
-                Why Us?
-              </div>
-              <div className="right_">
-                The „ LIDER ” office offers mediation in the Document of
-                vehicles both imported from abroad and purchased in Poland
-                together with the necessary fees in all offices.
-              </div>
+              <Link className="left_" to={"tel:+4848662969662"}>
+                NOWY TARG (branch) <br />
+                Monday - Friday from 8:00 to 17:00 Saturday from 10:00 to 13:00{" "}
+              </Link>
+              <Link className="right_" to={"tel:+48887770774"}>
+                BIALKA TATRZANSKA (branch) <br /> Monday - Friday from 9:00 to
+                17:00 Saturday, Sunday - closed
+              </Link>
             </div>
 
-            <div className="bottom_div">
+            {/* <div className="bottom_div">
               <div className="left_">
                 We register all types of vehicles, including passenger cars,
                 trucks, specialized cars, agricultural tractors, mopeds,
@@ -90,9 +91,9 @@ const Contact = () => {
                 Communication, document translations, recycling ) and complete
                 re-Document of vehicles imported from abroad.
               </div>
-            </div>
+            </div> */}
           </div>
-          <Container style={{ zIndex: "999" }}>
+          {/* <Container style={{ zIndex: "999" }}>
             <Form
               className="p-5 mx-auto mt-2 containn"
               style={{
@@ -129,7 +130,7 @@ const Contact = () => {
                 {!load ? "Submit" : <Spinner />}
               </Button>
             </Form>
-          </Container>
+          </Container> */}
           {/* <Wrapper apiKey={"YOUR_API_KEY"} render={render}></Wrapper> */}
         </div>
       </div>
