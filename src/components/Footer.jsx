@@ -53,10 +53,9 @@ const Footer = () => {
                   bg: 'rgb(17,48,65)',
                 }}
               >
-                Reach out to us
+                {t('footer.reach_out')}
               </Button>
             </Link>
-            
           </Col>
         </Row>
       </Container>
