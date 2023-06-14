@@ -54,7 +54,7 @@ const Contact = () => {
                   color: "white"
                 }}
               >
-                _{" "}
+                {" "}
               </div>
               <div
                 className="_insurance"

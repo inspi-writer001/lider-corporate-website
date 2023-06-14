@@ -666,6 +666,22 @@ font-family: 'Montaga', serif; */
   .flag_right {
     width: 50rem;
   }
+
+  .office_image {
+    min-width: 100vw;
+    filter: drop-shadow(2px 28px 33px #000) grayscale(68%);
+  }
+
+  .office_image:hover {
+    filter: drop-shadow(2px 28px 33px #000) grayscale(0%);
+  }
+
+  .aarc {
+    border: none;
+  }
+  .aarc:hover {
+    border: none;
+  }
 }
 
 @media (max-width: 1000px) {

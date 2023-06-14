@@ -111,9 +111,13 @@ const Home = () => {
       <section
         style={{ ...section1, section2, height: "fit-content !important" }}
       >
-        <div className="section_two_top" style={{ textAlign: "center" }}>
+        <Text
+          color={whiteText}
+          className="section_two_top"
+          style={{ textAlign: "center" }}
+        >
           {t("why_us.title")}
-        </div>
+        </Text>
         <br />
         <div
           className="section_two_bottom"
@@ -165,13 +169,17 @@ const Home = () => {
             ></iframe> */}
           </div>
           <div className="section_2div_right" style={{ width: "45%" }}>
-            <div className="text_in ma">{t("why_us.text1")}</div>
+            <Text color={whiteText} className="text_in ma">
+              {t("why_us.text1")}
+            </Text>
             <div className="gap" style={{ height: "30%" }} />
             <div className="header_div">
               <div className="superfast chrome_text">
                 {t("why_us.super_fast")}
               </div>
-              <div className="realization">{t("why_us.realization")}</div>
+              <Text color={whiteText} className="realization">
+                {t("why_us.realization")}
+              </Text>
               <div className="you_save">{t("why_us.you_save")}</div>
             </div>
 
@@ -184,7 +192,9 @@ const Home = () => {
                   justifyContent: "space-around"
                 }}
               >
-                <div className="text ma">{t("why_us.text2")}</div>
+                <Text color={whiteText} className="text ma">
+                  {t("why_us.text2")}
+                </Text>
                 <div className="immg chrome_text">"</div>
               </div>
             </div>
@@ -193,7 +203,9 @@ const Home = () => {
               <div className="superfast chrome_text">
                 {t("why_us.attractive")}
               </div>
-              <div className="realization">{t("why_us.offers")}</div>
+              <Text color={whiteText} className="realization">
+                {t("why_us.offers")}
+              </Text>
               <div className="you_save">{t("why_us.explore")}</div>
             </div>
 
@@ -206,7 +218,9 @@ const Home = () => {
                   justifyContent: "space-around"
                 }}
               >
-                <div className="text">{t("why_us.text3")}</div>
+                <Text color={whiteText} className="text">
+                  {t("why_us.text3")}
+                </Text>
                 <div className="immg chrome_text">""</div>
               </div>
             </div>

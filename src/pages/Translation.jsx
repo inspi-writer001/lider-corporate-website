@@ -5,9 +5,51 @@ import { Link } from "react-router-dom";
 import flag1 from "../assets/flag1.png";
 import flago from "../assets/flago.png";
 import { useTranslation } from "react-i18next";
+import "animate.css";
+import { motion } from "framer-motion";
 
 const Translation = () => {
   const { t } = useTranslation();
+
+  const flagKeyframes = {
+    // initial: {
+    //   rotateZ: 0
+    // },
+    // wave: {
+    //   rotateZ: [0, -10, 10, -5, 5, -2, 2, 0],
+    //   transition: {
+    //     duration: 1.5,
+    //     ease: "easeInOut",
+    //     repeat: Infinity
+    //   }
+    // },
+    // breeze: {
+    //   skewX: [0, 5, -5, 2, -2, 0],
+    //   transition: {
+    //     duration: 1.5,
+    //     ease: "easeInOut",
+    //     repeat: Infinity,
+    //     repeatDelay: 0.5
+    //   }
+    // }
+
+    initial: {
+      rotateZ: 0,
+      y: 0,
+      x: 0
+    },
+    hover: {
+      rotateZ: [0, -1.4, 1.4, -1, 1, 0],
+      y: [0, -4, 4, -3, 3, 0],
+      x: [0, -5, 5, -7, 7, 0],
+      transition: {
+        duration: 3,
+        ease: "easeInOut",
+        times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1],
+        repeat: Infinity
+      }
+    }
+  };
   return (
     <div>
       <div className="insurance_body">
@@ -30,7 +72,14 @@ const Translation = () => {
         </div>
         <div className="second_banner">
           <div className="threed_scene">
-            <img src={flag1} alt="" className="flag_right" />
+            <motion.img
+              initial="initial"
+              // animate="hover"
+              variants={flagKeyframes}
+              src={flag1}
+              alt=""
+              className="flag_right"
+            />
           </div>
           <div className="background_ball">
             <div
