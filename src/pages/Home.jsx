@@ -1,16 +1,55 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import BlurryBlob from "../components/BlurryBlob";
 import "./Pages.css";
 import { Flex, Text, useColorMode } from "@chakra-ui/react";
 // import Spline from "@splinetool/react-spline";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useInView } from "framer-motion";
+import carJ from "../assets/carr_front.png";
+import carF from "../assets/car_back.png";
+import carT from "../assets/third_car.png";
+import house from "../assets/house3d.png";
+import "animate.css";
+import { motion } from "framer-motion";
 
 const Home = () => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+  const carRef = useRef(null);
+  const isInView = useInView(carRef);
+
   const { t } = useTranslation();
   const { colorMode, toggleColorMode } = useColorMode();
   let whiteText = colorMode == "light" ? "black" : "white";
   const green = "#00bd5d";
+
+  const hoverboardKeyframes = {
+    initial: {
+      rotateZ: 0,
+      y: 0,
+      x: 0
+    },
+    hover: {
+      // rotateZ: [0, -2, 2, -1, 1, 0],
+      y: [0, -4, 4, -3, 3, 0],
+      x: [0, -5, 5, -7, 7, 0],
+      transition: {
+        duration: 3,
+        ease: "easeInOut",
+        times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1],
+        repeat: Infinity
+      }
+    }
+  };
+
   return (
     <div style={{ overflow: "hidden" }}>
       {/* Spline web view of 3d vehicle */}
@@ -85,9 +124,37 @@ const Home = () => {
           }}
         >
           <div
-            className="section_2div_left"
-            style={{ width: "45%", height: "30rem" }}
+            className="section_2div_left shift_sync"
+            style={{ width: "45%", height: "100%" }}
           >
+            <motion.img
+              ref={carRef}
+              onMouseOver={handleMouseOver}
+              onMouseOut={handleMouseOut}
+              className={
+                "grayscale_shadow animate__zoomInRight" +
+                (isInView && " animate__animated")
+              }
+              style={{}}
+              src={isHovering ? carF : carT}
+              alt="image flip"
+              transition="spring"
+            />
+            <motion.img
+              className="grayscale_shadow off"
+              style={{}}
+              src={carT}
+              alt=""
+            />
+            <motion.img
+              className="grayscale_shadow off"
+              style={{}}
+              src={carJ}
+              alt=""
+            />
+
+            {/* <img style={{}} src={carF} alt="" />{" "}
+            <img style={{}} src={carF} alt="" /> */}
             {/* <Spline scene="https://prod.spline.design/NXOsMcvBlTD40ItM/scene.splinecode" /> */}
             {/* <iframe
               src="https://my.spline.design/clockdigitalinteractioncopy-0b31bdfac1d22474554806dae4671dce/"
@@ -171,7 +238,15 @@ const Home = () => {
         />
         <div className="formalities_container">
           <Text color={whiteText} className="formalities_banner">
-            <div className="threed_scene"></div>
+            <div className="threed_scene">
+              <motion.img
+                initial="initial"
+                animate="hover"
+                variants={hoverboardKeyframes}
+                src={house}
+                className="dhouse grayscale_shadow"
+              />
+            </div>
             <div className="comprehensive">{t("why_us.comprehensive")}</div>
             <div className="formalities">{t("why_us.formalities")}</div>
             <div className="we_do">{t("why_us.formalities2")}</div>
@@ -219,4 +294,5 @@ const section2 = {
   flexDirection: "column",
   width: "100%",
   padding: "20px"
+  // minHeight: "120vh"
 };
