@@ -1,10 +1,10 @@
-import React from 'react';
 import './Pages.css';
 import BlurryBlob from '../components/BlurryBlob';
 import PartnersList from '../components/PartnersList';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const Insurance = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="insurance_body">
