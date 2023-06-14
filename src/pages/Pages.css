@@ -662,6 +662,10 @@ font-family: 'Montaga', serif; */
     margin-top: 18rem;
     position: relative;
   }
+
+  .flag_right {
+    width: 50rem;
+  }
 }
 
 @media (max-width: 1000px) {
