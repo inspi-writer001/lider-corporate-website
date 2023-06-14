@@ -38,5 +38,61 @@
     "best": "Best",
     "offers": "Offers",
     "trust": "THOSE WHO TRUST US"
+  },
+  "registration": {
+    "register": "REGISTER",
+    "vehicle": "YOUR VEHICLE",
+    "why_us": "Why Us?",
+    "text1": "The 'LIDER' office offers mediation in the registration of vehicles both imported from abroad and purchased in Poland together with the necessary fees in all offices.",
+    "instant": "INSTANT",
+    "registration": "REGISTRATION",
+    "text2": "We register all types of vehicles, including passenger cars, trucks, specialized cars, agricultural tractors, mopeds, motorcycles, trailers, etc.",
+    "text3": "Comprehensive fees ( Customs Office, Tax Office, Department of Communication, document translations, recycling ) and complete re-registration of vehicles imported from abroad.",
+    "comprehensive": "COMPREHENSIVE",
+    "formalism": "FORMALISM",
+    "we_provide": "We provide full professionalism completing formalities"
+  },
+  "translations": {
+    "translations": "TRANSLATIONS",
+    "documents": "DOCUMENTS",
+    "text1": "Years of experience have enabled us to provide you with the certainty of a perfect translation. By providing us with texts you receive their most faithful translation into any language you choose.",
+    "text2": "Excellent knowledge of foreign languages, careful tracking of all linguistic changes is our passion. We guarantee accurate and reliable translation, regardless of language and subject!",
+    "low": "LOW",
+    "prices": "PRICES",
+    "best_price": "The best prices on the market translations",
+    "text3": "We register all types of vehicles, including passenger cars, trucks, specialized cars, agricultural tractors, mopeds, motorcycles, trailers, etc.",
+    "text4": "Comprehensive fees ( Customs Office, Tax Office, Department of Communication, document translations, recycling ) and complete re-Translation of vehicles imported from abroad."
+  },
+  "documents": {
+    "design": "FOREIGN DESIGN",
+    "documents": "DOCUMENTS",
+    "why_us": "Why Us?",
+    "text1": "The  'LIDER' office offers mediation in the Document of vehicles both imported from abroad and purchased in Poland together with the necessary fees in all offices.",
+    "instant": "INSTANT",
+    "registration": "REGITERATION",
+    "text2": "We register all types of vehicles, including passenger cars, trucks, specialized cars, agricultural tractors, mopeds, motorcycles, trailers, etc.",
+    "text3": "Comprehensive fees ( Customs Office, Tax Office, Department of Communication, document translations, recycling ) and complete re-Document of vehicles imported from abroad.",
+    "comprehensive": "COMPREHENSIVE",
+    "formalism": "FORMALISM",
+    "we_provide": "We provide full professionalism completing formalities"
+  },
+  "contact": {
+    "contact": "CONTACT US",
+    "why_us": "Why Us?",
+    "text1": "The 'LIDER' office offers mediation in the registration of vehicles both imported from abroad and purchased in Poland together with the necessary fees in all offices.",
+    "text2": "We register all types of vehicles, including passenger cars, trucks, specialized cars, agricultural tractors, mopeds, motorcycles, trailers, etc.",
+    "text3": "Comprehensive fees ( Customs Office, Tax Office, Department of Communication, document translations, recycling ) and complete re-Document of vehicles imported from abroad.",
+    "name": "Name",
+    "email": "Email Address",
+    "share": "We will never share your email with anyone else.",
+    "message": "Message",
+    "submit": "Submit"
+  },
+  "footer": {
+    "fast": "FAST",
+    "contact": "CONTACT",
+    "services": "Do you want to use our services?",
+    "questions": "Do you have additional questions?",
+    "reach_out": "Reach out to us"
   }
 }

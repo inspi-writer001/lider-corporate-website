@@ -122,7 +122,7 @@ export default function WithSubnavigation() {
                 bg: 'rgb(17,48,65)',
               }}
             >
-              Contact us
+              {t('contact_us')}
             </Button>
           </Link>
           <Button onClick={toggleColorMode}>

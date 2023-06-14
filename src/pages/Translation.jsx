@@ -1,9 +1,10 @@
-import React from 'react';
 import './Pages.css';
 import BlurryBlob from '../components/BlurryBlob';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Translation = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="insurance_body">
@@ -30,7 +31,7 @@ const Translation = () => {
               className="_low_price"
               style={{ marginTop: '9rem', fontSize: '1.8rem', color: 'white' }}
             >
-              TRANSLATIONS{' '}
+              {t('translations.translation')}{' '}
             </div>
             <div
               className="_insurance"
@@ -41,23 +42,14 @@ const Translation = () => {
                 fontWeight: 'bold',
               }}
             >
-              DOCUMENTS{' '}
+              {t('translations.documents')}{' '}
             </div>
           </div>
         </div>
         <div className="another_div">
           <div className="top_div">
-            <div className="left_">
-              Years of experience have enabled us to provide you with the
-              certainty of a perfect translation. By providing us with texts you
-              receive their most faithful translation into any language you
-              choose.{' '}
-            </div>
-            <div className="right_">
-              Excellent knowledge of foreign languages, careful tracking of all
-              linguistic changes is our passion. We guarantee accurate and
-              reliable translation, regardless of language and subject!
-            </div>
+            <div className="left_">{t('translations.text1')} </div>
+            <div className="right_">{t('translations.text2')}</div>
           </div>
           <div className="second_banner">
             <div className="background_ball" style={{ top: '0' }}>
@@ -69,7 +61,7 @@ const Translation = () => {
                   color: 'white',
                 }}
               >
-                LOW{' '}
+                {t('translations.low')}{' '}
               </div>
               <div
                 className="_insurance"
@@ -80,27 +72,21 @@ const Translation = () => {
                   fontWeight: 'bold',
                 }}
               >
-                PRICES{' '}
+                {t('translations.prices')}{' '}
               </div>
             </div>
-            <div className="instant">
-              The best prices on the market translations
-            </div>
+            <div className="instant">{t('translations.best_price')}</div>
           </div>
           <div className="bottom_div">
             <Link>
               <div className="left_" style={{ borderRadius: '50%' }}>
-                We register all types of vehicles, including passenger cars,
-                trucks, specialized cars, agricultural tractors, mopeds,
-                motorcycles, trailers, etc.
+                {t('translations.text3')}
               </div>
             </Link>
 
             <Link>
               <div className="right_" style={{ borderRadius: '50%' }}>
-                Comprehensive fees ( Customs Office, Tax Office, Department of
-                Communication, document translations, recycling ) and complete
-                re-Translation of vehicles imported from abroad.
+                {t('translations.text4')}
               </div>
             </Link>
           </div>
