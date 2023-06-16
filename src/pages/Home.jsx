@@ -5,7 +5,14 @@ import { Flex, Text, useColorMode } from "@chakra-ui/react";
 // import Spline from "@splinetool/react-spline";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useInView, useScroll } from "framer-motion";
+import {
+  useInView,
+  useScroll,
+  motion,
+  animate,
+  useTransform
+} from "framer-motion";
+import { motion as motion3 } from "framer-motion-3d";
 import carJ from "../assets/carr_front.png";
 import carF from "../assets/car_back.png";
 import carT from "../assets/third_car.png";
@@ -13,7 +20,7 @@ import house from "../assets/house3d.png";
 import obj from "../assets/bughatti.fbx";
 import "animate.css";
 
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { Box } from "@react-three/drei";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
 
@@ -34,7 +41,9 @@ const Scene = () => {
   const { camera } = useThree();
   const ref = useRef();
   const controlsRef = useRef();
+  const scrollRef = useRef(0);
   const libraryRef = useRef();
+
   // const left = -window.innerWidth / 2;
   // const right = window.innerWidth / 2;
   // const top = window.innerHeight / 2;
@@ -46,49 +55,35 @@ const Scene = () => {
 
   const scroll = useScroll();
 
-  useFrame(() => {
-    controlsRef.current.seek(
-      scroll.scrollY.current * controlsRef.current.duration()
-    );
-    console.log(scroll.scrollY.current);
-  });
+  const { scrollYProgress, scrollY } = useScroll();
 
-  useLayoutEffect(() => {
-    controlsRef.current = gsap.timeline();
+  useEffect(() => {
+    const handleScroll = () => {
+      scrollRef.current = window.scrollY;
+    };
 
-    controlsRef.current.from(
-      ref.current.rotation,
-      { duration: 1, x: 0, y: Math.PI / 70, z: 0 },
-      0
-    );
-
-    controlsRef.current.to(
-      ref.current.rotation,
-      { duration: 100, x: 0, y: Math.PI * scroll.scrollY.current, z: 0 },
-      0
-    );
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  // useEffect(() => {
-  //   camera.left = left;
-  //   camera.right = right;
-  //   camera.top = top;
-  //   camera.bottom = bottom;
-  //   camera.near = near;
-  //   camera.far = far;
-  //   camera.updateProjectionMatrix();
-  // }, [camera, left, right, top, bottom, near, far]);
-
   // camera.rotation.set(deg2rad(30), 0, 0);
+  const rotationSpeed = 0.02;
+  const scalingFactor = 0.001;
+  const rotation = useTransform(
+    scrollY,
+    [0, document.body.offsetHeight - window.innerHeight],
+    [0, Math.PI * -2]
+  );
 
   return (
     <>
-      <group ref={ref} position={[0.5, -1, -1]} rotation={[0, -Math.PI / 3, 0]}>
+      <motion3.group rotateY={rotation} ref={ref} position={[0.5, -1, -1]}>
         <mesh ref={controlsRef}>
           <primitive object={fbx} scale={0.004} />;
         </mesh>
-      </group>
-      {/* <OrbitControls ref={controlsRef} args={[camera]} enableZoom={false} /> */}
+      </motion3.group>
     </>
   );
 };
