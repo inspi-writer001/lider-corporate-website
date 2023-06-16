@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import BlurryBlob from "../components/BlurryBlob";
 import "./Pages.css";
 import { Flex, Text, useColorMode } from "@chakra-ui/react";
 // import Spline from "@splinetool/react-spline";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useInView } from "framer-motion";
+import { useInView, useScroll } from "framer-motion";
 import carJ from "../assets/carr_front.png";
 import carF from "../assets/car_back.png";
 import carT from "../assets/third_car.png";
@@ -14,15 +14,83 @@ import obj from "../assets/bughatti.fbx";
 import "animate.css";
 
 import { motion } from "framer-motion";
+import { Box } from "@react-three/drei";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
 
-import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls, useFBX } from "@react-three/drei";
+import {
+  Environment,
+  OrbitControls,
+  useFBX,
+  ScrollControls
+} from "@react-three/drei";
+import gsap from "gsap";
 import { Suspense } from "react";
+export const FLOOR_HEIGHT = 2.3;
+export const NB_FLOORS = 1;
 
+const deg2rad = (degrees) => degrees * (Math.PI / 180);
 const Scene = () => {
   const fbx = useFBX(obj);
+  const { camera } = useThree();
+  const ref = useRef();
+  const controlsRef = useRef();
+  const libraryRef = useRef();
+  // const left = -window.innerWidth / 2;
+  // const right = window.innerWidth / 2;
+  // const top = window.innerHeight / 2;
+  // const bottom = -window.innerHeight / 2;
+  // const near = 0.1;
+  // const far = 1000;
 
-  return <primitive object={fbx} scale={0.05} />;
+  // camera.updateProjectionMatrix();
+
+  const scroll = useScroll();
+
+  useFrame(() => {
+    controlsRef.current.seek(
+      scroll.scrollY.current * controlsRef.current.duration()
+    );
+    console.log(scroll.scrollY.current);
+  });
+
+  useLayoutEffect(() => {
+    controlsRef.current = gsap.timeline();
+
+    controlsRef.current.from(
+      ref.current.rotation,
+      { duration: 1, x: 0, y: Math.PI / 70, z: 0 },
+      0
+    );
+
+    controlsRef.current.to(
+      ref.current.rotation,
+      { duration: 100, x: 0, y: Math.PI * scroll.scrollY.current, z: 0 },
+      0
+    );
+  }, []);
+
+  // useEffect(() => {
+  //   camera.left = left;
+  //   camera.right = right;
+  //   camera.top = top;
+  //   camera.bottom = bottom;
+  //   camera.near = near;
+  //   camera.far = far;
+  //   camera.updateProjectionMatrix();
+  // }, [camera, left, right, top, bottom, near, far]);
+
+  // camera.rotation.set(deg2rad(30), 0, 0);
+
+  return (
+    <>
+      <group ref={ref} position={[0.5, -1, -1]} rotation={[0, -Math.PI / 3, 0]}>
+        <mesh ref={controlsRef}>
+          <primitive object={fbx} scale={0.004} />;
+        </mesh>
+      </group>
+      {/* <OrbitControls ref={controlsRef} args={[camera]} enableZoom={false} /> */}
+    </>
+  );
 };
 
 const Home = () => {
@@ -68,19 +136,31 @@ const Home = () => {
         style={{
           position: "absolute",
           height: "100vh",
-          width: "100vw",
-          zIndex: "40000"
+          width: "100vw"
+          // zIndex: "40000"
         }}
       >
         <Suspense fallback={null}>
           <Scene />
-          <ambientLight />
-
+          <ambientLight intensity={2} />
+          <camera fov={75} near={0.1} far={1000} z={5} lookAt={[0, 20, 0]} />
           <pointLight position={[200, 0, 0]} intensity={1.5} />
           <pointLight position={[0, 0, 200]} intensity={3.5} />
-          {/* <pointLight position={[10, 0, 0]} intensity={3.5} /> */}
+
           <pointLight position={[0, 20, 0]} intensity={10.5} />
-          <OrbitControls />
+          {/* <OrbitControls
+            enablePan={false}
+            enableRotate={true}
+            enableZoom={false}
+          /> */}
+          <OrbitControls
+            enablePan={false}
+            enableRotate={true}
+            enableZoom={false}
+            enableDamping={true} // Enable damping for smooth movement
+            dampingFactor={0.05} // Adjust the damping factor to control the smoothness
+          />
+          <ScrollControls damping={0.25} pages={3} />
           {/* <Environment preset="sunset" background /> */}
         </Suspense>
       </Canvas>
