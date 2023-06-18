@@ -21,7 +21,7 @@ import obj from "/models/bughatti.fbx";
 import "animate.css";
 
 // import { motion } from "framer-motion";
-import { Box } from "@react-three/drei";
+import { Box, Html } from "@react-three/drei";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
 
 import {
@@ -127,15 +127,18 @@ const Home = () => {
 
   return (
     <div style={{ overflow: "hidden" }}>
-      <Canvas
+      {/* <Canvas
         style={{
           position: "absolute",
           height: "100vh",
           width: "100vw"
-          // zIndex: "40000"
         }}
       >
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={
+            null
+          }
+        >
           <Scene />
           <ambientLight intensity={2} />
           <camera fov={75} near={0.1} far={1000} z={5} lookAt={[0, 20, 0]} />
@@ -143,22 +146,17 @@ const Home = () => {
           <pointLight position={[0, 0, 200]} intensity={3.5} />
 
           <pointLight position={[0, 20, 0]} intensity={10.5} />
-          {/* <OrbitControls
-            enablePan={false}
-            enableRotate={true}
-            enableZoom={false}
-          /> */}
+
           <OrbitControls
             enablePan={false}
             enableRotate={true}
             enableZoom={false}
-            enableDamping={true} // Enable damping for smooth movement
-            dampingFactor={0.05} // Adjust the damping factor to control the smoothness
+            enableDamping={true}
+            dampingFactor={0.05}
           />
           <ScrollControls damping={0.25} pages={3} />
-          {/* <Environment preset="sunset" background /> */}
         </Suspense>
-      </Canvas>
+      </Canvas> */}
       {/* Spline web view of 3d vehicle */}
       <BlurryBlob
         height={90}

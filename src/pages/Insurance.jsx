@@ -85,13 +85,12 @@ const Insurance = () => {
   const { t } = useTranslation();
   return (
     <div style={{ overflow: "hidden" }}>
-      <Canvas
+      {/* <Canvas
         style={{
           position: "absolute",
           height: "100vh",
           width: "100vw"
-          // backgroundColor: "red",
-          // zIndex: "40000"
+          
         }}
       >
         <Suspense fallback={null}>
@@ -102,22 +101,18 @@ const Insurance = () => {
           <pointLight position={[0, 0, 200]} intensity={3.5} />
 
           <pointLight position={[0, 20, 0]} intensity={10.5} />
-          {/* <OrbitControls
-            enablePan={false}
-            enableRotate={true}
-            enableZoom={false}
-          /> */}
+          
           <OrbitControls
             enablePan={false}
             enableRotate={true}
             enableZoom={false}
-            enableDamping={true} // Enable damping for smooth movement
-            dampingFactor={0.05} // Adjust the damping factor to control the smoothness
+            enableDamping={true} 
+            dampingFactor={0.05} 
           />
           <ScrollControls damping={0.25} pages={3} />
-          {/* <Environment preset="sunset" background /> */}
+          
         </Suspense>
-      </Canvas>
+      </Canvas> */}
       <div className="insurance_body">
         <div className="first_banner">
           <BlurryBlob
@@ -221,9 +216,9 @@ const Insurance = () => {
                 return (
                   <div className="grid-item" key={index}>
                     <img
+                      className="partner_image"
                       src={item.img}
                       alt={item.desc}
-                      style={{ width: "9rem" }}
                     />
                   </div>
                 );
