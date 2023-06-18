@@ -2,15 +2,116 @@ import "./Pages.css";
 import BlurryBlob from "../components/BlurryBlob";
 import { useTranslation } from "react-i18next";
 import office from "../assets/office_empty.jpg";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { Text, useColorMode } from "@chakra-ui/react";
+import {
+  useInView,
+  useScroll,
+  motion,
+  animate,
+  useTransform
+} from "framer-motion";
+import { motion as motion3 } from "framer-motion-3d";
+import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+import { USDZLoader } from "three/examples/jsm/loaders/USDZLoader";
+
+import {
+  Environment,
+  OrbitControls,
+  useFBX,
+  ScrollControls,
+  useFBO
+} from "@react-three/drei";
+import { Suspense, useRef, useEffect } from "react";
+
+import obj from "/models/apartmentq.fbx";
+
+const Scene = () => {
+  const objs = useFBX(obj);
+  // const objs = useLoader(DRACOLoader, "/models/bug.drc");
+  const { camera } = useThree();
+  const ref = useRef();
+  const controlsRef = useRef();
+  const scrollRef = useRef(0);
+  const libraryRef = useRef();
+
+  // const left = -window.innerWidth / 2;
+  // const right = window.innerWidth / 2;
+  // const top = window.innerHeight / 2;
+  // const bottom = -window.innerHeight / 2;
+  // const near = 0.1;
+  // const far = 1000;
+
+  // camera.updateProjectionMatrix();
+
+  const scroll = useScroll();
+
+  const { scrollYProgress, scrollY } = useScroll();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      scrollRef.current = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // camera.rotation.set(deg2rad(30), 0, 0);
+  const rotationSpeed = 0.02;
+  const scalingFactor = 0.001;
+  const rotation = useTransform(
+    scrollY,
+    [0, document.body.offsetHeight - window.innerHeight],
+    [0, Math.PI * -2]
+  );
+
+  return (
+    <>
+      <motion3.group rotateY={rotation} ref={ref} position={[0, -0.5, 0]}>
+        <mesh ref={controlsRef}>
+          <primitive object={objs} scale={0.00024} />;
+        </mesh>
+      </motion3.group>
+    </>
+  );
+};
 
 const Registration = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
+      <Canvas
+        style={{
+          position: "absolute",
+          height: "170vh",
+          width: "100vw"
+        }}
+      >
+        <Suspense fallback={null}>
+          <Scene />
+          <ambientLight intensity={3} />
+          <camera fov={75} near={0.1} far={1000} z={5} lookAt={[0, 20, 0]} />
+          <pointLight position={[200, 0, 0]} intensity={1.5} />
+          <pointLight position={[0, 0, 200]} intensity={0.5} />
+
+          <pointLight position={[0, 20, 0]} intensity={0.5} />
+
+          <OrbitControls
+            enablePan={false}
+            enableRotate={true}
+            enableZoom={false}
+            enableDamping={true}
+            dampingFactor={0.05}
+          />
+          <ScrollControls damping={0.25} pages={3} />
+        </Suspense>
+      </Canvas>
       <div className="insurance_body">
         <div className="first_banner">
           <BlurryBlob
@@ -32,14 +133,13 @@ const Registration = () => {
 
         <div className="second_banner">
           <div className="threed_scene">
-            <motion.img
+            {/* <motion.img
               initial="initial"
-              // animate="hover"
-              // variants={flagKeyframes}
+              
               src={office}
               alt=""
               className="office_image"
-            />
+            /> */}
           </div>
           <div className="background_ball">
             <div
@@ -112,7 +212,7 @@ const Registration = () => {
         <div className="arc_container">
           <div
             className="top_arc"
-            style={{ top: "6rem", top: "-18rem", transform: "rotate(180deg)" }}
+            style={{ top: "-18rem", transform: "rotate(180deg)" }}
           ></div>
         </div>
         {/* <div className="best_offer second_banner" style={{ top: "12rem" }}>

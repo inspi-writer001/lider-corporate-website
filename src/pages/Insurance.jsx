@@ -15,15 +15,17 @@ import { motion as motion3 } from "framer-motion-3d";
 import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { USDZLoader } from "three/examples/jsm/loaders/USDZLoader";
+
 import {
   Environment,
   OrbitControls,
   useFBX,
-  ScrollControls
+  ScrollControls,
+  useFBO
 } from "@react-three/drei";
 import { Suspense } from "react";
 
-import obj from "/models/flago.fbx";
+import obj from "/models/apartmentq.fbx";
 import "./Pages.css";
 
 const Scene = () => {
@@ -70,9 +72,9 @@ const Scene = () => {
 
   return (
     <>
-      <motion3.group rotateY={rotation} ref={ref} position={[0.5, -1, -1]}>
+      <motion3.group rotateY={rotation} ref={ref} position={[0, -0.5, 0]}>
         <mesh ref={controlsRef}>
-          <primitive object={objs} scale={0.04} />;
+          <primitive object={objs} scale={0.00024} />;
         </mesh>
       </motion3.group>
     </>
@@ -85,34 +87,32 @@ const Insurance = () => {
   const { t } = useTranslation();
   return (
     <div style={{ overflow: "hidden" }}>
-      {/* <Canvas
+      <Canvas
         style={{
           position: "absolute",
-          height: "100vh",
+          height: "170vh",
           width: "100vw"
-          
         }}
       >
         <Suspense fallback={null}>
           <Scene />
-          <ambientLight intensity={2} />
+          <ambientLight intensity={3} />
           <camera fov={75} near={0.1} far={1000} z={5} lookAt={[0, 20, 0]} />
           <pointLight position={[200, 0, 0]} intensity={1.5} />
-          <pointLight position={[0, 0, 200]} intensity={3.5} />
+          <pointLight position={[0, 0, 200]} intensity={0.5} />
 
-          <pointLight position={[0, 20, 0]} intensity={10.5} />
-          
+          <pointLight position={[0, 20, 0]} intensity={0.5} />
+
           <OrbitControls
             enablePan={false}
             enableRotate={true}
             enableZoom={false}
-            enableDamping={true} 
-            dampingFactor={0.05} 
+            enableDamping={true}
+            dampingFactor={0.05}
           />
           <ScrollControls damping={0.25} pages={3} />
-          
         </Suspense>
-      </Canvas> */}
+      </Canvas>
       <div className="insurance_body">
         <div className="first_banner">
           <BlurryBlob
