@@ -17,7 +17,7 @@ import carJ from "../assets/carr_front.png";
 import carF from "../assets/car_back.png";
 import carT from "../assets/third_car.png";
 import house from "../assets/house3d.png";
-import obj from "../assets/bughatti.fbx";
+import obj from "/models/bughatti.fbx";
 import "animate.css";
 
 // import { motion } from "framer-motion";
