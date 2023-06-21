@@ -25,11 +25,13 @@ import {
   OrbitControls,
   useFBX,
   ScrollControls,
-  useFBO
+  useFBO,
+  PerspectiveCamera
 } from "@react-three/drei";
 import { Suspense, useRef, useEffect } from "react";
+import { MathUtils } from "three";
 
-import obj from "/models/desk.fbx";
+import obj from "/models/format_office.FBX";
 
 const Scene = () => {
   const objs = useFBX(obj);
@@ -75,9 +77,9 @@ const Scene = () => {
 
   return (
     <>
-      <motion3.group rotateY={rotation} ref={ref} position={[-0.6, -0.5, 0]}>
-        <mesh ref={controlsRef}>
-          <primitive object={objs} scale={0.00824} />;
+      <motion3.group rotateY={rotation} ref={ref} position={[700, 200, 0]}>
+        <mesh ref={controlsRef} rotate={[0, MathUtils.degToRad(-20), 3]}>
+          <primitive object={objs} scale={0.3} />;
         </mesh>
       </motion3.group>
     </>
@@ -138,9 +140,10 @@ const Translation = () => {
       >
         <Suspense fallback={null}>
           <Scene />
-          <ambientLight intensity={3} />
+          <ambientLight intensity={1} />
+          <PerspectiveCamera makeDefault position={[3, 4, -1]} />
           <camera fov={75} near={0.1} far={1000} z={5} lookAt={[0, 20, 0]} />
-          <pointLight position={[200, 0, 0]} intensity={1.5} />
+          <pointLight position={[200, 0, 0]} intensity={0.5} />
           <pointLight position={[0, 0, 200]} intensity={0.5} />
 
           <pointLight position={[0, 20, 0]} intensity={0.5} />

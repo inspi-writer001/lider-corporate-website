@@ -13,22 +13,31 @@ import {
 } from "framer-motion";
 import { motion as motion3 } from "framer-motion-3d";
 import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
-import { USDZLoader } from "three/examples/jsm/loaders/USDZLoader";
 
 import {
   Environment,
   OrbitControls,
   useFBX,
+  useGLTF,
   ScrollControls,
-  useFBO
+  useTexture
 } from "@react-three/drei";
 import { Suspense, useRef, useEffect } from "react";
 
-import obj from "/models/apartmentq.fbx";
+import obj from "/models/plane_model.fbx";
+import dra from "/models/waitingroom/source/aroom.drc";
+import textureu from "/models/waitingroom/textures/materialdiffuse.jpg";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+import { ColladaLoader } from "three/examples/jsm/loaders/ColladaLoader";
 
 const Scene = () => {
   const objs = useFBX(obj);
+  // const dd = useGLTF(dra);
+  // const drcModel = useLoader(DRACOLoader, dra);
+  // const daeModel = useLoader(
+  //   ColladaLoader,
+  //   "/models/waitingroom/source/WaitRoom.dae"
+  // );
   // const objs = useLoader(DRACOLoader, "/models/bug.drc");
   const { camera } = useThree();
   const ref = useRef();
@@ -71,9 +80,9 @@ const Scene = () => {
 
   return (
     <>
-      <motion3.group rotateY={rotation} ref={ref} position={[0, -0.5, 0]}>
+      <motion3.group rotateY={rotation} ref={ref} position={[0, -0.25, 0]}>
         <mesh ref={controlsRef}>
-          <primitive object={objs} scale={0.00024} />;
+          <primitive object={objs} scale={0.0021} />;
         </mesh>
       </motion3.group>
     </>
