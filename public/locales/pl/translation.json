@@ -10,12 +10,13 @@
   ],
   "contact_us": "Kontakt",
   "language": "Język",
-  "header1": "Wieloagencja",
-  "header2": "Lider",
+  "header1": "Witamy w ",
+  "header2": "Multiagencji Lider",
+  "header3": "Twój zaufany partner w zakresie ubezpieczeń, rejestracji pojazdów i tłumaczeń",
 
   "why_us": {
     "title": "DLACZEGO MY",
-    "text1": "Lider działa na rynku od 2006 roku i jest pierwszym takim biurem w tej okolicy. W naszej działalności oferujemy szeroki wybór ubezpieczeń komunikacyjnych, nieruchomościowych, na życie oraz rolniczych.",
+    "text1": "Od 2006 roku Lider jest pierwszym i wiodącym biurem wielofunkcyjnym w regionie. Dzięki naszemu doświadczeniu oferujemy szeroki wybór polis ubezpieczeniowych, profesjonalne usługi rejestracji pojazdów oraz dokładne rozwiązania tłumaczeniowe. Nasze zaangażowanie w doskonałość i satysfakcję klienta wyróżnia nas spośród innych.",
     "super_fast": "Super szybko",
     "realization": "Realizacja",
     "you_save": "Oszczędzasz czas z nami, zdrowie i pieniądze",
@@ -99,6 +100,5 @@
     "services": "Czy chcesz skorzystać z naszych usług?",
     "questions": "Czy masz dodatkowe pytania?",
     "reach_out": "Skontaktuj się z nami po polsku."
-   
   }
 }
