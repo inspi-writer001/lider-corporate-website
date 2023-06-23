@@ -12,6 +12,7 @@ const Footer = () => {
         className="mt-5 px-5 py-5 "
         style={{
           zIndex: '9',
+          marginTop: 'auto',
           backgroundColor: '#1a1a1a',
           minWidth: '100vw',
           boxShadow: ' 0 4px 30px rgba(0, 0, 0, 0.1)',
