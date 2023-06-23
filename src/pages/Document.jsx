@@ -1,8 +1,11 @@
 import "./Pages.css";
 import BlurryBlob from "../components/BlurryBlob";
 import { useTranslation } from "react-i18next";
+import { Text, useColorMode } from "@chakra-ui/react";
 
 const Document = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+  let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
   return (
     <div>

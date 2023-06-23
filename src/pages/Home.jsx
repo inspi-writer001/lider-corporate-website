@@ -1,17 +1,92 @@
-import React, { useRef, useState } from 'react';
-import BlurryBlob from '../components/BlurryBlob';
-import './Pages.css';
-import { Flex, Text, useColorMode } from '@chakra-ui/react';
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
+import BlurryBlob from "../components/BlurryBlob";
+import "./Pages.css";
+import { Flex, Text, useColorMode } from "@chakra-ui/react";
 // import Spline from "@splinetool/react-spline";
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { useInView } from 'framer-motion';
-import carJ from '../assets/carr_front.png';
-import carF from '../assets/car_back.png';
-import carT from '../assets/third_car.png';
-import house from '../assets/house3d.png';
-import 'animate.css';
-import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import {
+  useInView,
+  useScroll,
+  motion,
+  animate,
+  useTransform
+} from "framer-motion";
+import { motion as motion3 } from "framer-motion-3d";
+import carJ from "../assets/carr_front.png";
+import carF from "../assets/car_back.png";
+import carT from "../assets/third_car.png";
+import house from "../assets/house3d.png";
+import obj from "/models/bughatti.fbx";
+import "animate.css";
+
+// import { motion } from "framer-motion";
+import { Box, Html } from "@react-three/drei";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
+
+import {
+  Environment,
+  OrbitControls,
+  useFBX,
+  ScrollControls
+} from "@react-three/drei";
+import gsap from "gsap";
+import { Suspense } from "react";
+export const FLOOR_HEIGHT = 2.3;
+export const NB_FLOORS = 1;
+
+const deg2rad = (degrees) => degrees * (Math.PI / 180);
+const Scene = () => {
+  const fbx = useFBX(obj);
+  const { camera } = useThree();
+  const ref = useRef();
+  const controlsRef = useRef();
+  const scrollRef = useRef(0);
+  const libraryRef = useRef();
+
+  // const left = -window.innerWidth / 2;
+  // const right = window.innerWidth / 2;
+  // const top = window.innerHeight / 2;
+  // const bottom = -window.innerHeight / 2;
+  // const near = 0.1;
+  // const far = 1000;
+
+  // camera.updateProjectionMatrix();
+
+  const scroll = useScroll();
+
+  const { scrollYProgress, scrollY } = useScroll();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      scrollRef.current = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // camera.rotation.set(deg2rad(30), 0, 0);
+  const rotationSpeed = 0.02;
+  const scalingFactor = 0.001;
+  const rotation = useTransform(
+    scrollY,
+    [0, document.body.offsetHeight - window.innerHeight],
+    [0, Math.PI * -2]
+  );
+
+  return (
+    <>
+      <motion3.group rotateY={rotation} ref={ref} position={[0.5, -1, -1]}>
+        <mesh ref={controlsRef}>
+          <primitive object={fbx} scale={0.004} />;
+        </mesh>
+      </motion3.group>
+    </>
+  );
+};
 
 const Home = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -51,7 +126,37 @@ const Home = () => {
   };
 
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div style={{ overflow: "hidden" }}>
+      {/* <Canvas
+        style={{
+          position: "absolute",
+          height: "100vh",
+          width: "100vw"
+        }}
+      >
+        <Suspense
+          fallback={
+            null
+          }
+        >
+          <Scene />
+          <ambientLight intensity={2} />
+          <camera fov={75} near={0.1} far={1000} z={5} lookAt={[0, 20, 0]} />
+          <pointLight position={[200, 0, 0]} intensity={1.5} />
+          <pointLight position={[0, 0, 200]} intensity={3.5} />
+
+          <pointLight position={[0, 20, 0]} intensity={10.5} />
+
+          <OrbitControls
+            enablePan={false}
+            enableRotate={true}
+            enableZoom={false}
+            enableDamping={true}
+            dampingFactor={0.05}
+          />
+          <ScrollControls damping={0.25} pages={3} />
+        </Suspense>
+      </Canvas> */}
       {/* Spline web view of 3d vehicle */}
       <BlurryBlob
         height={90}
@@ -114,9 +219,13 @@ const Home = () => {
       <section
         style={{ ...section1, section2, height: 'fit-content !important' }}
       >
-        <div className="section_two_top" style={{ textAlign: 'center' }}>
-          {t('why_us.title')}
-        </div>
+        <Text
+          color={whiteText}
+          className="section_two_top"
+          style={{ textAlign: "center" }}
+        >
+          {t("why_us.title")}
+        </Text>
         <br />
         <div
           className="section_two_bottom"
@@ -167,15 +276,19 @@ const Home = () => {
               height="100%"
             ></iframe> */}
           </div>
-          <div className="section_2div_right" style={{ width: '45%' }}>
-            <div className="text_in ma">{t('why_us.text1')}</div>
-            <div className="gap" style={{ height: '30%' }} />
+          <div className="section_2div_right" style={{ width: "45%" }}>
+            <Text color={whiteText} className="text_in ma">
+              {t("why_us.text1")}
+            </Text>
+            <div className="gap" style={{ height: "30%" }} />
             <div className="header_div">
               <div className="superfast chrome_text">
                 {t('why_us.super_fast')}
               </div>
-              <div className="realization">{t('why_us.realization')}</div>
-              <div className="you_save">{t('why_us.you_save')}</div>
+              <Text color={whiteText} className="realization">
+                {t("why_us.realization")}
+              </Text>
+              <div className="you_save">{t("why_us.you_save")}</div>
             </div>
 
             <div className="lower_body" style={{ width: '100%' }}>
@@ -187,7 +300,9 @@ const Home = () => {
                   justifyContent: 'space-around',
                 }}
               >
-                <div className="text ma">{t('why_us.text2')}</div>
+                <Text color={whiteText} className="text ma">
+                  {t("why_us.text2")}
+                </Text>
                 <div className="immg chrome_text">"</div>
               </div>
             </div>
@@ -196,8 +311,10 @@ const Home = () => {
               <div className="superfast chrome_text">
                 {t('why_us.attractive')}
               </div>
-              <div className="realization">{t('why_us.offers')}</div>
-              <div className="you_save">{t('why_us.explore')}</div>
+              <Text color={whiteText} className="realization">
+                {t("why_us.offers")}
+              </Text>
+              <div className="you_save">{t("why_us.explore")}</div>
             </div>
 
             <div className="lower_body" style={{ width: '100%' }}>
@@ -209,7 +326,9 @@ const Home = () => {
                   justifyContent: 'space-around',
                 }}
               >
-                <div className="text">{t('why_us.text3')}</div>
+                <Text color={whiteText} className="text">
+                  {t("why_us.text3")}
+                </Text>
                 <div className="immg chrome_text">""</div>
               </div>
             </div>
