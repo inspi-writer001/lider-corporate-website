@@ -15,6 +15,7 @@ import Client from './liveChat/Client';
 import './i18n';
 import { Suspense } from 'react';
 import Admin from './pages/Admin';
+import Sms from './pages/Sms';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="/documents" element={<Document />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/schedule/sms" element={<Sms />} />
           </Routes>
           <Client />
 

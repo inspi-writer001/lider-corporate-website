@@ -1,29 +1,141 @@
 import './Pages.css';
 import BlurryBlob from '../components/BlurryBlob';
-import { Col, Container, Form, Row, Spinner } from 'react-bootstrap';
+import { Col, Container, Form, Modal, Row, Spinner } from 'react-bootstrap';
 import { Button } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Table from 'react-bootstrap/Table';
+import { useRef } from 'react';
 
-// import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import { collection, addDoc, getDocs } from 'firebase/firestore';
+
+import { db } from '../firebase/firebase';
+import axios from 'axios';
 
 const Admin = () => {
+  const [customers, setCustomers] = useState([]);
+  const [date, setDate] = useState('');
+  const [smsUnit, setSmsUnit] = useState('');
+
+  useEffect(() => {
+    getDocs(collection(db, 'customers')).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setCustomers(newData);
+      console.log(customers, newData);
+    });
+  }, [customers]);
+  useEffect(() => {
+    axios
+      .post(
+        'https://mail.tribearc.com/api/sms/get_balance.php',
+        {
+          api_key: 'jzCmcoutSpnsFTDGMdJHwARKhLQOga',
+        },
+        {
+          headers: { 'Content-Type': 'application/json' },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        setSmsUnit(response);
+      });
+  }, []);
+
+  const nameRef = useRef();
+  const phoneRef = useRef();
+  const messageRef = useRef();
+
+  const submithandler = async (e) => {
+    e.preventDefault();
+    setLoad(true);
+
+    const name = nameRef.current.value;
+    const phone = phoneRef.current.value;
+    const message = messageRef.current.value;
+
+    try {
+      const docRef = await addDoc(collection(db, 'customers'), {
+        name: name,
+        phone: phone,
+        date: date,
+      });
+      console.log('Document written with ID: ', docRef.id);
+      console.log('Customer Added Successfully');
+      nameRef.current.value = '';
+      phoneRef.current.value = '';
+      messageRef.current.value = '';
+    } catch (e) {
+      setLoad(false);
+      console.error('Error adding document: ', e);
+      console.error('Error adding data:', e);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Could not Add Customer ',
+      });
+    }
+
+    axios
+      .post(
+        'https://mail.tribearc.com/api/sms/send_now.php',
+        {
+          api_key: 'jzCmcoutSpnsFTDGMdJHwARKhLQOga',
+          to: phone,
+          message: message,
+        },
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      )
+      .then((response) => {
+        setLoad(false);
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Customer Addedd Successfully ',
+        });
+      })
+      .catch((err) => {
+        setLoad(false);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Could not Send Sms at the Moment',
+        });
+      });
+
+    // Add data to Firestore
+  };
+
   const { t } = useTranslation();
   const [load, setLoad] = useState(false);
-  const handleSubmit = () => {
-    setLoad(true);
-    setTimeout(() => {
-      setLoad(false);
-      Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: 'Customer Addedd Successfully ',
-      });
-    }, 2000);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
   };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleSchedule = (date, time) => {
+    // Handle the scheduled date and time here
+    console.log('Scheduled Date:', date);
+    console.log('Scheduled Time:', time);
+
+    // Close the modal
+    setShowModal(false);
+  };
+
   return (
     <>
       <Container
@@ -42,6 +154,7 @@ const Admin = () => {
           <Row>
             <Col md={6}>
               <Form
+                onSubmit={submithandler}
                 className="p-5 mx-auto mt-2 containn"
                 style={{
                   backgroundColor: 'rgba(0, 189, 93, 1)',
@@ -49,32 +162,58 @@ const Admin = () => {
               >
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>{t('contact.name')}</Form.Label>
-                  <Form.Control type="text" placeholder="Enter name" />
+                  <Form.Control
+                    type="text"
+                    ref={nameRef}
+                    placeholder="Enter name"
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>{t('contact.phone')}</Form.Label>
                   <Form.Control
                     type="number"
                     placeholder="Ex. (+2348138938432)"
+                    ref={phoneRef}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>{t('contact.message')}</Form.Label>
-                  <Form.Control as="textarea" rows={3} readOnly />
+                  <Form.Control as="textarea" rows={3} ref={messageRef} />
                 </Form.Group>
+                <small>You have {smsUnit} Sms Unit Remaining </small>
 
-                <Button
-                  className="btn_green text-white button_color"
-                  onClick={handleSubmit}
-                  style={{
-                    '&:hover': {
-                      backgroundColor: 'rgba(0, 189, 93, 1) !important',
-                      color: '#1a1a1a',
-                    },
-                  }}
-                >
-                  {!load ? t('contact.submit') : <Spinner />}
-                </Button>
+                <Row className="justify-content-start">
+                  <Col md={6}>
+                    <Button
+                      className="btn_green text-white button_color"
+                      style={{
+                        '&:hover': {
+                          backgroundColor: 'rgba(0, 189, 93, 1) !important',
+                          color: '#1a1a1a',
+                        },
+                      }}
+                      type="submit"
+                    >
+                      {!load ? t('contact.sendNow') : <Spinner />}
+                    </Button>
+                  </Col>
+                  <Col md={6}>
+                    <Button
+                      className="btn_green text-white"
+                      style={{
+                        border: '2px solid #fff',
+                        '&:hover': {
+                          backgroundColor: 'rgba(0, 189, 93, 1) !important',
+                          color: '#1a1a1a',
+                        },
+                      }}
+                      type="button"
+                      onClick={handleShowModal}
+                    >
+                      {t('contact.schedule')}
+                    </Button>
+                  </Col>
+                </Row>
               </Form>
             </Col>
             <Col md={6}>
@@ -93,31 +232,50 @@ const Admin = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr
-                    style={{
-                      backgroundColor: 'rgba(0, 189, 93, 1)',
-                    }}
-                  >
-                    <td>1</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                  </tr>
+                  {customers.map((customer, index) => (
+                    <>
+                      <tr>
+                        <td>{index}</td>
+                        <td>{customer?.name}</td>
+                        <td>{customer?.phone}</td>
+                      </tr>
+                    </>
+                  ))}
                 </tbody>
               </Table>
             </Col>
           </Row>
         </Container>
       </Container>
+
+      <Modal
+        show={showModal}
+        style={{ marginTop: '300px' }}
+        onHide={handleCloseModal}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Schedule Date and Time</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* Add your date and time input fields here */}
+          <input
+            type="date"
+            defaultValue={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button style={{ backgroundColor: 'red' }} onClick={handleCloseModal}>
+            Cancel
+          </Button>
+          <Button
+            className="btn_green text-white button_color"
+            onClick={handleSchedule}
+          >
+            Schedule
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
