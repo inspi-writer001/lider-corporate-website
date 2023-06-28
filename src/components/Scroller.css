@@ -1,0 +1,134 @@
+.navbar {
+  position: fixed;
+  display: flex;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+.navbar a {
+  display: block;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: 22px;
+  margin: 90px 0 10px;
+  visibility: hidden;
+}
+
+.description {
+  max-width: 600px;
+  margin: 10px auto 30px;
+  font-size: 22px;
+  line-height: 28px;
+}
+.description a {
+  color: black;
+}
+
+.pageSubtitle {
+  text-align: center;
+  font-size: 22px;
+  color: #888;
+}
+
+.graphicContainer {
+  padding: 40vh 2vw 20vh;
+  display: flex;
+  justify-content: space-between;
+  /* height: 100vh; */
+}
+
+/* .graphic {
+  flex-basis: 60%;
+  position: sticky;
+  width: 100%;
+  height: 60vh;
+  top: 20vh;
+  background-color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+.graphic p {
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.scroller {
+  flex-basis: 35%;
+  /* height: 100vh; */
+}
+
+.step {
+  margin: 0 auto 3rem auto;
+  padding: 180px 0;
+  border: 1px solid #333;
+}
+.step p {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.8rem;
+  margin: 0;
+}
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.button {
+  background-color: #3773ac;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 6px;
+  text-align: center;
+  display: block;
+  max-width: 220px;
+  margin: 10px auto 30px;
+  font-size: 19px;
+  line-height: 28px;
+  text-decoration: none;
+}
+
+.subhed {
+  max-width: 600px;
+  margin: 10px auto 15px;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+}
+.subhed a {
+  color: black;
+}
+
+.whoUsing {
+  max-width: 960px;
+  margin: 30px auto 100px;
+  font-size: 19px;
+  line-height: 26px;
+  grid-auto-rows: minmax(100px, auto);
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+}
+.whoUsing a {
+  color: black;
+}
+.whoUsing img {
+  width: 100%;
+}
+.whoUsing > div {
+  padding: 16px 0;
+  border-top: 1px solid #ccc;
+}
+.whoUsing > div:nth-child(odd) {
+  padding-right: 13px;
+  border-right: 1px solid #ccc;
+}
+.whoUsing > div:nth-child(even) {
+  padding-left: 13px;
+}

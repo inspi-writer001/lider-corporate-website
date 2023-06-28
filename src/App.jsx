@@ -20,7 +20,8 @@ function App() {
     <div
       className="App"
       style={{
-        backgroundImage: theme.dark_background
+        backgroundImage: theme.dark_background,
+        position: "relative"
       }}
     >
       <div className="noise"></div>

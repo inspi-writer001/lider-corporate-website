@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import loggo from "../assets/lider_logo.png";
 import { useTranslation } from "react-i18next";
+import polish_logo from "../assets/polish.png";
+import english_logo from "../assets/english.png";
+import ukranian_logo from "../assets/ukraine.png";
+import "./helper.css";
 
 import "./Navbar.css";
 import {
@@ -82,6 +86,7 @@ export default function WithSubnavigation() {
           justify={"flex-end"}
           direction={"row"}
           spacing={6}
+          style={{ alignItems: "center" }}
         >
           {/* <Button
             as={"a"}
@@ -93,19 +98,35 @@ export default function WithSubnavigation() {
             Sign In
           </Button> */}
           <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle
+              className="lang_selector"
+              variant="transparent"
+              id="dropdown-basic"
+            >
               {t("language")}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item onClick={() => i18next.changeLanguage("en")}>
-                English
+              <Dropdown.Item
+                className="lang"
+                onClick={() => i18next.changeLanguage("en")}
+              >
+                <img className="language" src={english_logo} />{" "}
+                <div className="text_lang">English</div>
               </Dropdown.Item>
-              <Dropdown.Item onClick={() => i18next.changeLanguage("pl")}>
-                Polish
+              <Dropdown.Item
+                className="lang"
+                onClick={() => i18next.changeLanguage("pl")}
+              >
+                <img className="language" src={polish_logo} />
+                <div className="text_lang">Polish</div>
               </Dropdown.Item>
-              <Dropdown.Item onClick={() => i18next.changeLanguage("uk")}>
-                Ukraine
+              <Dropdown.Item
+                className="lang"
+                onClick={() => i18next.changeLanguage("uk")}
+              >
+                <img className="language" src={ukranian_logo} />
+                <div className="text_lang">Ukranian</div>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -114,6 +135,7 @@ export default function WithSubnavigation() {
               as={"a"}
               display={{ base: "none", md: "inline-flex" }}
               fontSize={"sm"}
+              style={{ alignSelf: "center" }}
               fontWeight={600}
               color={"white"}
               bg={"rgb(0,156,224)"}
