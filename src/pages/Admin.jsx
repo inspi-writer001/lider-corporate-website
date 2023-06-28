@@ -1,6 +1,14 @@
 import './Pages.css';
 import BlurryBlob from '../components/BlurryBlob';
-import { Col, Container, Form, Modal, Row, Spinner } from 'react-bootstrap';
+import {
+  Col,
+  Container,
+  Form,
+  FormControl,
+  Modal,
+  Row,
+  Spinner,
+} from 'react-bootstrap';
 import { Button } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
@@ -8,6 +16,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Table from 'react-bootstrap/Table';
 import { useRef } from 'react';
+import Datetime from 'react-datetime';
+import 'react-datetime/css/react-datetime.css';
 
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
@@ -20,29 +30,37 @@ const Admin = () => {
   const [smsUnit, setSmsUnit] = useState('');
 
   useEffect(() => {
-    getDocs(collection(db, 'customers')).then((querySnapshot) => {
-      const newData = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setCustomers(newData);
-      console.log(customers, newData);
-    });
-  }, [customers]);
+    getDocs(collection(db, 'customers'))
+      .then((querySnapshot) => {
+        const newData = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setCustomers(newData);
+        console.log(customers, newData);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   useEffect(() => {
-    axios
-      .post(
-        'https://mail.tribearc.com/api/sms/get_balance.php',
-        {
-          api_key: 'jzCmcoutSpnsFTDGMdJHwARKhLQOga',
-        },
-        {
-          headers: { 'Content-Type': 'application/json' },
-        }
-      )
-      .then((response) => {
-        console.log(response);
-        setSmsUnit(response);
+    fetch('https://mail.tribearc.com/api/sms/get_balance.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: JSON.stringify({
+        api_key: 'jzCmcoutSpnsFTDGMdJHwARKhLQOga',
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Process the received data
+        console.log(data);
+        setSmsUnit(data);
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.error(error);
       });
   }, []);
 
@@ -62,6 +80,7 @@ const Admin = () => {
       const docRef = await addDoc(collection(db, 'customers'), {
         name: name,
         phone: phone,
+        message: message,
         date: date,
       });
       console.log('Document written with ID: ', docRef.id);
@@ -113,6 +132,40 @@ const Admin = () => {
 
     // Add data to Firestore
   };
+  const scheduleMsg = async (e) => {
+    e.preventDefault();
+    setLoad(true);
+
+    const name = nameRef.current.value;
+    const phone = phoneRef.current.value;
+    const message = messageRef.current.value;
+
+    try {
+      const docRef = await addDoc(collection(db, 'customers'), {
+        name: name,
+        phone: phone,
+        message: message,
+        date: date,
+      });
+      console.log('Document written with ID: ', docRef.id);
+      console.log('Customer Added Successfully');
+      nameRef.current.value = '';
+      phoneRef.current.value = '';
+      messageRef.current.value = '';
+      setShowModal(false);
+    } catch (e) {
+      setLoad(false);
+      console.error('Error adding document: ', e);
+      console.error('Error adding data:', e);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Could not Add Customer ',
+      });
+    }
+
+    // Add data to Firestore
+  };
 
   const { t } = useTranslation();
   const [load, setLoad] = useState(false);
@@ -124,15 +177,6 @@ const Admin = () => {
   };
 
   const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  const handleSchedule = (date, time) => {
-    // Handle the scheduled date and time here
-    console.log('Scheduled Date:', date);
-    console.log('Scheduled Time:', time);
-
-    // Close the modal
     setShowModal(false);
   };
 
@@ -234,7 +278,7 @@ const Admin = () => {
                 <tbody>
                   {customers.map((customer, index) => (
                     <>
-                      <tr>
+                      <tr key={index}>
                         <td>{index}</td>
                         <td>{customer?.name}</td>
                         <td>{customer?.phone}</td>
@@ -258,11 +302,16 @@ const Admin = () => {
         </Modal.Header>
         <Modal.Body>
           {/* Add your date and time input fields here */}
-          <input
-            type="date"
-            defaultValue={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
+          <Form>
+            <Form.Group controlId="datetimeInput">
+              <Form.Label>Date and Time</Form.Label>
+              <Form.Control
+                type="datetime-local"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
+            </Form.Group>
+          </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button style={{ backgroundColor: 'red' }} onClick={handleCloseModal}>
@@ -270,7 +319,7 @@ const Admin = () => {
           </Button>
           <Button
             className="btn_green text-white button_color"
-            onClick={handleSchedule}
+            onClick={scheduleMsg}
           >
             Schedule
           </Button>

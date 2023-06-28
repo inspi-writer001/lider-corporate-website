@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "https://mail.tribearc.com/api/sms/get_balance.php",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -37,6 +38,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-cookies": "^0.1.1",
+    "react-datetime": "^3.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.3.1",
     "react-jss": "^10.10.0",
@@ -56,6 +58,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "http-proxy-middleware": "^2.0.6",
     "vite": "^4.3.2"
   }
 }
