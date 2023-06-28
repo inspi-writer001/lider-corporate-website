@@ -1,0 +1,18 @@
+.language {
+  height: 20px;
+  display: flex;
+}
+
+.lang {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.text_lang {
+  display: flex;
+}
+
+.lang_selector {
+  font-size: 3vw !important;
+}

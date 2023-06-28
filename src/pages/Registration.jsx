@@ -25,34 +25,19 @@ import {
 import { Suspense, useRef, useEffect } from "react";
 
 import obj from "/models/plane_model.fbx";
-import dra from "/models/waitingroom/source/aroom.drc";
-import textureu from "/models/waitingroom/textures/materialdiffuse.jpg";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
-import { ColladaLoader } from "three/examples/jsm/loaders/ColladaLoader";
+import Scroller from "../components/Scroller";
+import homeImage from "../assets/night-house.png";
+import carImage from "../assets/new-car.png";
+// import mdx from "../components/Post.mdx";
 
 const Scene = () => {
   const objs = useFBX(obj);
-  // const dd = useGLTF(dra);
-  // const drcModel = useLoader(DRACOLoader, dra);
-  // const daeModel = useLoader(
-  //   ColladaLoader,
-  //   "/models/waitingroom/source/WaitRoom.dae"
-  // );
-  // const objs = useLoader(DRACOLoader, "/models/bug.drc");
+
   const { camera } = useThree();
   const ref = useRef();
   const controlsRef = useRef();
   const scrollRef = useRef(0);
   const libraryRef = useRef();
-
-  // const left = -window.innerWidth / 2;
-  // const right = window.innerWidth / 2;
-  // const top = window.innerHeight / 2;
-  // const bottom = -window.innerHeight / 2;
-  // const near = 0.1;
-  // const far = 1000;
-
-  // camera.updateProjectionMatrix();
 
   const scroll = useScroll();
 
@@ -94,7 +79,7 @@ const Registration = () => {
   let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div style={{ position: "relative" }}>
       <Canvas
         style={{
           position: "absolute",
@@ -170,7 +155,8 @@ const Registration = () => {
             </div>
           </div>
         </div>
-        <div className="another_div">
+
+        <div className="another_div" style={{ position: "relative" }}>
           <div className="top_div">
             <Text
               // color={whiteText}
@@ -181,6 +167,7 @@ const Registration = () => {
             </Text>
             <div className="right_">{t("registration.text1")}</div>
           </div>
+
           <div className="second_banner">
             <div className="background_ball" style={{ top: "0" }}>
               <Text
@@ -246,6 +233,7 @@ const Registration = () => {
             </div>
           </div>
         </div> */}
+        <Scroller />
         <div className="second_banner">
           <div className="background_ball">
             <Text
