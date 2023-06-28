@@ -9,11 +9,13 @@
   ],
   "contact_us": "Contact Us",
   "language": "🇬🇧",
-  "header1": "Multi-Agency",
-  "header2": "Leader",
+
+  "header1": "Welcome to",
+  "header2": "Multi-Agency Leader",
+  "header3": "Your trusted partner for insurance, vehicle registration and translations",
   "why_us": {
     "title": "Why Us",
-    "text1": "Lider has been on the market since 2006 and is the first such office in this region. In our business, we offer a wide selection of motor, property, life and agricultural insurance.",
+    "text1": "Since 2006 Lider has been the first and leading multifunctional office in the region. Thanks to our experience, we offer a wide range of insurance policies, professional vehicle registration services and accurate translation solutions. Our commitment to excellence and customer satisfaction sets us apart from the rest.",
     "super_fast": "Super fast",
     "realization": "Realization",
     "you_save": "You Save Time With Us, Health And Money",
@@ -29,8 +31,8 @@
     "cheap": "Cheap insurance OC and AC"
   },
   "insurance": {
-    "price": "LOW PRICE",
-    "insurance": "INSURANCE",
+    "price": "Comprehensive ",
+    "insurance": "Insurance Solutions",
     "why_us": "Why Us",
     "text1": "All risks, i.e. insurance against all risks - AC insurance covers damage to the vehicle, its destruction or loss due to all events.",
     "text2": "The subject of insurance is the civil liability of any person who, while driving a motor vehicle during the duration of the insurance contract, caused damage in connection with the movement of that vehicle.",
@@ -82,11 +84,15 @@
     "text1": "The 'LIDER' office offers mediation in the registration of vehicles both imported from abroad and purchased in Poland together with the necessary fees in all offices.",
     "text2": "We register all types of vehicles, including passenger cars, trucks, specialized cars, agricultural tractors, mopeds, motorcycles, trailers, etc.",
     "text3": "Comprehensive fees ( Customs Office, Tax Office, Department of Communication, document translations, recycling ) and complete re-Document of vehicles imported from abroad.",
-    "name": "Name",
-    "email": "Email Address",
+    "name": "Customer's Name",
+    "phone": "Customer's Phone Number",
     "share": "We will never share your email with anyone else.",
     "message": "Message",
-    "submit": "Submit"
+    "sendNow": "Send Now",
+    "schedule": "Schedule",
+    "branch": "branch",
+    "branch1": "Monday - Friday from 8:00 to 17:00 Saturday from 10:00 to 13:00",
+    "branch2": "Monday - Friday from 9:00 to 17:00 Saturday, Sunday - closed"
   },
   "footer": {
     "fast": "FAST",

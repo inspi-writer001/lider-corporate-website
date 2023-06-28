@@ -1,11 +1,11 @@
-import "./Pages.css";
-import BlurryBlob from "../components/BlurryBlob";
-import { Container, Form, Spinner } from "react-bootstrap";
-import { Button } from "@chakra-ui/react";
-import { useState } from "react";
-import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import './Pages.css';
+import BlurryBlob from '../components/BlurryBlob';
+import { Container, Form, Spinner } from 'react-bootstrap';
+import { Button } from '@chakra-ui/react';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 // import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
@@ -17,9 +17,9 @@ const Contact = () => {
     setTimeout(() => {
       setLoad(false);
       Swal.fire({
-        icon: "success",
-        title: "Thank You",
-        text: "We'll Respond to You Shortly"
+        icon: 'success',
+        title: 'Thank You',
+        text: "We'll Respond to You Shortly",
       });
     }, 2000);
   };
@@ -31,27 +31,27 @@ const Contact = () => {
             <BlurryBlob
               height={90}
               style={{
-                position: "absolute",
-                top: "-35rem",
-                left: "auto",
-                right: "auto",
-                marginLeft: "0",
-                marginRight: "0",
-                zIndex: "0 !important"
+                position: 'absolute',
+                top: '-35rem',
+                left: 'auto',
+                right: 'auto',
+                marginLeft: '0',
+                marginRight: '0',
+                zIndex: '0 !important',
               }}
             />
           </div>
           <div className="arc_container">
-            <div className="top_arc" style={{ top: "10rem" }}></div>
+            <div className="top_arc" style={{ top: '10rem' }}></div>
           </div>
           <div className="second_banner">
             <div className="background_ball">
               <div
                 className="_low_price"
                 style={{
-                  marginTop: "9rem",
-                  fontSize: "1.8rem",
-                  color: "white"
+                  marginTop: '9rem',
+                  fontSize: '1.8rem',
+                  color: 'white',
                 }}
               >
                 {" "}
@@ -59,25 +59,25 @@ const Contact = () => {
               <div
                 className="_insurance"
                 style={{
-                  marginTop: "-11rem",
-                  fontSize: "2.5rem",
-                  color: "white",
-                  fontWeight: "bold"
+                  marginTop: '-11rem',
+                  fontSize: '2.5rem',
+                  color: 'white',
+                  fontWeight: 'bold',
                 }}
               >
-                {t("contact.contact")}{" "}
+                {t('contact.contact')}{' '}
               </div>
             </div>
           </div>
           <div className="another_div">
             <div className="top_div">
-              <Link className="left_" to={"tel:+4848662969662"}>
-                NOWY TARG (branch) <br />
-                Monday - Friday from 8:00 to 17:00 Saturday from 10:00 to 13:00{" "}
+              <Link className="left_" to={'tel:+4848662969662'}>
+                NOWY TARG ({t('contact.branch')}) <br />
+                {t('contact.branch1')}
               </Link>
-              <Link className="right_" to={"tel:+48887770774"}>
-                BIALKA TATRZANSKA (branch) <br /> Monday - Friday from 9:00 to
-                17:00 Saturday, Sunday - closed
+              <Link className="right_" to={'tel:+48887770774'}>
+                BIALKA TATRZANSKA ( {t('contact.branch')}
+                ) <br /> {t('contact.branch2')}
               </Link>
             </div>
 

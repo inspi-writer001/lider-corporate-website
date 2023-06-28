@@ -10,12 +10,13 @@
   ],
   "contact_us": "Kontakt",
   "language": "🇵🇱",
-  "header1": "Wieloagencja",
-  "header2": "Lider",
+  "header1": "Witamy w ",
+  "header2": "Multiagencji Lider",
+  "header3": "Twój zaufany partner w zakresie ubezpieczeń, rejestracji pojazdów i tłumaczeń",
 
   "why_us": {
     "title": "DLACZEGO MY",
-    "text1": "Lider działa na rynku od 2006 roku i jest pierwszym takim biurem w tej okolicy. W naszej działalności oferujemy szeroki wybór ubezpieczeń komunikacyjnych, nieruchomościowych, na życie oraz rolniczych.",
+    "text1": "Od 2006 roku Lider jest pierwszym i wiodącym biurem wielofunkcyjnym w regionie. Dzięki naszemu doświadczeniu oferujemy szeroki wybór polis ubezpieczeniowych, profesjonalne usługi rejestracji pojazdów oraz dokładne rozwiązania tłumaczeniowe. Nasze zaangażowanie w doskonałość i satysfakcję klienta wyróżnia nas spośród innych.",
     "super_fast": "Super szybko",
     "realization": "Realizacja",
     "you_save": "Oszczędzasz czas z nami, zdrowie i pieniądze",
@@ -31,8 +32,8 @@
     "cheap": "Tanie ubezpieczenia OC i AC."
   },
   "insurance": {
-    "price": "NISKIE CENY",
-    "insurance": "UBEZPIECZENIE",
+    "price": "Kompleksowe",
+    "insurance": "Rozwiązania Ubezpieczeniowe",
     "why_us": "DLACZEGO MY",
     "text1": "Wszystkie ryzyka, czyli ubezpieczenie od wszystkich ryzyk - ubezpieczenie AC obejmuje szkody na pojazdach, ich zniszczenie lub utratę z powodu wszystkich zdarzeń.",
     "text2": "Przedmiotem ubezpieczenia jest odpowiedzialność cywilna każdej osoby, która, podczas prowadzenia pojazdu mechanicznego w czasie trwania umowy ubezpieczenia, spowodowała szkodę w związku z ruchem tego pojazdu.",
@@ -84,11 +85,15 @@
     "text1": "Biuro 'LIDER' oferuje pośrednictwo w rejestracji pojazdów zarówno sprowadzanych z zagranicy, jak i zakupionych w Polsce wraz z koniecznymi opłatami we wszystkich urzędach.",
     "text2": "Rejestrujemy wszelkie rodzaje pojazdów, w tym samochody osobowe, ciężarowe, samochody specjalizowane, ciągniki rolnicze, skutery, motocykle, przyczepy itp.",
     "text3": "Oferujemy kompleksową obsługę związanych z rejestracją pojazdów sprowadzanych z zagranicy, włączając w to opłaty celne (Urząd Celny), podatkowe (Urząd Skarbowy), dział Komunikacji, tłumaczenia dokumentów oraz proces pełnej ponownej rejestracji pojazdów.",
-    "name": "Imię",
-    "email": "Adres e-mail",
+    "name": "Customer's Name",
+    "email": "Numer telefonu klienta",
     "share": "Nigdy nie udostępnimy twojego adresu e-mail nikomu innemu.",
     "message": "Wiadomość",
-    "submit": "Wyślij"
+    "sendNow": "Wyślij teraz",
+    "schedule": "Harmonogram",
+    "branch": "Oddział",
+    "branch1": "Poniedziałek - piątek od 8:00 do 17:00, sobota od 10:00 do 13:00.",
+    "branch2": "Poniedziałek - piątek od 9:00 do 17:00, sobota i niedziela - zamknięte."
   },
   "footer": {
     "fast": "Szybko",
