@@ -28,6 +28,12 @@ import obj from "/models/plane_model.fbx";
 import Scroller from "../components/Scroller";
 import homeImage from "../assets/night-house.png";
 import carImage from "../assets/new-car.png";
+import {
+  RegisterationBodyContent,
+  RegisterationCarList,
+  RegisterationHeaders
+} from "../components/ScrollerHelper";
+
 // import mdx from "../components/Post.mdx";
 
 const Scene = () => {
@@ -167,7 +173,12 @@ const Registration = () => {
             </Text>
             <div className="right_">{t("registration.text1")}</div>
           </div>
-
+          <Scroller
+            BodyContent={RegisterationBodyContent}
+            Headers={RegisterationHeaders}
+            carList={RegisterationCarList}
+            steps={[10, 20, 30, 40]}
+          />
           <div className="second_banner">
             <div className="background_ball" style={{ top: "0" }}>
               <Text
@@ -233,7 +244,7 @@ const Registration = () => {
             </div>
           </div>
         </div> */}
-        <Scroller />
+
         <div className="second_banner">
           <div className="background_ball">
             <Text

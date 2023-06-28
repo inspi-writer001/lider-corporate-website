@@ -12,6 +12,11 @@ export default defineConfig({
     "**/*.FBX",
     "**/*.dae"
   ],
+  build: {
+    rollupOptions: {
+      external: ["moment"]
+    }
+  },
   resolve: {
     // Add the file extensions you want to handle
     extensions: [
@@ -31,6 +36,7 @@ export default defineConfig({
     include: [
       "three/examples/jsm/loaders/DRACOLoader",
       "three/examples/jsm/loaders/ColladaLoader"
-    ]
+    ],
+    exclude: ["moment"]
   }
 });

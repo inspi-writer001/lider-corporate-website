@@ -31,7 +31,13 @@ import {
   ScrollControls
 } from "@react-three/drei";
 import gsap from "gsap";
+import officeVideo from "../assets/office_q.mp4";
+
 import { Suspense } from "react";
+import Scroller from "../components/Scroller";
+import smilingCar from "../assets/smiling_in_car.jpg";
+import registration from "../assets/insurance_sign.jpg";
+import purchase from "../assets/happy_purchase.jpg";
 export const FLOOR_HEIGHT = 2.3;
 export const NB_FLOORS = 1;
 
@@ -102,15 +108,21 @@ const Home = () => {
   const isInView = useInView(carRef);
 
   const { t } = useTranslation();
+  const TextList = [t("why_us.text1"), t("why_us.text2"), t("why_us.text3")];
+
+  const ImagesList = [smilingCar, registration, purchase];
+
+  // const HeaderList = ["Why us?", t("why_us.super_fast"), t("why_us.attractive")];
+  const HeaderList = ["Why us?", "Our Services", "Perks"];
   const { colorMode, toggleColorMode } = useColorMode();
-  let whiteText = colorMode == 'light' ? 'black' : 'white';
-  const green = '#00bd5d';
+  let whiteText = colorMode == "light" ? "black" : "white";
+  const green = "#00bd5d";
 
   const hoverboardKeyframes = {
     initial: {
       rotateZ: 0,
       y: 0,
-      x: 0,
+      x: 0
     },
     hover: {
       rotateZ: [0, -1.4, 1.4, -1, 1, 0],
@@ -118,27 +130,23 @@ const Home = () => {
       x: [0, -5, 5, -7, 7, 0],
       transition: {
         duration: 3,
-        ease: 'easeInOut',
+        ease: "easeInOut",
         times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1],
-        repeat: Infinity,
-      },
-    },
+        repeat: Infinity
+      }
+    }
   };
 
   return (
-    <div style={{ overflow: "hidden" }}>
-      {/* <Canvas
+    <div>
+      <Canvas
         style={{
           position: "absolute",
           height: "100vh",
           width: "100vw"
         }}
       >
-        <Suspense
-          fallback={
-            null
-          }
-        >
+        <Suspense fallback={null}>
           <Scene />
           <ambientLight intensity={2} />
           <camera fov={75} near={0.1} far={1000} z={5} lookAt={[0, 20, 0]} />
@@ -156,21 +164,21 @@ const Home = () => {
           />
           <ScrollControls damping={0.25} pages={3} />
         </Suspense>
-      </Canvas> */}
+      </Canvas>
       {/* Spline web view of 3d vehicle */}
       <BlurryBlob
         height={90}
-        style={{ position: 'absolute', left: '-30rem', zIndex: '0' }}
+        style={{ position: "absolute", left: "-30rem", zIndex: "0" }}
       />
       <BlurryBlob
         height={120}
         style={{
-          position: 'absolute',
-          left: 'auto',
-          right: 'auto',
-          marginLeft: '0',
-          marginRight: '0',
-          zIndex: '0',
+          position: "absolute",
+          left: "auto",
+          right: "auto",
+          marginLeft: "0",
+          marginRight: "0",
+          zIndex: "0"
         }}
       />
 
@@ -183,18 +191,22 @@ const Home = () => {
           zIndex: "0"
         }}
       /> */}
-      <section className="image-section" style={section1} z="0">
+      <section
+        className="image-section"
+        style={{ ...section1, marginTop: "100px" }}
+        z="0"
+      >
         <div
           className="spline_container"
           style={{
-            display: 'flex',
-            position: 'absolute',
-            height: '400px',
-            width: '400px',
+            display: "flex",
+            position: "absolute",
+            height: "400px",
+            width: "400px",
             // backgroundColor: "red",
-            zIndex: '1',
-            right: '5vw',
-            bottom: '17vw',
+            zIndex: "1",
+            right: "5vw",
+            bottom: "17vw"
           }}
         >
           {/* <Spline scene="https://prod.spline.design/sGYnbbFVK7gP52N1/scene.splinecode" /> */}
@@ -208,16 +220,31 @@ const Home = () => {
 
         <div className="text_container">
           <div className="multi-agency">
-            <Text color={whiteText}>{t('header1')}</Text>
+            <Text color={whiteText}>{t("header1")}</Text>
           </div>
-          <div className="leader">{t('header2')}</div>
-          <div className="" style={{ fontSize: '20px', marginTop: 0 }}>
-            {t('header3')}
+          <div className="leader">{t("header2")}</div>
+          <div className="" style={{ fontSize: "20px", marginTop: 0 }}>
+            {t("header3")}
           </div>
         </div>
       </section>
+      <section className="video_space" style={{ ...section1, section2 }}>
+        <div className="image_container">
+          <video loop width="100%" autoPlay muted>
+            <source src={officeVideo} type="video/mp4" />
+          </video>
+        </div>
+      </section>
+      <section className="scroller">
+        <Scroller
+          BodyContent={TextList}
+          Headers={HeaderList}
+          carList={ImagesList}
+          steps={[10, 20, 30]}
+        />
+      </section>
       <section
-        style={{ ...section1, section2, height: 'fit-content !important' }}
+        style={{ ...section1, section2, height: "fit-content !important" }}
       >
         <Text
           color={whiteText}
@@ -230,22 +257,22 @@ const Home = () => {
         <div
           className="section_two_bottom"
           style={{
-            display: 'flex',
-            width: '100%',
-            justifyContent: 'space-around',
+            display: "flex",
+            width: "100%",
+            justifyContent: "space-around"
           }}
         >
           <div
             className="section_2div_left shift_sync"
-            style={{ width: '45%', height: '100%' }}
+            style={{ width: "45%", height: "100%" }}
           >
             <motion.img
               ref={carRef}
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
               className={
-                'grayscale_shadow animate__zoomInRight' +
-                (isInView && ' animate__animated')
+                "grayscale_shadow animate__zoomInRight" +
+                (isInView && " animate__animated")
               }
               style={{}}
               // src={isHovering ? carJ : carT}
@@ -283,7 +310,7 @@ const Home = () => {
             <div className="gap" style={{ height: "30%" }} />
             <div className="header_div">
               <div className="superfast chrome_text">
-                {t('why_us.super_fast')}
+                {t("why_us.super_fast")}
               </div>
               <Text color={whiteText} className="realization">
                 {t("why_us.realization")}
@@ -291,13 +318,13 @@ const Home = () => {
               <div className="you_save">{t("why_us.you_save")}</div>
             </div>
 
-            <div className="lower_body" style={{ width: '100%' }}>
+            <div className="lower_body" style={{ width: "100%" }}>
               <div
                 className="container_lower_body"
                 style={{
-                  display: 'flex',
-                  width: '100%',
-                  justifyContent: 'space-around',
+                  display: "flex",
+                  width: "100%",
+                  justifyContent: "space-around"
                 }}
               >
                 <Text color={whiteText} className="text ma">
@@ -309,7 +336,7 @@ const Home = () => {
             <div className="gap" />
             <div className="header_div">
               <div className="superfast chrome_text">
-                {t('why_us.attractive')}
+                {t("why_us.attractive")}
               </div>
               <Text color={whiteText} className="realization">
                 {t("why_us.offers")}
@@ -317,13 +344,13 @@ const Home = () => {
               <div className="you_save">{t("why_us.explore")}</div>
             </div>
 
-            <div className="lower_body" style={{ width: '100%' }}>
+            <div className="lower_body" style={{ width: "100%" }}>
               <div
                 className="container_lower_body"
                 style={{
-                  display: 'flex',
-                  width: '100%',
-                  justifyContent: 'space-around',
+                  display: "flex",
+                  width: "100%",
+                  justifyContent: "space-around"
                 }}
               >
                 <Text color={whiteText} className="text">
@@ -339,24 +366,24 @@ const Home = () => {
         style={{
           ...section1,
           ...section2,
-          display: 'flex',
-          marginTop: '100px',
-          flexDirection: 'column',
-          position: 'relative',
+          display: "flex",
+          marginTop: "100px",
+          flexDirection: "column",
+          position: "relative"
         }}
       >
         <BlurryBlob
           height={80}
           style={{
-            position: 'absolute',
-            left: '0',
-            right: '0',
-            top: '-10rem',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            width: '80rem',
+            position: "absolute",
+            left: "0",
+            right: "0",
+            top: "-10rem",
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: "80rem",
             // transform: "translate(50%, 50%)",
-            zIndex: '0',
+            zIndex: "0"
           }}
         />
         <div className="formalities_container">
@@ -370,27 +397,27 @@ const Home = () => {
                 className="dhouse grayscale_shadow"
               />
             </div>
-            <div className="comprehensive">{t('why_us.comprehensive')}</div>
-            <div className="formalities">{t('why_us.formalities')}</div>
-            <div className="we_do">{t('why_us.formalities2')}</div>
+            <div className="comprehensive">{t("why_us.comprehensive")}</div>
+            <div className="formalities">{t("why_us.formalities")}</div>
+            <div className="we_do">{t("why_us.formalities2")}</div>
           </Text>
           <div className="formalities_banner_div">
             <Link to="/registration">
               <div className="inner_formalities1 to_hover">
-                <div className="dix">{t('why_us.registration2')}</div>
+                <div className="dix">{t("why_us.registration2")}</div>
               </div>
             </Link>
             <Flex
               borderBottom={
-                colorMode == 'light'
-                  ? '5px solid rgba(6, 5, 5, 0.3)'
-                  : '5px solid rgba(255, 255, 255, 0.3)'
+                colorMode == "light"
+                  ? "5px solid rgba(6, 5, 5, 0.3)"
+                  : "5px solid rgba(255, 255, 255, 0.3)"
               }
               className="rounded_formalities"
             ></Flex>
             <Link to="/insurance">
               <div className="inner_formalities2 to_hover ">
-                <div className="dix">{t('why_us.cheap')}</div>
+                <div className="dix">{t("why_us.cheap")}</div>
               </div>
             </Link>
           </div>
@@ -403,19 +430,19 @@ const Home = () => {
 export default Home;
 
 const section1 = {
-  minHeight: '100vh',
-  color: 'white',
-  fontFamily: 'Montaga',
-  fontSize: '60px',
-  position: 'relative',
-  overflow: 'hidden',
-  zIndex: '2',
+  minHeight: "100vh",
+  color: "white",
+  fontFamily: "Montaga",
+  fontSize: "60px",
+  position: "relative",
+  overflow: "hidden",
+  zIndex: "2"
 };
 
 const section2 = {
-  display: 'flex',
-  flexDirection: 'column',
-  width: '100%',
-  padding: '20px',
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+  padding: "20px"
   // minHeight: "120vh"
 };
