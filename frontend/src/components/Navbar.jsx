@@ -159,7 +159,7 @@ export default function WithSubnavigation() {
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
+        <MobileNav funcction={onToggle} />
       </Collapse>
     </Box>
   );
@@ -258,7 +258,8 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
   );
 };
 
-const MobileNav = () => {
+const MobileNav = ({ funcction }) => {
+  const { onToggle } = useDisclosure();
   return (
     <Stack
       bg={useColorModeValue("white", "gray.800")}
@@ -272,7 +273,9 @@ const MobileNav = () => {
       }}
     >
       {NAVV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+        <div onClick={funcction} className="map">
+          <MobileNavItem key={navItem.label} {...navItem} />
+        </div>
       ))}
     </Stack>
   );
