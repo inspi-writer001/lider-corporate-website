@@ -284,15 +284,31 @@
   * {
     font-family: kanit;
   }
+  .s_container {
+    height: 100vh !important;
+    width: 100%;
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: center;
+    position: relative;
+    overflow-y: scroll;
+  }
+  .s_container .panel {
+    scroll-snap-align: start;
+    height: 100vh;
+  }
+
   .image-section {
     display: flex;
     align-items: end;
+    height: 100vh; /* Set the height of each panel to 100vh */
+    width: 100%;
+    /* scroll-snap-align: center; */
   }
 
   .text_container {
     position: relative;
-    bottom: 2rem;
-    margin-bottom: 0px;
+    bottom: 9rem;
+    /* margin-bottom: 9rem; */
     padding: 20px;
   }
 
@@ -304,11 +320,12 @@ font-family: 'Montaga', serif; */
     /* font-family: "Rowdies", cursive; */
     /* font-family: 'Secular One', sans-serif; */
     text-transform: capitalize;
-    font-size: 8rem !important;
+    font-size: 6rem !important;
   }
 
   .multi-agency {
-    margin-bottom: -4rem;
+    position: relative;
+    bottom: -4rem;
   }
   .leader,
   .superfast {

@@ -18,6 +18,7 @@ import carF from "../assets/car_back.png";
 import carT from "../assets/third_car.png";
 import house from "../assets/house3d.png";
 import obj from "/models/bughatti.fbx";
+import lider from "../assets/lider_logo.png";
 import "animate.css";
 
 // import { motion } from "framer-motion";
@@ -31,10 +32,14 @@ import {
   ScrollControls
 } from "@react-three/drei";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 import officeVideo from "../assets/office_q.mp4";
 
 import { Suspense } from "react";
+import ScrollerFull from "../components/ScrollerFull";
 import Scroller from "../components/Scroller";
+
 import smilingCar from "../assets/smiling_in_car.jpg";
 import registration from "../assets/insurance_sign.jpg";
 import purchase from "../assets/happy_purchase.jpg";
@@ -105,6 +110,10 @@ const Home = () => {
     setIsHovering(false);
   };
   const carRef = useRef(null);
+  const imageRef = useRef(null);
+  const component = useRef();
+  const slider = useRef();
+  const sliderRef = useRef(null);
   const isInView = useInView(carRef);
 
   const { t } = useTranslation();
@@ -137,9 +146,24 @@ const Home = () => {
     }
   };
 
+  useEffect(() => {
+    const imageElement = imageRef.current;
+    gsap.fromTo(
+      imageElement,
+      { rotation: -20 },
+      {
+        rotation: 0,
+        duration: 2,
+        scrollTrigger: {
+          trigger: imageElement
+        }
+      }
+    );
+  }, []);
+
   return (
-    <div>
-      <Canvas
+    <div ref={sliderRef}>
+      {/* <Canvas
         style={{
           position: "absolute",
           height: "100vh",
@@ -164,7 +188,7 @@ const Home = () => {
           />
           <ScrollControls damping={0.25} pages={3} />
         </Suspense>
-      </Canvas>
+      </Canvas> */}
       {/* Spline web view of 3d vehicle */}
       <BlurryBlob
         height={90}
@@ -181,61 +205,55 @@ const Home = () => {
           zIndex: "0"
         }}
       />
-
-      {/* <BlurryBlob
-        height={90}
-        style={{
-          position: "absolute",
-          right: "-50vw",
-          bottom: "-120vh",
-          zIndex: "0"
-        }}
-      /> */}
-      <section
-        className="image-section"
-        style={{ ...section1, marginTop: "100px" }}
-        z="0"
-      >
+      <div className="s_container">
         <div
-          className="spline_container"
-          style={{
-            display: "flex",
-            position: "absolute",
-            height: "400px",
-            width: "400px",
-            // backgroundColor: "red",
-            zIndex: "1",
-            right: "5vw",
-            bottom: "17vw"
-          }}
+          className="image-section panel"
+          style={{ ...section1, marginTop: "100px" }}
+          z="0"
         >
-          {/* <Spline scene="https://prod.spline.design/sGYnbbFVK7gP52N1/scene.splinecode" /> */}
-          {/* <iframe
-            src="https://my.spline.design/3dpathsgeometricalcopy-3e6657d9284f2f48c79b3f8356224cec/"
-            frameborder="0"
-            width="100%"
-            height="100%"
-          ></iframe> */}
-        </div>
+          <div
+            className="absolute_logo"
+            style={{
+              position: "absolute",
+              display: "flex",
+              left: "0",
+              right: "0",
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "100vw",
+              justifyContent: "center",
+              top: "10%"
+            }}
+          >
+            <img
+              src={lider}
+              ref={imageRef}
+              alt="lider logo"
+              className="lider_logo animate__animated animate__backInDown"
+              style={{ width: "200px" }}
+            />
+          </div>
 
-        <div className="text_container">
-          <div className="multi-agency">
-            <Text color={whiteText}>{t("header1")}</Text>
-          </div>
-          <div className="leader">{t("header2")}</div>
-          <div className="" style={{ fontSize: "20px", marginTop: 0 }}>
-            {t("header3")}
+          <div className="text_container">
+            <div className="multi-agency">
+              <Text color={whiteText}>{t("header1")}</Text>
+            </div>
+            <div className="leader">{t("header2")}</div>
+            <div className="" style={{ fontSize: "20px", marginTop: 0 }}>
+              {t("header3")}
+            </div>
           </div>
         </div>
-      </section>
-      <section className="video_space" style={{ ...section1, section2 }}>
-        <div className="image_container">
-          <video loop width="100%" autoPlay muted>
-            <source src={officeVideo} type="video/mp4" />
-          </video>
+        <div className="video_space panel" style={{ ...section1, section2 }}>
+          <div className="image_container">
+            <video loop width="100%" autoPlay muted>
+              <source src={officeVideo} type="video/mp4" />
+            </video>
+          </div>
         </div>
-      </section>
-      <section className="scroller">
+        <div className="extra"></div>
+      </div>
+      <section className="scroller panel" style={{ minHeight: "100vh" }}>
         <Scroller
           BodyContent={TextList}
           Headers={HeaderList}
@@ -243,125 +261,7 @@ const Home = () => {
           steps={[10, 20, 30]}
         />
       </section>
-      <section
-        style={{ ...section1, section2, height: "fit-content !important" }}
-      >
-        <Text
-          color={whiteText}
-          className="section_two_top"
-          style={{ textAlign: "center" }}
-        >
-          {t("why_us.title")}
-        </Text>
-        <br />
-        <div
-          className="section_two_bottom"
-          style={{
-            display: "flex",
-            width: "100%",
-            justifyContent: "space-around"
-          }}
-        >
-          <div
-            className="section_2div_left shift_sync"
-            style={{ width: "45%", height: "100%" }}
-          >
-            <motion.img
-              ref={carRef}
-              onMouseOver={handleMouseOver}
-              onMouseOut={handleMouseOut}
-              className={
-                "grayscale_shadow animate__zoomInRight" +
-                (isInView && " animate__animated")
-              }
-              style={{}}
-              // src={isHovering ? carJ : carT}
-              src={carT}
-              alt="image flip"
-              transition="spring"
-            />
-            <motion.img
-              className="grayscale_shadow off"
-              style={{}}
-              src={carT}
-              alt=""
-            />
-            <motion.img
-              className="grayscale_shadow off"
-              style={{}}
-              src={carJ}
-              alt=""
-            />
 
-            {/* <img style={{}} src={carF} alt="" />{" "}
-            <img style={{}} src={carF} alt="" /> */}
-            {/* <Spline scene="https://prod.spline.design/NXOsMcvBlTD40ItM/scene.splinecode" /> */}
-            {/* <iframe
-              src="https://my.spline.design/clockdigitalinteractioncopy-0b31bdfac1d22474554806dae4671dce/"
-              frameborder="0"
-              width="100%"
-              height="100%"
-            ></iframe> */}
-          </div>
-          <div className="section_2div_right" style={{ width: "45%" }}>
-            <Text color={whiteText} className="text_in ma">
-              {t("why_us.text1")}
-            </Text>
-            <div className="gap" style={{ height: "30%" }} />
-            <div className="header_div">
-              <div className="superfast chrome_text">
-                {t("why_us.super_fast")}
-              </div>
-              <Text color={whiteText} className="realization">
-                {t("why_us.realization")}
-              </Text>
-              <div className="you_save">{t("why_us.you_save")}</div>
-            </div>
-
-            <div className="lower_body" style={{ width: "100%" }}>
-              <div
-                className="container_lower_body"
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  justifyContent: "space-around"
-                }}
-              >
-                <Text color={whiteText} className="text ma">
-                  {t("why_us.text2")}
-                </Text>
-                <div className="immg chrome_text">"</div>
-              </div>
-            </div>
-            <div className="gap" />
-            <div className="header_div">
-              <div className="superfast chrome_text">
-                {t("why_us.attractive")}
-              </div>
-              <Text color={whiteText} className="realization">
-                {t("why_us.offers")}
-              </Text>
-              <div className="you_save">{t("why_us.explore")}</div>
-            </div>
-
-            <div className="lower_body" style={{ width: "100%" }}>
-              <div
-                className="container_lower_body"
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  justifyContent: "space-around"
-                }}
-              >
-                <Text color={whiteText} className="text">
-                  {t("why_us.text3")}
-                </Text>
-                <div className="immg chrome_text">""</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <section
         style={{
           ...section1,
@@ -371,6 +271,7 @@ const Home = () => {
           flexDirection: "column",
           position: "relative"
         }}
+        className="panel"
       >
         <BlurryBlob
           height={80}
@@ -389,13 +290,13 @@ const Home = () => {
         <div className="formalities_container">
           <Text color={whiteText} className="formalities_banner">
             <div className="threed_scene">
-              <motion.img
+              {/* <motion.img
                 initial="initial"
                 animate="hover"
                 variants={hoverboardKeyframes}
                 src={house}
                 className="dhouse grayscale_shadow"
-              />
+              /> */}
             </div>
             <div className="comprehensive">{t("why_us.comprehensive")}</div>
             <div className="formalities">{t("why_us.formalities")}</div>
@@ -431,7 +332,7 @@ export default Home;
 
 const section1 = {
   minHeight: "100vh",
-  color: "white",
+  // color: "white",
   fontFamily: "Montaga",
   fontSize: "60px",
   position: "relative",

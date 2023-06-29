@@ -86,7 +86,7 @@ const Registration = () => {
   const { t } = useTranslation();
   return (
     <div style={{ position: "relative" }}>
-      <Canvas
+      {/* <Canvas
         style={{
           position: "absolute",
           height: "170vh",
@@ -111,7 +111,7 @@ const Registration = () => {
           />
           <ScrollControls damping={0.25} pages={3} />
         </Suspense>
-      </Canvas>
+      </Canvas> */}
       <div className="insurance_body">
         <div className="first_banner">
           <BlurryBlob

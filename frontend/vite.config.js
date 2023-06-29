@@ -36,6 +36,7 @@ export default defineConfig({
     include: [
       "three/examples/jsm/loaders/DRACOLoader",
       "three/examples/jsm/loaders/ColladaLoader"
-    ]
+    ],
+    exclude: ["moment"]
   }
 });
