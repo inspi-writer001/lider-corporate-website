@@ -53,7 +53,7 @@
   justify-content: center;
 } */
 .graphic p {
-  font-size: 5rem;
+  font-size: rem;
   font-weight: 700;
   text-align: center;
   /* color: #fff; */
@@ -61,19 +61,20 @@
 }
 
 .scroller {
-  flex-basis: 35%;
+  flex-basis: 50%;
   /* height: 100vh; */
 }
 
 .step {
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 0 auto;
   padding: 180px 0;
+  height: 600px;
   /* border: 1px solid #333; */
 }
 .step p {
   text-align: center;
   padding: 1rem;
-  font-size: 1.8rem;
+  font-size: 1.3rem !important;
   margin: 0;
 }
 .step:last-child {

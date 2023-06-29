@@ -16,6 +16,7 @@ import "./i18n";
 import { Suspense } from "react";
 import Admin from "./pages/Admin";
 import Sms from "./pages/Sms";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <div className="noise"></div>
       <Suspense fallback={null}>
         <Router>
+          <ScrollToTop />
           <Navbar />
           <div style={{ height: "90px" }} />
           <Routes>

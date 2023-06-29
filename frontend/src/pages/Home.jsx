@@ -41,7 +41,7 @@ import ScrollerFull from "../components/ScrollerFull";
 import Scroller from "../components/Scroller";
 
 import smilingCar from "../assets/smiling_in_car.jpg";
-import registration from "../assets/insurance_sign.jpg";
+import registration from "../assets/official_registration.png";
 import purchase from "../assets/happy_purchase.jpg";
 export const FLOOR_HEIGHT = 2.3;
 export const NB_FLOORS = 1;

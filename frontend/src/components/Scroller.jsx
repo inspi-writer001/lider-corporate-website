@@ -54,7 +54,9 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
             return (
               <Step data={value} key={value}>
                 <div className="step" style={{ background }}>
-                  <h4 style={{ textAlign: "center" }}>{Headers[index]}</h4>
+                  <h1 style={{ textAlign: "center", fontWeight: "bolder" }}>
+                    {Headers[index]}
+                  </h1>
                   <p style={{ display: visibility, fontSize: ".7rem" }}>
                     {BodyContent[index]}
                   </p>
@@ -68,19 +70,20 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
       <div
         className="graphic"
         style={{
-          flexBasis: "60%",
+          flexBasis: "50%",
           position: isSticky ? "sticky" : "static",
           width: "100%",
           height: "600px",
           top: "20vh",
           bottom: "auto",
-          backgroundColor: "#aaa",
+          // backgroundColor: "#aaa",
           display: "flex",
           alignItems: "center",
           justifyContent: "center"
         }}
       >
         <img
+          style={{ height: "100%", objectFit: "cover" }}
           src={
             data == 10
               ? carList[0]
@@ -89,7 +92,9 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
               : data == 30
               ? carList[2]
               : data == 40
-              ? carList[0]
+              ? carList[3]
+              : data == 50
+              ? carList[4]
               : carList[0]
           }
         />
