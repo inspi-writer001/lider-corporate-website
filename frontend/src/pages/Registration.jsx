@@ -28,6 +28,12 @@ import obj from "/models/plane_model.fbx";
 import Scroller from "../components/Scroller";
 import homeImage from "../assets/night-house.png";
 import carImage from "../assets/new-car.png";
+import {
+  RegisterationBodyContent,
+  RegisterationCarList,
+  RegisterationHeaders
+} from "../components/ScrollerHelper";
+
 // import mdx from "../components/Post.mdx";
 
 const Scene = () => {
@@ -38,7 +44,6 @@ const Scene = () => {
   const controlsRef = useRef();
   const scrollRef = useRef(0);
   const libraryRef = useRef();
-
   const scroll = useScroll();
 
   const { scrollYProgress, scrollY } = useScroll();
@@ -78,9 +83,10 @@ const Registration = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
+  console.log(t);
   return (
     <div style={{ position: "relative" }}>
-      <Canvas
+      {/* <Canvas
         style={{
           position: "absolute",
           height: "170vh",
@@ -105,8 +111,11 @@ const Registration = () => {
           />
           <ScrollControls damping={0.25} pages={3} />
         </Suspense>
-      </Canvas>
-      <div className="insurance_body">
+      </Canvas> */}
+      <div
+        className="insurance_body"
+        style={{ color: `${whiteText} !important` }}
+      >
         <div className="first_banner">
           <BlurryBlob
             height={90}
@@ -135,10 +144,14 @@ const Registration = () => {
               className="office_image"
             /> */}
           </div>
-          <div className="background_ball">
+          <div className="background_ball" style={{ color: whiteText }}>
             <div
               className="_low_price"
-              style={{ marginTop: "9rem", fontSize: "1.8rem", color: "white" }}
+              style={{
+                marginTop: "9rem",
+                fontSize: "1.8rem",
+                color: whiteText
+              }}
             >
               {t("registration.register")}{" "}
             </div>
@@ -147,7 +160,6 @@ const Registration = () => {
               style={{
                 marginTop: "-11rem",
                 fontSize: "2.5rem",
-                color: "white",
                 fontWeight: "bold"
               }}
             >
@@ -157,7 +169,7 @@ const Registration = () => {
         </div>
 
         <div className="another_div" style={{ position: "relative" }}>
-          <div className="top_div">
+          <div className="top_div" style={{ color: whiteText }}>
             <Text
               // color={whiteText}
               className="left_"
@@ -167,7 +179,12 @@ const Registration = () => {
             </Text>
             <div className="right_">{t("registration.text1")}</div>
           </div>
-
+          <Scroller
+            BodyContent={RegisterationBodyContent}
+            Headers={RegisterationHeaders}
+            carList={RegisterationCarList}
+            steps={[10, 20, 30, 40]}
+          />
           <div className="second_banner">
             <div className="background_ball" style={{ top: "0" }}>
               <Text
@@ -233,7 +250,7 @@ const Registration = () => {
             </div>
           </div>
         </div> */}
-        <Scroller />
+
         <div className="second_banner">
           <div className="background_ball">
             <Text

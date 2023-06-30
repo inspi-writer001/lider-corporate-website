@@ -16,6 +16,33 @@ import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { USDZLoader } from "three/examples/jsm/loaders/USDZLoader";
+import caravan from "../assets/carravan_registration.png";
+import putTag from "../assets/put_tag_registration.png";
+import confusedRegistration from "../assets/confused_registration.png";
+import ferrari from "../assets/ferarri_registration.png";
+import tagRegistration from "../assets/tag_registration.png";
+import house from "../assets/night-house.png";
+import consultation from "../assets/consultant.png";
+import family from "../assets/family.png";
+import office from "../assets/office_empty.jpg";
+
+const Images = [ferrari, house, consultation, family, office];
+
+const TextLis = [
+  "Keep yourself and your vehicle protected with our reliable auto insurance policies. We offer comprehensive coverage options that safeguard you against accidents, theft, damage, and liability. Drive with confidence, knowing that we have your back",
+  "Your home is your sanctuary, and we're here to ensure it remains safe and secure. Our home insurance plans provide comprehensive coverage for your property, belongings, and liability. Whether you're a homeowner or a renter, let us provide the peace of mind you deserve",
+  "Taking care of your health is paramount, and having the right health insurance plan is crucial. We offer a range of health insurance options that provide coverage for medical expenses, prescriptions, hospital stays, and more. Your well-being is our top priority",
+  "Ensure the financial security of your loved ones with our life insurance policies. We offer various coverage options that provide financial support in the event of an untimely loss. Protect your family's future and create a legacy that lasts",
+  "Running a business comes with inherent risks, but we're here to mitigate them. Our business insurance solutions cover a wide range of industries and protect against property damage, liability claims, cyber threats, and more. Safeguard your business and focus on what you do best"
+];
+
+const HeaderLis = [
+  "Auto Insurance",
+  "Home Insurance",
+  "Health Insurance",
+  "Life Insurance",
+  "Business Insurance"
+];
 
 import {
   Environment,
@@ -43,6 +70,7 @@ import tx11 from "/models/textures_compressed/glass.jpg";
 import tx12 from "/models/textures_compressed/wallo.png";
 // import tx13 from "/models/textures_compressed/Concrete.jpg";
 import "./Pages.css";
+import Scroller from "../components/Scroller";
 
 const Scene = () => {
   const objs = useFBX(obj);
@@ -166,8 +194,8 @@ const Insurance = () => {
   let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
   return (
-    <div style={{ overflow: "hidden" }}>
-      <Canvas
+    <div>
+      {/* <Canvas
         style={{
           position: "absolute",
           height: "170vh",
@@ -196,8 +224,14 @@ const Insurance = () => {
           />
           <ScrollControls damping={0.25} pages={3} />
         </Suspense>
-      </Canvas>
+      </Canvas> */}
       <div className="insurance_body">
+        <Scroller
+          Headers={HeaderLis}
+          BodyContent={TextLis}
+          carList={Images}
+          steps={[10, 20, 30, 40, 50]}
+        />
         <div className="first_banner">
           <BlurryBlob
             height={90}
@@ -217,7 +251,11 @@ const Insurance = () => {
         </div>
         <div className="second_banner">
           <div className="background_ball">
-            <Text color={whiteText} className="_low_price">
+            <Text
+              color={whiteText}
+              style={{ marginTop: "1rem" }}
+              className="_low_price"
+            >
               {t("insurance.price")}
             </Text>
             <Text color={whiteText} className="_insurance">

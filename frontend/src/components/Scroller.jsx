@@ -1,13 +1,16 @@
 import { Scrollama, Step } from "react-scrollama";
+import { Button, useColorMode } from "@chakra-ui/react";
 import React, { useState } from "react";
 import "./Scroller.css";
 
-const Scroller = () => {
+const Scroller = ({ Headers, BodyContent, carList, steps }) => {
   const [data, setData] = useState(0);
   const [isSticky, setIsSticky] = useState(false);
-  const steps = [10, 20, 30];
+
   const [progress, setProgress] = useState(0);
   const [tracker, setTracker] = useState(0);
+  const { colorMode, toggleColorMode } = useColorMode();
+  let whiteText = colorMode == "light" ? "black" : "white";
 
   const onStepEnter = (e) => {
     const { data, entry, direction } = e;
@@ -42,21 +45,23 @@ const Scroller = () => {
           progress
           onStepProgress={onStepProgress}
           offset="400px"
-          debug
+          // debug
         >
           {steps.map((value, index) => {
             const isVisible = value === data;
             const background = isVisible
               ? `rgba(44,127,184, ${progress})`
-              : "white";
+              : "rgba(44,127,184, 0.02)";
             const visibility = isVisible ? "flex" : "hidden";
 
             return (
               <Step data={value} key={value}>
-                <div className="step" style={{ background }}>
-                  <p>step value: {value}</p>
-                  <p style={{ display: visibility }}>
-                    {Math.round(progress * 1000) / 10 + "%"}
+                <div className="step" style={{ background, color: whiteText }}>
+                  <h1 style={{ textAlign: "center", fontWeight: "bolder" }}>
+                    {Headers[index]}
+                  </h1>
+                  <p style={{ display: visibility, fontSize: ".7rem" }}>
+                    {BodyContent[index]}
                   </p>
                 </div>
               </Step>
@@ -64,22 +69,38 @@ const Scroller = () => {
           })}
         </Scrollama>
       </div>
+
       <div
         className="graphic"
         style={{
-          flexBasis: "60%",
+          flexBasis: "50%",
           position: isSticky ? "sticky" : "static",
           width: "100%",
           height: "600px",
           top: "20vh",
           bottom: "auto",
-          backgroundColor: "#aaa",
+          // backgroundColor: "#aaa",
           display: "flex",
           alignItems: "center",
           justifyContent: "center"
         }}
       >
-        <p>{data} sweee</p>
+        <img
+          style={{ height: "100%", objectFit: "cover" }}
+          src={
+            data == 10
+              ? carList[0]
+              : data == 20
+              ? carList[1]
+              : data == 30
+              ? carList[2]
+              : data == 40
+              ? carList[3]
+              : data == 50
+              ? carList[4]
+              : carList[0]
+          }
+        />
       </div>
     </div>
   );

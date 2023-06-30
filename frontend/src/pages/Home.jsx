@@ -18,6 +18,7 @@ import carF from "../assets/car_back.png";
 import carT from "../assets/third_car.png";
 import house from "../assets/house3d.png";
 import obj from "/models/bughatti.fbx";
+import lider from "../assets/lider_logo.png";
 import "animate.css";
 
 // import { motion } from "framer-motion";
@@ -31,7 +32,17 @@ import {
   ScrollControls
 } from "@react-three/drei";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+import officeVideo from "../assets/office_q.mp4";
+
 import { Suspense } from "react";
+import ScrollerFull from "../components/ScrollerFull";
+import Scroller from "../components/Scroller";
+
+import smilingCar from "../assets/smiling_in_car.jpg";
+import registration from "../assets/official_registration.png";
+import purchase from "../assets/happy_purchase.jpg";
 export const FLOOR_HEIGHT = 2.3;
 export const NB_FLOORS = 1;
 
@@ -99,18 +110,28 @@ const Home = () => {
     setIsHovering(false);
   };
   const carRef = useRef(null);
+  const imageRef = useRef(null);
+  const component = useRef();
+  const slider = useRef();
+  const sliderRef = useRef(null);
   const isInView = useInView(carRef);
 
   const { t } = useTranslation();
+  const TextList = [t("why_us.text1"), t("why_us.text2"), t("why_us.text3")];
+
+  const ImagesList = [smilingCar, registration, purchase];
+
+  // const HeaderList = ["Why us?", t("why_us.super_fast"), t("why_us.attractive")];
+  const HeaderList = ["Why us?", "Our Services", "Perks"];
   const { colorMode, toggleColorMode } = useColorMode();
-  let whiteText = colorMode == 'light' ? 'black' : 'white';
-  const green = '#00bd5d';
+  let whiteText = colorMode == "light" ? "black" : "white";
+  const green = "#00bd5d";
 
   const hoverboardKeyframes = {
     initial: {
       rotateZ: 0,
       y: 0,
-      x: 0,
+      x: 0
     },
     hover: {
       rotateZ: [0, -1.4, 1.4, -1, 1, 0],
@@ -118,15 +139,30 @@ const Home = () => {
       x: [0, -5, 5, -7, 7, 0],
       transition: {
         duration: 3,
-        ease: 'easeInOut',
+        ease: "easeInOut",
         times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1],
-        repeat: Infinity,
-      },
-    },
+        repeat: Infinity
+      }
+    }
   };
 
+  useEffect(() => {
+    const imageElement = imageRef.current;
+    gsap.fromTo(
+      imageElement,
+      { rotation: -20 },
+      {
+        rotation: 0,
+        duration: 2,
+        scrollTrigger: {
+          trigger: imageElement
+        }
+      }
+    );
+  }, []);
+
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div ref={sliderRef}>
       {/* <Canvas
         style={{
           position: "absolute",
@@ -134,11 +170,7 @@ const Home = () => {
           width: "100vw"
         }}
       >
-        <Suspense
-          fallback={
-            null
-          }
-        >
+        <Suspense fallback={null}>
           <Scene />
           <ambientLight intensity={2} />
           <camera fov={75} near={0.1} far={1000} z={5} lookAt={[0, 20, 0]} />
@@ -160,237 +192,133 @@ const Home = () => {
       {/* Spline web view of 3d vehicle */}
       <BlurryBlob
         height={90}
-        style={{ position: 'absolute', left: '-30rem', zIndex: '0' }}
+        style={{ position: "absolute", left: "-30rem", zIndex: "0" }}
       />
       <BlurryBlob
         height={120}
         style={{
-          position: 'absolute',
-          left: 'auto',
-          right: 'auto',
-          marginLeft: '0',
-          marginRight: '0',
-          zIndex: '0',
-        }}
-      />
-
-      {/* <BlurryBlob
-        height={90}
-        style={{
           position: "absolute",
-          right: "-50vw",
-          bottom: "-120vh",
+          left: "auto",
+          right: "auto",
+          marginLeft: "0",
+          marginRight: "0",
           zIndex: "0"
         }}
-      /> */}
-      <section className="image-section" style={section1} z="0">
+      />
+      <div className="s_container">
         <div
-          className="spline_container"
-          style={{
-            display: 'flex',
-            position: 'absolute',
-            height: '400px',
-            width: '400px',
-            // backgroundColor: "red",
-            zIndex: '1',
-            right: '5vw',
-            bottom: '17vw',
-          }}
-        >
-          {/* <Spline scene="https://prod.spline.design/sGYnbbFVK7gP52N1/scene.splinecode" /> */}
-          {/* <iframe
-            src="https://my.spline.design/3dpathsgeometricalcopy-3e6657d9284f2f48c79b3f8356224cec/"
-            frameborder="0"
-            width="100%"
-            height="100%"
-          ></iframe> */}
-        </div>
-
-        <div className="text_container">
-          <div className="multi-agency">
-            <Text color={whiteText}>{t('header1')}</Text>
-          </div>
-          <div className="leader">{t('header2')}</div>
-          <div className="" style={{ fontSize: '20px', marginTop: 0 }}>
-            {t('header3')}
-          </div>
-        </div>
-      </section>
-      <section
-        style={{ ...section1, section2, height: 'fit-content !important' }}
-      >
-        <Text
-          color={whiteText}
-          className="section_two_top"
-          style={{ textAlign: "center" }}
-        >
-          {t("why_us.title")}
-        </Text>
-        <br />
-        <div
-          className="section_two_bottom"
-          style={{
-            display: 'flex',
-            width: '100%',
-            justifyContent: 'space-around',
-          }}
+          className="image-section panel"
+          style={{ ...section1, marginTop: "100px" }}
+          z="0"
         >
           <div
-            className="section_2div_left shift_sync"
-            style={{ width: '45%', height: '100%' }}
+            className="absolute_logo"
+            style={{
+              position: "absolute",
+              display: "flex",
+              left: "0",
+              right: "0",
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "100vw",
+              justifyContent: "center",
+              top: "10%"
+            }}
           >
-            <motion.img
-              ref={carRef}
-              onMouseOver={handleMouseOver}
-              onMouseOut={handleMouseOut}
-              className={
-                'grayscale_shadow animate__zoomInRight' +
-                (isInView && ' animate__animated')
-              }
-              style={{}}
-              // src={isHovering ? carJ : carT}
-              src={carT}
-              alt="image flip"
-              transition="spring"
+            <img
+              src={lider}
+              ref={imageRef}
+              alt="lider logo"
+              className="lider_logo animate__animated animate__backInDown"
+              style={{ width: "200px" }}
             />
-            <motion.img
-              className="grayscale_shadow off"
-              style={{}}
-              src={carT}
-              alt=""
-            />
-            <motion.img
-              className="grayscale_shadow off"
-              style={{}}
-              src={carJ}
-              alt=""
-            />
-
-            {/* <img style={{}} src={carF} alt="" />{" "}
-            <img style={{}} src={carF} alt="" /> */}
-            {/* <Spline scene="https://prod.spline.design/NXOsMcvBlTD40ItM/scene.splinecode" /> */}
-            {/* <iframe
-              src="https://my.spline.design/clockdigitalinteractioncopy-0b31bdfac1d22474554806dae4671dce/"
-              frameborder="0"
-              width="100%"
-              height="100%"
-            ></iframe> */}
           </div>
-          <div className="section_2div_right" style={{ width: "45%" }}>
-            <Text color={whiteText} className="text_in ma">
-              {t("why_us.text1")}
-            </Text>
-            <div className="gap" style={{ height: "30%" }} />
-            <div className="header_div">
-              <div className="superfast chrome_text">
-                {t('why_us.super_fast')}
-              </div>
-              <Text color={whiteText} className="realization">
-                {t("why_us.realization")}
-              </Text>
-              <div className="you_save">{t("why_us.you_save")}</div>
-            </div>
 
-            <div className="lower_body" style={{ width: '100%' }}>
-              <div
-                className="container_lower_body"
-                style={{
-                  display: 'flex',
-                  width: '100%',
-                  justifyContent: 'space-around',
-                }}
-              >
-                <Text color={whiteText} className="text ma">
-                  {t("why_us.text2")}
-                </Text>
-                <div className="immg chrome_text">"</div>
-              </div>
+          <div className="text_container">
+            <div className="multi-agency">
+              <Text color={whiteText}>{t("header1")}</Text>
             </div>
-            <div className="gap" />
-            <div className="header_div">
-              <div className="superfast chrome_text">
-                {t('why_us.attractive')}
-              </div>
-              <Text color={whiteText} className="realization">
-                {t("why_us.offers")}
-              </Text>
-              <div className="you_save">{t("why_us.explore")}</div>
-            </div>
-
-            <div className="lower_body" style={{ width: '100%' }}>
-              <div
-                className="container_lower_body"
-                style={{
-                  display: 'flex',
-                  width: '100%',
-                  justifyContent: 'space-around',
-                }}
-              >
-                <Text color={whiteText} className="text">
-                  {t("why_us.text3")}
-                </Text>
-                <div className="immg chrome_text">""</div>
-              </div>
+            <div className="leader">{t("header2")}</div>
+            <div className="" style={{ fontSize: "20px", marginTop: 0 }}>
+              {t("header3")}
             </div>
           </div>
         </div>
+        <div className="video_space panel" style={{ ...section1, section2 }}>
+          <div className="image_container">
+            <video loop width="100%" autoPlay muted>
+              <source src={officeVideo} type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div className="extra"></div>
+      </div>
+      <section className="scroller panel" style={{ minHeight: "100vh" }}>
+        <Scroller
+          BodyContent={TextList}
+          Headers={HeaderList}
+          carList={ImagesList}
+          steps={[10, 20, 30]}
+        />
       </section>
+
       <section
         style={{
           ...section1,
           ...section2,
-          display: 'flex',
-          marginTop: '100px',
-          flexDirection: 'column',
-          position: 'relative',
+          display: "flex",
+          marginTop: "100px",
+          flexDirection: "column",
+          position: "relative"
         }}
+        className="panel"
       >
         <BlurryBlob
           height={80}
           style={{
-            position: 'absolute',
-            left: '0',
-            right: '0',
-            top: '-10rem',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            width: '80rem',
+            position: "absolute",
+            left: "0",
+            right: "0",
+            top: "-10rem",
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: "80rem",
             // transform: "translate(50%, 50%)",
-            zIndex: '0',
+            zIndex: "0"
           }}
         />
         <div className="formalities_container">
           <Text color={whiteText} className="formalities_banner">
             <div className="threed_scene">
-              <motion.img
+              {/* <motion.img
                 initial="initial"
                 animate="hover"
                 variants={hoverboardKeyframes}
                 src={house}
                 className="dhouse grayscale_shadow"
-              />
+              /> */}
             </div>
-            <div className="comprehensive">{t('why_us.comprehensive')}</div>
-            <div className="formalities">{t('why_us.formalities')}</div>
-            <div className="we_do">{t('why_us.formalities2')}</div>
+            <div className="comprehensive">{t("why_us.comprehensive")}</div>
+            <div className="formalities">{t("why_us.formalities")}</div>
+            <div className="we_do">{t("why_us.formalities2")}</div>
           </Text>
           <div className="formalities_banner_div">
             <Link to="/registration">
               <div className="inner_formalities1 to_hover">
-                <div className="dix">{t('why_us.registration2')}</div>
+                <div className="dix">{t("why_us.registration2")}</div>
               </div>
             </Link>
             <Flex
               borderBottom={
-                colorMode == 'light'
-                  ? '5px solid rgba(6, 5, 5, 0.3)'
-                  : '5px solid rgba(255, 255, 255, 0.3)'
+                colorMode == "light"
+                  ? "5px solid rgba(6, 5, 5, 0.3)"
+                  : "5px solid rgba(255, 255, 255, 0.3)"
               }
               className="rounded_formalities"
             ></Flex>
             <Link to="/insurance">
               <div className="inner_formalities2 to_hover ">
-                <div className="dix">{t('why_us.cheap')}</div>
+                <div className="dix">{t("why_us.cheap")}</div>
               </div>
             </Link>
           </div>
@@ -403,19 +331,19 @@ const Home = () => {
 export default Home;
 
 const section1 = {
-  minHeight: '100vh',
-  color: 'white',
-  fontFamily: 'Montaga',
-  fontSize: '60px',
-  position: 'relative',
-  overflow: 'hidden',
-  zIndex: '2',
+  minHeight: "100vh",
+  // color: "white",
+  fontFamily: "Montaga",
+  fontSize: "60px",
+  position: "relative",
+  overflow: "hidden",
+  zIndex: "2"
 };
 
 const section2 = {
-  display: 'flex',
-  flexDirection: 'column',
-  width: '100%',
-  padding: '20px',
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+  padding: "20px"
   // minHeight: "120vh"
 };
