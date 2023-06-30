@@ -1,48 +1,48 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
-import BlurryBlob from "../components/BlurryBlob";
-import "./Pages.css";
-import { Flex, Text, useColorMode } from "@chakra-ui/react";
+import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
+import BlurryBlob from '../components/BlurryBlob';
+import './Pages.css';
+import { Flex, Text, useColorMode } from '@chakra-ui/react';
 // import Spline from "@splinetool/react-spline";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   useInView,
   useScroll,
   motion,
   animate,
-  useTransform
-} from "framer-motion";
-import { motion as motion3 } from "framer-motion-3d";
-import carJ from "../assets/carr_front.png";
-import carF from "../assets/car_back.png";
-import carT from "../assets/third_car.png";
-import house from "../assets/house3d.png";
-import obj from "/models/bughatti.fbx";
-import lider from "../assets/lider_logo.png";
-import "animate.css";
+  useTransform,
+} from 'framer-motion';
+import { motion as motion3 } from 'framer-motion-3d';
+import carJ from '../assets/carr_front.png';
+import carF from '../assets/car_back.png';
+import carT from '../assets/third_car.png';
+import house from '../assets/house3d.png';
+import obj from '/models/bughatti.fbx';
+import lider from '../assets/lider_logo.png';
+import 'animate.css';
 
 // import { motion } from "framer-motion";
-import { Box, Html } from "@react-three/drei";
-import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { Box, Html } from '@react-three/drei';
+import { Canvas, useThree, useFrame } from '@react-three/fiber';
 
 import {
   Environment,
   OrbitControls,
   useFBX,
-  ScrollControls
-} from "@react-three/drei";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+  ScrollControls,
+} from '@react-three/drei';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-import officeVideo from "../assets/office_q.mp4";
+import officeVideo from '../assets/office_q.mp4';
 
-import { Suspense } from "react";
-import ScrollerFull from "../components/ScrollerFull";
-import Scroller from "../components/Scroller";
+import { Suspense } from 'react';
+import ScrollerFull from '../components/ScrollerFull';
+import Scroller from '../components/Scroller';
 
-import smilingCar from "../assets/smiling_in_car.jpg";
-import registration from "../assets/official_registration.png";
-import purchase from "../assets/happy_purchase.jpg";
+import smilingCar from '../assets/smiling_in_car.jpg';
+import registration from '../assets/official_registration.png';
+import purchase from '../assets/happy_purchase.jpg';
 export const FLOOR_HEIGHT = 2.3;
 export const NB_FLOORS = 1;
 
@@ -73,9 +73,9 @@ const Scene = () => {
       scrollRef.current = window.scrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -117,21 +117,21 @@ const Home = () => {
   const isInView = useInView(carRef);
 
   const { t } = useTranslation();
-  const TextList = [t("why_us.text1"), t("why_us.text2"), t("why_us.text3")];
+  const TextList = [t('why_us.text1'), t('why_us.text2'), t('why_us.text3')];
 
   const ImagesList = [smilingCar, registration, purchase];
 
   // const HeaderList = ["Why us?", t("why_us.super_fast"), t("why_us.attractive")];
-  const HeaderList = ["Why us?", "Our Services", "Perks"];
+  const HeaderList = ['Why us?', 'Our Services', 'Perks'];
   const { colorMode, toggleColorMode } = useColorMode();
-  let whiteText = colorMode == "light" ? "black" : "white";
-  const green = "#00bd5d";
+  let whiteText = colorMode == 'light' ? 'black' : 'white';
+  const green = '#00bd5d';
 
   const hoverboardKeyframes = {
     initial: {
       rotateZ: 0,
       y: 0,
-      x: 0
+      x: 0,
     },
     hover: {
       rotateZ: [0, -1.4, 1.4, -1, 1, 0],
@@ -139,11 +139,11 @@ const Home = () => {
       x: [0, -5, 5, -7, 7, 0],
       transition: {
         duration: 3,
-        ease: "easeInOut",
+        ease: 'easeInOut',
         times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1],
-        repeat: Infinity
-      }
-    }
+        repeat: Infinity,
+      },
+    },
   };
 
   useEffect(() => {
@@ -155,8 +155,8 @@ const Home = () => {
         rotation: 0,
         duration: 2,
         scrollTrigger: {
-          trigger: imageElement
-        }
+          trigger: imageElement,
+        },
       }
     );
   }, []);
@@ -192,55 +192,55 @@ const Home = () => {
       {/* Spline web view of 3d vehicle */}
       <BlurryBlob
         height={90}
-        style={{ position: "absolute", left: "-30rem", zIndex: "0" }}
+        style={{ position: 'absolute', left: '-30rem', zIndex: '0' }}
       />
       <BlurryBlob
         height={120}
         style={{
-          position: "absolute",
-          left: "auto",
-          right: "auto",
-          marginLeft: "0",
-          marginRight: "0",
-          zIndex: "0"
+          position: 'absolute',
+          left: 'auto',
+          right: 'auto',
+          marginLeft: '0',
+          marginRight: '0',
+          zIndex: '0',
         }}
       />
       <div className="s_container">
         <div
           className="image-section panel"
-          style={{ ...section1, marginTop: "100px" }}
+          style={{ ...section1, marginTop: '100px' }}
           z="0"
         >
           <div
             className="absolute_logo"
             style={{
-              position: "absolute",
-              display: "flex",
-              left: "0",
-              right: "0",
-              marginLeft: "auto",
-              marginRight: "auto",
-              width: "100vw",
-              justifyContent: "center",
-              top: "10%"
+              position: 'absolute',
+              display: 'flex',
+              left: '0',
+              right: '0',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              width: '100vw',
+              justifyContent: 'center',
+              top: '10%',
             }}
           >
             <img
               src={lider}
               ref={imageRef}
               alt="lider logo"
-              className="lider_logo animate__animated animate__backInDown"
-              style={{ width: "200px" }}
+              className="lider_logo animate__animated animate__backInDown d-none d-lg-block"
+              style={{ width: '200px' }}
             />
           </div>
 
           <div className="text_container">
             <div className="multi-agency">
-              <Text color={whiteText}>{t("header1")}</Text>
+              <Text color={whiteText}>{t('header1')}</Text>
             </div>
-            <div className="leader">{t("header2")}</div>
-            <div className="" style={{ fontSize: "20px", marginTop: 0 }}>
-              {t("header3")}
+            <div className="leader">{t('header2')}</div>
+            <div className="" style={{ fontSize: '20px', marginTop: 0 }}>
+              {t('header3')}
             </div>
           </div>
         </div>
@@ -253,8 +253,9 @@ const Home = () => {
         </div>
         <div className="extra"></div>
       </div>
-      <section className="scroller panel" style={{ minHeight: "100vh" }}>
+      <section className="scroller panel" style={{ minHeight: '100vh' }}>
         <Scroller
+          className="my-auto"
           BodyContent={TextList}
           Headers={HeaderList}
           carList={ImagesList}
@@ -266,25 +267,25 @@ const Home = () => {
         style={{
           ...section1,
           ...section2,
-          display: "flex",
-          marginTop: "100px",
-          flexDirection: "column",
-          position: "relative"
+          display: 'flex',
+          marginTop: '100px',
+          flexDirection: 'column',
+          position: 'relative',
         }}
         className="panel"
       >
         <BlurryBlob
           height={80}
           style={{
-            position: "absolute",
-            left: "0",
-            right: "0",
-            top: "-10rem",
-            marginLeft: "auto",
-            marginRight: "auto",
-            width: "80rem",
+            position: 'absolute',
+            left: '0',
+            right: '0',
+            top: '-10rem',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            width: '80rem',
             // transform: "translate(50%, 50%)",
-            zIndex: "0"
+            zIndex: '0',
           }}
         />
         <div className="formalities_container">
@@ -298,27 +299,27 @@ const Home = () => {
                 className="dhouse grayscale_shadow"
               /> */}
             </div>
-            <div className="comprehensive">{t("why_us.comprehensive")}</div>
-            <div className="formalities">{t("why_us.formalities")}</div>
-            <div className="we_do">{t("why_us.formalities2")}</div>
+            <div className="comprehensive">{t('why_us.comprehensive')}</div>
+            <div className="formalities">{t('why_us.formalities')}</div>
+            <div className="we_do">{t('why_us.formalities2')}</div>
           </Text>
           <div className="formalities_banner_div">
             <Link to="/registration">
               <div className="inner_formalities1 to_hover">
-                <div className="dix">{t("why_us.registration2")}</div>
+                <div className="dix">{t('why_us.registration2')}</div>
               </div>
             </Link>
             <Flex
               borderBottom={
-                colorMode == "light"
-                  ? "5px solid rgba(6, 5, 5, 0.3)"
-                  : "5px solid rgba(255, 255, 255, 0.3)"
+                colorMode == 'light'
+                  ? '5px solid rgba(6, 5, 5, 0.3)'
+                  : '5px solid rgba(255, 255, 255, 0.3)'
               }
               className="rounded_formalities"
             ></Flex>
             <Link to="/insurance">
               <div className="inner_formalities2 to_hover ">
-                <div className="dix">{t("why_us.cheap")}</div>
+                <div className="dix">{t('why_us.cheap')}</div>
               </div>
             </Link>
           </div>
@@ -331,19 +332,19 @@ const Home = () => {
 export default Home;
 
 const section1 = {
-  minHeight: "100vh",
+  minHeight: '100vh',
   // color: "white",
-  fontFamily: "Montaga",
-  fontSize: "60px",
-  position: "relative",
-  overflow: "hidden",
-  zIndex: "2"
+  fontFamily: 'Montaga',
+  fontSize: '60px',
+  position: 'relative',
+  overflow: 'hidden',
+  zIndex: '2',
 };
 
 const section2 = {
-  display: "flex",
-  flexDirection: "column",
-  width: "100%",
-  padding: "20px"
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  padding: '20px',
   // minHeight: "120vh"
 };
