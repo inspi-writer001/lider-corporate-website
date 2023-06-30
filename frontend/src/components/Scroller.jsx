@@ -1,4 +1,5 @@
 import { Scrollama, Step } from "react-scrollama";
+import { Button, useColorMode } from "@chakra-ui/react";
 import React, { useState } from "react";
 import "./Scroller.css";
 
@@ -8,6 +9,8 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
 
   const [progress, setProgress] = useState(0);
   const [tracker, setTracker] = useState(0);
+  const { colorMode, toggleColorMode } = useColorMode();
+  let whiteText = colorMode == "light" ? "black" : "white";
 
   const onStepEnter = (e) => {
     const { data, entry, direction } = e;
@@ -53,7 +56,7 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
 
             return (
               <Step data={value} key={value}>
-                <div className="step" style={{ background }}>
+                <div className="step" style={{ background, color: whiteText }}>
                   <h1 style={{ textAlign: "center", fontWeight: "bolder" }}>
                     {Headers[index]}
                   </h1>

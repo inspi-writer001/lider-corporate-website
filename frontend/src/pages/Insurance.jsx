@@ -251,7 +251,11 @@ const Insurance = () => {
         </div>
         <div className="second_banner">
           <div className="background_ball">
-            <Text color={whiteText} className="_low_price">
+            <Text
+              color={whiteText}
+              style={{ marginTop: "1rem" }}
+              className="_low_price"
+            >
               {t("insurance.price")}
             </Text>
             <Text color={whiteText} className="_insurance">

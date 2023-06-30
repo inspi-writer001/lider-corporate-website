@@ -31,7 +31,11 @@ const Document = () => {
           <div className="background_ball">
             <div
               className="_low_price"
-              style={{ marginTop: "9rem", fontSize: "1.8rem", color: "white" }}
+              style={{
+                marginTop: "9rem",
+                fontSize: "1.8rem",
+                color: whiteText
+              }}
             >
               {t("documents.design")}{" "}
             </div>
@@ -40,7 +44,7 @@ const Document = () => {
               style={{
                 marginTop: "-11rem",
                 fontSize: "2.5rem",
-                color: "white",
+                color: whiteText,
                 fontWeight: "bold"
               }}
             >
@@ -49,7 +53,7 @@ const Document = () => {
           </div>
         </div>
         <div className="another_div">
-          <div className="top_div">
+          <div className="top_div" style={{ color: whiteText }}>
             <div className="left_" style={{ fontSize: "2.5rem" }}>
               {t("documents.why_us")}
             </div>
@@ -62,7 +66,7 @@ const Document = () => {
                 style={{
                   marginTop: "9rem",
                   fontSize: "1.8rem",
-                  color: "white"
+                  color: whiteText
                 }}
               >
                 {t("documents.instant")}
@@ -72,7 +76,7 @@ const Document = () => {
                 style={{
                   marginTop: "-11rem",
                   fontSize: "2.5rem",
-                  color: "white",
+                  color: whiteText,
                   fontWeight: "bold"
                 }}
               >
@@ -80,8 +84,10 @@ const Document = () => {
               </div>
             </div>
           </div>
-          <div className="bottom_div">
-            <div className="left_">{t("documents.text2")}</div>
+          <div className="bottom_div" style={{ color: whiteText }}>
+            <div color={whiteText} className="left_">
+              {t("documents.text2")}
+            </div>
 
             <div className="right_">{t("documents.text3")}</div>
           </div>
@@ -114,11 +120,15 @@ const Document = () => {
             </div>
           </div>
         </div> */}
-        <div className="second_banner">
-          <div className="background_ball">
+        <div className="second_banner" style={{ color: whiteText }}>
+          <div className="background_ball" style={{ color: whiteText }}>
             <div
               className="_low_price"
-              style={{ marginTop: "9rem", fontSize: "1.8rem", color: "white" }}
+              style={{
+                marginTop: "9rem",
+                fontSize: "1.8rem",
+                color: whiteText
+              }}
             >
               {t("documents.comprehensive")}{" "}
             </div>
@@ -127,7 +137,6 @@ const Document = () => {
               style={{
                 marginTop: "-11rem",
                 fontSize: "2.5rem",
-                color: "white",
                 fontWeight: "bold"
               }}
             >
