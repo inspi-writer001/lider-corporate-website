@@ -1,5 +1,5 @@
-import "./Pages.css";
-import BlurryBlob from "../components/BlurryBlob";
+import './Pages.css';
+import BlurryBlob from '../components/BlurryBlob';
 import {
   Col,
   Container,
@@ -19,22 +19,22 @@ import { useRef } from 'react';
 
 import 'react-datetime/css/react-datetime.css';
 
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 import { db } from '../firebase/firebase';
 import axios from '../api/axios';
 
 const Admin = () => {
   const [customers, setCustomers] = useState([]);
-  const [date, setDate] = useState("");
-  const [smsUnit, setSmsUnit] = useState("");
+  const [date, setDate] = useState('');
+  const [smsUnit, setSmsUnit] = useState('');
 
   useEffect(() => {
-    getDocs(collection(db, "customers"))
+    getDocs(collection(db, 'customers'))
       .then((querySnapshot) => {
         const newData = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
-          id: doc.id
+          id: doc.id,
         }));
         setCustomers(newData);
         console.log(customers, newData);
@@ -72,7 +72,7 @@ const Admin = () => {
         name: name,
         phone: phone,
         message: message,
-        date: date
+        date: date,
       });
       await axios
         .post(
@@ -143,26 +143,26 @@ const Admin = () => {
     const message = messageRef.current.value;
 
     try {
-      const docRef = await addDoc(collection(db, "customers"), {
+      const docRef = await addDoc(collection(db, 'customers'), {
         name: name,
         phone: phone,
         message: message,
-        date: date
+        date: date,
       });
-      console.log("Document written with ID: ", docRef.id);
-      console.log("Customer Added Successfully");
-      nameRef.current.value = "";
-      phoneRef.current.value = "";
-      messageRef.current.value = "";
+      console.log('Document written with ID: ', docRef.id);
+      console.log('Customer Added Successfully');
+      nameRef.current.value = '';
+      phoneRef.current.value = '';
+      messageRef.current.value = '';
       setShowModal(false);
     } catch (e) {
       setLoad(false);
-      console.error("Error adding document: ", e);
-      console.error("Error adding data:", e);
+      console.error('Error adding document: ', e);
+      console.error('Error adding data:', e);
       Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Could not Add Customer "
+        icon: 'error',
+        title: 'Error',
+        text: 'Could not Add Customer ',
       });
     }
 
@@ -186,11 +186,11 @@ const Admin = () => {
     <>
       <Container
         style={{
-          display: "flex",
-          marginTop: "20px",
-          minHeight: "60vh",
-          flexDirection: "column",
-          justifyContent: "flex-start"
+          display: 'flex',
+          marginTop: '20px',
+          minHeight: '60vh',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
         }}
       >
         <Container>
@@ -203,11 +203,11 @@ const Admin = () => {
                 onSubmit={submithandler}
                 className="p-5 mx-auto mt-2 containn"
                 style={{
-                  backgroundColor: "rgba(0, 189, 93, 1)"
+                  backgroundColor: 'rgba(0, 189, 93, 1)',
                 }}
               >
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>{t("contact.name")}</Form.Label>
+                  <Form.Label>{t('contact.name')}</Form.Label>
                   <Form.Control
                     type="text"
                     ref={nameRef}
@@ -215,7 +215,7 @@ const Admin = () => {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>{t("contact.phone")}</Form.Label>
+                  <Form.Label>{t('contact.phone')}</Form.Label>
                   <Form.Control
                     type="number"
                     placeholder="Ex. (+2348138938432)"
@@ -223,7 +223,7 @@ const Admin = () => {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>{t("contact.message")}</Form.Label>
+                  <Form.Label>{t('contact.message')}</Form.Label>
                   <Form.Control as="textarea" rows={3} ref={messageRef} />
                 </Form.Group>
                 <small className="text-danger">
@@ -235,30 +235,30 @@ const Admin = () => {
                     <Button
                       className="btn_green text-white button_color"
                       style={{
-                        "&:hover": {
-                          backgroundColor: "rgba(0, 189, 93, 1) !important",
-                          color: "#1a1a1a"
-                        }
+                        '&:hover': {
+                          backgroundColor: 'rgba(0, 189, 93, 1) !important',
+                          color: '#1a1a1a',
+                        },
                       }}
                       type="submit"
                     >
-                      {!load ? t("contact.sendNow") : <Spinner />}
+                      {!load ? t('contact.sendNow') : <Spinner />}
                     </Button>
                   </Col>
                   <Col md={6}>
                     <Button
                       className="btn_green text-white"
                       style={{
-                        border: "2px solid #fff",
-                        "&:hover": {
-                          backgroundColor: "rgba(0, 189, 93, 1) !important",
-                          color: "#1a1a1a"
-                        }
+                        border: '2px solid #fff',
+                        '&:hover': {
+                          backgroundColor: 'rgba(0, 189, 93, 1) !important',
+                          color: '#1a1a1a',
+                        },
                       }}
                       type="button"
                       onClick={handleShowModal}
                     >
-                      {t("contact.schedule")}
+                      {t('contact.schedule')}
                     </Button>
                   </Col>
                 </Row>
@@ -269,14 +269,14 @@ const Admin = () => {
                 responsive="lg"
                 className="p-5 mx-auto mt-2 containn table-striped"
                 style={{
-                  backgroundColor: "rgba(0, 189, 93, 1)"
+                  backgroundColor: 'rgba(0, 189, 93, 1)',
                 }}
               >
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>{t("contact.name")}</th>
-                    <th>{t("contact.phone")}</th>
+                    <th>{t('contact.name')}</th>
+                    <th>{t('contact.phone')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -298,7 +298,7 @@ const Admin = () => {
 
       <Modal
         show={showModal}
-        style={{ marginTop: "300px" }}
+        style={{ marginTop: '300px' }}
         onHide={handleCloseModal}
       >
         <Modal.Header closeButton>
@@ -320,7 +320,7 @@ const Admin = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button style={{ backgroundColor: "red" }} onClick={handleCloseModal}>
+          <Button style={{ backgroundColor: 'red' }} onClick={handleCloseModal}>
             Cancel
           </Button>
           <Button

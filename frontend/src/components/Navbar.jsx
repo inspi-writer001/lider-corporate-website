@@ -28,12 +28,12 @@ import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon
-} from "@chakra-ui/icons";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { Dropdown } from "react-bootstrap";
-import i18next from "i18next";
-import "animate.css";
+  ChevronRightIcon,
+} from '@chakra-ui/icons';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { Dropdown } from 'react-bootstrap';
+import i18next from 'i18next';
+import 'animate.css';
 
 export default function WithSubnavigation() {
   const { t } = useTranslation();
@@ -77,7 +77,7 @@ export default function WithSubnavigation() {
             <img
               className="animate__animated animate__rotateInDownLeft"
               src={loggo}
-              style={{ width: "5rem" }}
+              style={{ width: '5rem' }}
             />
           </Text>
 
@@ -171,7 +171,7 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
   // NAV_ITEMS.splice(-1, 1);
   return (
-    <Stack direction={"row"} spacing={4} style={{ alignItems: "center" }}>
+    <Stack direction={'row'} spacing={4} style={{ alignItems: 'center' }}>
       {NAV_ITEMS.map((navItem, index) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -185,8 +185,8 @@ const DesktopNav = () => {
                 fontWeight={500}
                 className={
                   index % 2 !== 0
-                    ? "animate__animated animate__bounceInDown"
-                    : "animate__animated animate__backInUp"
+                    ? 'animate__animated animate__bounceInDown'
+                    : 'animate__animated animate__backInUp'
                 }
                 color={linkColor}
                 _hover={{
