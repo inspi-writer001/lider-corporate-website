@@ -16,13 +16,13 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Table from 'react-bootstrap/Table';
 import { useRef } from 'react';
-import Datetime from 'react-datetime';
+
 import 'react-datetime/css/react-datetime.css';
 
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 import { db } from '../firebase/firebase';
-import axios from 'axios';
+import axios from '../api/axios';
 
 const Admin = () => {
   const [customers, setCustomers] = useState([]);
@@ -43,24 +43,15 @@ const Admin = () => {
   }, []);
 
   useEffect(() => {
-    fetch('https://mail.tribearc.com/api/sms/get_balance.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      body: JSON.stringify({
-        api_key: 'jzCmcoutSpnsFTDGMdJHwARKhLQOga',
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Process the received data
-        console.log(data);
-        setSmsUnit(data);
+    axios
+      .get('api/get-sms-unit', {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       })
-      .catch((error) => {
-        // Handle any errors
-        console.error(error);
+      .then((response) => {
+        setSmsUnit(response.data);
+        console.log('sms', response.data);
       });
   }, []);
 
@@ -77,43 +68,54 @@ const Admin = () => {
     const message = messageRef.current.value;
 
     try {
-      const docRef = await addDoc(collection(db, 'customers'), {
+      await addDoc(collection(db, 'customers'), {
         name: name,
         phone: phone,
         message: message,
         date: date,
       });
-      console.log('Document written with ID: ', docRef.id);
-      console.log('Customer Added Successfully');
-      nameRef.current.value = '';
-      phoneRef.current.value = '';
-      messageRef.current.value = '';
+      await axios
+        .post(
+          'api/send-sms',
+          {
+            api_key: 'jzCmcoutSpnsFTDGMdJHwARKhLQOga',
+            to: phone,
+            message: message,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          }
+        )
+        .then((response) => {
+          setLoad(false);
+          if (
+            response.data ==
+            'Unable to send sms. You have exhausted your sms unit!'
+          ) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: response.data,
+            });
+          }
+
+          nameRef.current.value = '';
+          phoneRef.current.value = '';
+          messageRef.current.value = '';
+        });
     } catch (e) {
       setLoad(false);
-      console.error('Error adding document: ', e);
-      console.error('Error adding data:', e);
+
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Could not Add Customer ',
+        text: e,
       });
     }
 
-    axios
-      .post(
-        'https://mail.tribearc.com/api/sms/send_now.php',
-        {
-          api_key: 'jzCmcoutSpnsFTDGMdJHwARKhLQOga',
-          to: phone,
-          message: message,
-        },
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      )
-      .then((response) => {
+    /* .then((response) => {
         setLoad(false);
         Swal.fire({
           icon: 'success',
@@ -128,7 +130,7 @@ const Admin = () => {
           title: 'Error',
           text: 'Could not Send Sms at the Moment',
         });
-      });
+      }); */
 
     // Add data to Firestore
   };
@@ -224,7 +226,9 @@ const Admin = () => {
                   <Form.Label>{t('contact.message')}</Form.Label>
                   <Form.Control as="textarea" rows={3} ref={messageRef} />
                 </Form.Group>
-                <small>You have {smsUnit} Sms Unit Remaining </small>
+                <small className="text-danger">
+                  You have {smsUnit} Sms Unit Remaining{' '}
+                </small>
 
                 <Row className="justify-content-start">
                   <Col md={6}>
@@ -279,7 +283,7 @@ const Admin = () => {
                   {customers.map((customer, index) => (
                     <>
                       <tr key={index}>
-                        <td>{index}</td>
+                        <td>{index + 1}</td>
                         <td>{customer?.name}</td>
                         <td>{customer?.phone}</td>
                       </tr>
@@ -303,11 +307,13 @@ const Admin = () => {
         <Modal.Body>
           {/* Add your date and time input fields here */}
           <Form>
-            <Form.Group controlId="datetimeInput">
+            <Form.Group>
               <Form.Label>Date and Time</Form.Label>
               <Form.Control
-                type="datetime-local"
+                type="date"
                 value={date}
+                id="dateInput"
+                className="col-6"
                 onChange={(e) => setDate(e.target.value)}
               />
             </Form.Group>
