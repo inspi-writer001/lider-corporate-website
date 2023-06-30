@@ -149,12 +149,18 @@ const Admin = () => {
         message: message,
         date: date,
       });
+      setShowModal(false);
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Message Scheduled Successfully!',
+      });
       console.log('Document written with ID: ', docRef.id);
       console.log('Customer Added Successfully');
       nameRef.current.value = '';
       phoneRef.current.value = '';
       messageRef.current.value = '';
-      setShowModal(false);
+      setLoad(false);
     } catch (e) {
       setLoad(false);
       console.error('Error adding document: ', e);
@@ -231,10 +237,11 @@ const Admin = () => {
                 </small>
 
                 <Row className="justify-content-start">
-                  <Col md={6}>
+                  <Col md={6} sm={6}>
                     <Button
                       className="btn_green text-white button_color"
                       style={{
+                        width: '100%',
                         '&:hover': {
                           backgroundColor: 'rgba(0, 189, 93, 1) !important',
                           color: '#1a1a1a',
@@ -245,11 +252,12 @@ const Admin = () => {
                       {!load ? t('contact.sendNow') : <Spinner />}
                     </Button>
                   </Col>
-                  <Col md={6}>
+                  <Col md={6} sm={6}>
                     <Button
                       className="btn_green text-white"
                       style={{
                         border: '2px solid #fff',
+                        width: '100%',
                         '&:hover': {
                           backgroundColor: 'rgba(0, 189, 93, 1) !important',
                           color: '#1a1a1a',
