@@ -2,11 +2,27 @@ import "./Pages.css";
 import BlurryBlob from "../components/BlurryBlob";
 import { useTranslation } from "react-i18next";
 import { Text, useColorMode } from "@chakra-ui/react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  Button,
+  ModalBody,
+  useDisclosure,
+  ModalCloseButton
+} from "@chakra-ui/react";
+import DocumentViewer from "../components/DocumentViewer";
+import { useState, useEffect } from "react";
+import { slopeObjects } from "../components/Post";
 
 const Document = () => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const [document, setDocument] = useState({ name: "", documentLink: "" });
   let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div>
       <div className="insurance_body">
@@ -27,6 +43,7 @@ const Document = () => {
         <div className="arc_container">
           <div className="top_arc" style={{ top: "10rem" }}></div>
         </div>
+
         <div className="second_banner">
           <div className="background_ball">
             <div
@@ -51,13 +68,110 @@ const Document = () => {
               {t("documents.documents")}{" "}
             </div>
           </div>
+          <div
+            className="poopup_environment"
+            style={{
+              display: "flex",
+              position: "absolute",
+              zIndex: "3",
+              width: "100vw",
+              height: "100svh",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            {/* <Button onClick={onOpen}>Open Modal</Button> */}
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent
+                style={{
+                  display: "flex",
+                  position: "relative",
+                  left: "0",
+                  right: "0",
+                  top: "4%",
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  justifyContent: "center",
+                  alignSelf: "center"
+                }}
+              >
+                <ModalHeader>{document?.name}</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <div
+                    className="documents_container"
+                    style={{
+                      // display: "none",
+                      height: "50vh",
+                      width: "100%",
+                      position: "relative"
+                    }}
+                  >
+                    <DocumentViewer
+                      selectedDoc={
+                        "https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/Deklaracja%20AKC-US.pdf?alt=media&token=944dfde4-c5dc-496f-aa5e-361e44b7a7ca"
+                      }
+                    />
+                  </div>
+                </ModalBody>
+
+                <ModalFooter>
+                  <Button colorScheme="blue" mr={3} onClick={onClose}>
+                    Close
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
+          </div>
         </div>
         <div className="another_div">
           <div className="top_div" style={{ color: whiteText }}>
             <div className="left_" style={{ fontSize: "2.5rem" }}>
               {t("documents.why_us")}
             </div>
-            <div className="right_">{t("documents.text1")}</div>
+            <div
+              className="right_"
+              style={{ background: "none", boxShadow: "none" }}
+            >
+              {t("documents.text1")}
+            </div>
+          </div>
+          <div className="documents_list">
+            <div
+              className="grids-container"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "3%"
+              }}
+            >
+              {slopeObjects.map((item, index) => (
+                <div
+                  className="grids-item left_"
+                  style={{
+                    flexBasis: "47%",
+                    flexGrow: "1",
+                    fontSize: ".7rem",
+                    height: "1.7rem",
+                    width: "1.7rem",
+                    marginBottom: "3%",
+                    cursor: "pointer",
+                    borderRadius: "10px 0 0 0"
+                  }}
+                  key={item}
+                  onClick={() => {
+                    setDocument({
+                      name: item?.name,
+                      documentLink: item?.documentLink
+                    });
+                    onOpen();
+                  }}
+                >
+                  {item?.name}
+                </div>
+              ))}
+            </div>
           </div>
           <div className="second_banner">
             <div className="background_ball" style={{ top: "0" }}>
@@ -98,6 +212,7 @@ const Document = () => {
             style={{ top: "-18rem", transform: "rotate(180deg)" }}
           ></div>
         </div>
+
         {/* <div className="best_offer second_banner" style={{ top: "12rem" }}>
           <div className="background_ball">
             <div

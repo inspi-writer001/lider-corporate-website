@@ -39,6 +39,7 @@
     "react-bootstrap": "^2.7.4",
     "react-cookies": "^0.1.1",
     "react-datetime": "^3.2.0",
+    "react-documents": "1.1.1",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.3.1",
     "react-jss": "^10.10.0",
