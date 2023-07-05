@@ -205,46 +205,31 @@ const Home = () => {
           zIndex: '0',
         }}
       />
-      <div className="s_container">
-        <div
-          className="image-section panel"
-          style={{ ...section1, marginTop: '100px' }}
-          z="0"
-        >
-          <div
-            className="absolute_logo"
-            style={{
-              position: 'absolute',
-              display: 'flex',
-              left: '0',
-              right: '0',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              width: '100vw',
-              justifyContent: 'center',
-              top: '10%',
-            }}
-          >
+      <div className="s_container ">
+        <div className="hero">
+          <div className="d-flex" style={{}}>
             <img
               src={lider}
               ref={imageRef}
               alt="lider logo"
-              className="lider_logo animate__animated animate__backInDown d-none d-lg-block"
+              className="lider_logo animate__animated animate__backInDown mx-auto"
               style={{ width: '200px' }}
             />
           </div>
-
-          <div className="text_container">
-            <div className="multi-agency">
-              <Text color={whiteText}>{t('header1')}</Text>
-            </div>
-            <div className="leader">{t('header2')}</div>
-            <div className="" style={{ fontSize: '20px', marginTop: 0 }}>
+          <div className="mt-5">
+            <h1 className="text-center fw-light" style={{ color: '#037fc2' }}>
+              {t('header1')}
+            </h1>
+            <h1 className="text-center header2">{t('header2')}</h1>
+            <h3
+              className="text-center mt-4 text-light py-2"
+              style={{ backgroundColor: '#037fc2' }}
+            >
               {t('header3')}
-            </div>
+            </h3>
           </div>
         </div>
-        <div className="video_space panel" style={{ ...section1, section2 }}>
+        <div className="video_space panel" style={{ section2 }}>
           <div className="image_container">
             <video loop width="100%" autoPlay muted>
               <source src={officeVideo} type="video/mp4" />
