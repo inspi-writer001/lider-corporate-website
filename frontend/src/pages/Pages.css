@@ -305,6 +305,8 @@
     margin: 100px !important;
     height: 100vh !important;
     scroll-snap-align: center !important;
+    padding-top: 50px;
+    overflow-y: hidden;
   }
   .header2 {
     font-size: 125px;
@@ -312,6 +314,9 @@
     font-weight: bolder;
   }
 
+  .correct-insurance {
+    top: -400px;
+  }
   .absolute_logo {
     display: flex;
     left: 0;

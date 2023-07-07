@@ -1,18 +1,18 @@
-import './Pages.css';
-import BlurryBlob from '../components/BlurryBlob';
-import { useTranslation } from 'react-i18next';
-import office from '../assets/office_empty.jpg';
+import "./Pages.css";
+import BlurryBlob from "../components/BlurryBlob";
+import { useTranslation } from "react-i18next";
+import office from "../assets/office_empty.jpg";
 // import { motion } from "framer-motion";
-import { Text, useColorMode } from '@chakra-ui/react';
+import { Text, useColorMode } from "@chakra-ui/react";
 import {
   useInView,
   useScroll,
   motion,
   animate,
-  useTransform,
-} from 'framer-motion';
-import { motion as motion3 } from 'framer-motion-3d';
-import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber';
+  useTransform
+} from "framer-motion";
+import { motion as motion3 } from "framer-motion-3d";
+import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
 
 import {
   Environment,
@@ -20,19 +20,19 @@ import {
   useFBX,
   useGLTF,
   ScrollControls,
-  useTexture,
-} from '@react-three/drei';
-import { Suspense, useRef, useEffect } from 'react';
+  useTexture
+} from "@react-three/drei";
+import { Suspense, useRef, useEffect } from "react";
 
-import obj from '/models/plane_model.fbx';
-import Scroller from '../components/Scroller';
-import homeImage from '../assets/night-house.png';
-import carImage from '../assets/new-car.png';
+import obj from "/models/plane_model.fbx";
+import Scroller from "../components/Scroller";
+import homeImage from "../assets/night-house.png";
+import carImage from "../assets/new-car.png";
 import {
   RegisterationBodyContent,
   RegisterationCarList,
-  RegisterationHeaders,
-} from '../components/ScrollerHelper';
+  RegisterationHeaders
+} from "../components/ScrollerHelper";
 
 // import mdx from "../components/Post.mdx";
 
@@ -53,9 +53,9 @@ const Scene = () => {
       scrollRef.current = window.scrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -81,11 +81,11 @@ const Scene = () => {
 
 const Registration = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  let whiteText = colorMode == 'light' ? 'black' : 'white';
+  let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
   console.log(t);
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: "relative" }}>
       {/* <Canvas
         style={{
           position: "absolute",
@@ -120,18 +120,18 @@ const Registration = () => {
           <BlurryBlob
             height={90}
             style={{
-              position: 'absolute',
-              top: '-35rem',
-              left: 'auto',
-              right: 'auto',
-              marginLeft: '0',
-              marginRight: '0',
-              zIndex: '0 !important',
+              position: "absolute",
+              top: "-35rem",
+              left: "auto",
+              right: "auto",
+              marginLeft: "0",
+              marginRight: "0",
+              zIndex: "0 !important"
             }}
           />
         </div>
         <div className="arc_container">
-          <div className="top_arc aarc" style={{ top: '10rem' }}></div>
+          <div className="top_arc aarc" style={{ top: "10rem" }}></div>
         </div>
 
         <div className="second_banner">
@@ -148,36 +148,36 @@ const Registration = () => {
             <div
               className="_low_price"
               style={{
-                marginTop: '9rem',
-                fontSize: '1.8rem',
-                color: whiteText,
+                marginTop: "9rem",
+                fontSize: "1.8rem",
+                color: whiteText
               }}
             >
-              {t('registration.register')}{' '}
+              {t("registration.register")}{" "}
             </div>
             <div
               className="_insurance"
               style={{
-                marginTop: '-11rem',
-                fontSize: '2.5rem',
-                fontWeight: 'bold',
+                marginTop: "-11rem",
+                fontSize: "2.5rem",
+                fontWeight: "bold"
               }}
             >
-              {t('registration.vehicle')}
+              {t("registration.vehicle")}
             </div>
           </div>
         </div>
 
-        <div className="another_div" style={{ position: 'relative' }}>
+        <div className="another_div" style={{ position: "relative" }}>
           <div className="top_div" style={{ color: whiteText }}>
             <Text
               // color={whiteText}
               className="left_"
-              style={{ fontSize: '2.5rem' }}
+              style={{ fontSize: "2.5rem" }}
             >
-              {t('registration.why_us')}
+              {t("registration.why_us")}
             </Text>
-            <div className="right_">{t('registration.text1')}</div>
+            <div className="right_">{t("registration.text1")}</div>
           </div>
           <Scroller
             BodyContent={RegisterationBodyContent}
@@ -186,46 +186,46 @@ const Registration = () => {
             steps={[10, 20, 30, 40]}
           />
           <div className="second_banner">
-            <div className="background_ball" style={{ top: '0' }}>
+            <div className="background_ball" style={{ top: "0" }}>
               <Text
                 color={whiteText}
                 className="_low_price"
                 style={{
-                  marginTop: '9rem',
-                  fontSize: '1.8rem',
+                  marginTop: "9rem",
+                  fontSize: "1.8rem"
                   // color: "white"
                 }}
               >
-                {t('registration.instant')}
+                {t("registration.instant")}
               </Text>
               <Text
                 color={whiteText}
                 className="_insurance"
                 style={{
-                  marginTop: '-11rem',
-                  fontSize: '2.5rem',
+                  marginTop: "-11rem",
+                  fontSize: "2.5rem",
                   // color: "white",
-                  fontWeight: 'bold',
+                  fontWeight: "bold"
                 }}
               >
-                {t('registration.registration')}
+                {t("registration.registration")}
               </Text>
             </div>
           </div>
           <div className="bottom_div">
             <Text color={whiteText} className="left_">
-              {t('registration.text2')}
+              {t("registration.text2")}
             </Text>
 
             <Text color={whiteText} className="right_">
-              {t('registration.text3')}
+              {t("registration.text3")}
             </Text>
           </div>
         </div>
         <div className="arc_container">
           <div
             className="top_arc"
-            style={{ top: '-18rem', transform: 'rotate(180deg)' }}
+            style={{ top: "-18rem", transform: "rotate(180deg)" }}
           ></div>
         </div>
         {/* <div className="best_offer second_banner" style={{ top: "12rem" }}>
@@ -257,45 +257,45 @@ const Registration = () => {
               color={whiteText}
               className="_low_price"
               style={{
-                marginTop: '9rem',
-                fontSize: '1.8rem',
+                marginTop: "9rem",
+                fontSize: "1.8rem"
                 //  color: "white"
               }}
             >
-              {t('registration.comprehensive')}{' '}
+              {t("registration.comprehensive")}{" "}
             </Text>
             <Text
               color={whiteText}
               className="_insurance"
               style={{
-                marginTop: '-11rem',
-                fontSize: '2.5rem',
+                marginTop: "-11rem",
+                fontSize: "2.5rem",
                 // color: "white",
-                fontWeight: 'bold',
+                fontWeight: "bold"
               }}
             >
-              {t('registration.formalism')}{' '}
+              {t("registration.formalism")}{" "}
             </Text>
           </div>
           <Text
             color={whiteText}
             className="trust_us"
-            style={{ textAlign: 'center' }}
+            style={{ textAlign: "center" }}
           >
-            {t('registration.we_provide')}
+            {t("registration.we_provide")}
           </Text>
         </div>
         <div className="first_banner">
           <BlurryBlob
             height={90}
             style={{
-              position: 'absolute',
-              top: '50rem',
-              left: 'auto',
-              right: 'auto',
-              marginLeft: '0',
-              marginRight: '0',
-              zIndex: '0 !important',
+              position: "absolute",
+              top: "50rem",
+              left: "auto",
+              right: "auto",
+              marginLeft: "0",
+              marginRight: "0",
+              zIndex: "0 !important"
             }}
           />
         </div>

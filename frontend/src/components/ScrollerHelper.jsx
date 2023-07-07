@@ -2,8 +2,9 @@ import houseImage from "../assets/night-house.png";
 import oldCar from "../assets/old-car.png";
 import newCar from "../assets/new-car.png";
 import farmCar from "../assets/farm.png";
+import regCar from "../assets/put_tag_registration.png";
 
-export const RegisterationCarList = [newCar, farmCar, oldCar];
+export const RegisterationCarList = [newCar, farmCar, oldCar, regCar];
 export const RegisterationHeaders = [
   "Personal Vehicle Registration",
   "Commercial Vehicle Registration",

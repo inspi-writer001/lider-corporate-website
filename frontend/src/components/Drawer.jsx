@@ -139,18 +139,37 @@ const Belgium = ({ image, texts }) => {
   return (
     <div>
       <div className="section_first">
+        Registration document - part I (NL) <br />
+        KENTEKENBEWIJS (DEEL I) New Belgian
+        <div className="smalll">Registration Certificate - Part I in Dutch</div>
         <img src={image[0]} alt="" />
         <img src={image[1]} alt="" />
       </div>
       <div className="section_second">
+        Registration document - part I (FR) <br /> CERTIFICAT D'IMMATRICULATION
+        (PARTE I)
+        <div className="smalll">
+          Template of the new Belgian registration certificate - Part I in
+          French
+        </div>
         <img src={image[2]} alt="" />
         <img src={image[3]} alt="" />
       </div>
       <div className="section_third">
+        Registration document - part I (DE) <br /> ZULLASUNGSBESCHEINIGUNG (TEIL
+        I)
+        <div className="smalll">
+          New Belgian Registration Certificate - Part I in German
+        </div>
         <img src={image[4]} alt="" />
         <img src={image[5]} alt="" />
       </div>
       <div className="section_fourth">
+        Proof of registration <br />
+        KENTEKENBEWIJS
+        <div className="smalll">
+          Model Belgian Registration Certificate in Dutch, French and German
+        </div>
         <img src={image[6]} alt="" />
         <img src={image[7]} alt="" />
       </div>
@@ -163,18 +182,28 @@ const Denmark = ({ image, texts }) => {
     <div>
       {" "}
       <div className="section_first">
+        Sample of the new Danish registration certificate - part I
+        <br />
+        REGISTRERINGSATTEST - DEL I
         <img src={image[0]} alt="" />
         <img src={image[1]} alt="" />
       </div>
       <div className="section_second">
+        Sample of the new Danish registration certificate - part II
+        <br /> REGISTRERINGSATTEST - DEL II
         <img src={image[2]} alt="" />
         <img src={image[3]} alt="" />
       </div>
       <div className="section_third">
+        Sample Danish registration certificate
+        <br />
+        REGISTRERINGSATTEST
         <img src={image[4]} alt="" />
         <img src={image[5]} alt="" />
       </div>
       <div className="section_fourth">
+        Sample Danish registration certificate <br />
+        REGISTRERINGSATTEST
         <img src={image[6]} alt="" />
         <img src={image[7]} alt="" />
       </div>
@@ -186,15 +215,59 @@ const France = ({ image, texts }) => {
   return (
     <div>
       <div className="section_first">
+        Proof of registration <br />
+        CERTIFICATE D'IMMATRICULATION Specimen of the new
+        <div className="smalll">French registration certificate</div>
         <img src={image[0]} alt="" />
         <img src={image[1]} alt="" />
       </div>
       <div className="section_second">
+        Proof of registration <br />
+        CERTIFICATE D'IMMATRICULATION
+        <div className="smalll">
+          Template of a French registration certificate
+        </div>
         <img src={image[2]} alt="" />
         <img src={image[3]} alt="" />
       </div>
       <div className="section_third">
+        Proof of registration <br />
+        CERTIFICATE D'IMMATRICULATION French registration
+        <div className="smalll">
+          certificate template (black and white copy)
+        </div>
         <img src={image[4]} alt="" />
+      </div>
+    </div>
+  );
+};
+
+const Spanish = ({ image, texts }) => {
+  return (
+    <div>
+      <div className="section_first">
+        Registration document NEW <br /> Sample of the new Spanish registration
+        certificate
+        <img src={image[0]} alt="" />
+        <img src={image[1]} alt="" />
+      </div>
+      <div className="section_second">
+        Old registration certificate <br /> Template of an old Spanish
+        registration certificate
+        <img src={image[2]} alt="" />
+        <img src={image[3]} alt="" />
+      </div>
+      <div className="section_third">
+        TIME registration certificate <br />
+        Template of the Spanish temporary registration certificate
+        <img src={image[4]} alt="" />
+        <img src={image[5]} alt="" />
+      </div>
+      <div className="section_fourth">
+        TIME registration certificate <br />
+        Template of the Spanish temporary registration certificate
+        <img src={image[6]} alt="" />
+        <img src={image[7]} alt="" />
       </div>
     </div>
   );
@@ -204,40 +277,23 @@ const Greece = ({ image, texts }) => {
   return (
     <div>
       <div className="section_first">
+        Proof of registration <br /> Greek registration certificate template
+        (black and white copy)
         <img src={image[0]} alt="" />
         <img src={image[1]} alt="" />
       </div>
       <div className="section_second">
+        Proof of registration <br />
+        Greek registration certificate template
         <img src={image[2]} alt="" />
         <img src={image[3]} alt="" />
       </div>
       <div className="section_third">
-        <img src={image[4]} alt="" />
-        <img src={image[5]} alt="" />
-      </div>
-      <div className="section_fourth">
-        <img src={image[6]} alt="" />
-        <img src={image[7]} alt="" />
-      </div>
-    </div>
-  );
-};
-
-const Spain = ({ image, texts }) => {
-  return (
-    <div>
-      <div className="section_first">
-        <img src={image[0]} alt="" />
-        <img src={image[1]} alt="" />
-      </div>
-      <div className="section_second">
-        <img src={image[2]} alt="" />
-        <img src={image[3]} alt="" />
-      </div>
-      <div className="section_third">
+        Proof of registration <br /> Greek registration certificate template
         <img src={image[4]} alt="" />
       </div>
       <div className="section_fourth">
+        Proof of registration <br /> Greek registration certificate template
         <img src={image[5]} alt="" />
       </div>
     </div>
@@ -248,13 +304,20 @@ const Netherlands = ({ image, texts }) => {
   return (
     <div>
       <div className="section_first">
+        Registration document NEW <br />
+        Template of the new Dutch registration certificate - part I
         <img src={image[0]} alt="" />
         <img src={image[1]} alt="" />
       </div>
       <div className="section_second">
+        Registration document NEW II <br /> Sample of the new Dutch registration
+        certificate - part II
         <img src={image[2]} alt="" />
       </div>
       <div className="section_third">
+        TRANSIT registration document <br />
+        VOERTUIGBEWIJS Template for a Dutch
+        <div className="smalll">transit registration certificate</div>
         <img src={image[3]} alt="" />
         <img src={image[4]} alt="" />
       </div>
@@ -266,6 +329,11 @@ const Ireland = ({ image, texts }) => {
   return (
     <div>
       <div className="section_first">
+        Registration document NEW
+        <br /> REGISTRATION CERTIFITCATE
+        <div className="smalll">
+          New Irish registration certificate template
+        </div>
         <img src={image[0]} alt="" />
         <img src={image[1]} alt="" />
       </div>
@@ -277,10 +345,19 @@ const Germany = ({ image, texts }) => {
   return (
     <div>
       <div className="section_first">
+        Registration document NEW <br /> ZULLASUNGBESCHEINIGUNG TEIL I
+        <div className="smalll">
+          Template of the new German registration certificate part I
+        </div>
         <img src={image[0]} alt="" />
         <img src={image[1]} alt="" />
       </div>
       <div className="section_second">
+        Registration document NEW II
+        <br /> ZULLASUNGBESCHEINIGUNG TEIL II
+        <div className="smalll">
+          Specimen of the new German registration certificate part II
+        </div>
         <img src={image[2]} alt="" />
       </div>
     </div>
@@ -291,10 +368,19 @@ const Norway = ({ image, texts }) => {
   return (
     <div>
       <div className="section_first">
+        Registration document NEW I <br />
+        NORGE VOGNKORT DEL 1
+        <div className="smalll">
+          Template of the new Norwegian registration certificate - part I
+        </div>
         <img src={image[0]} alt="" />
         <img src={image[1]} alt="" />
       </div>
       <div className="section_second">
+        Registration document NEW II <br /> NORGE VOGNKORT DEL 2
+        <div className="smalll">
+          Template of the new Norwegian registration certificate - part II
+        </div>
         <img src={image[2]} alt="" />
         <img src={image[3]} alt="" />
       </div>
@@ -306,6 +392,10 @@ const United = ({ image, texts }) => {
   return (
     <div>
       <div className="section_first">
+        Vehicle ownership certificate <br /> CERTIFICATE OF TITLE
+        <div className="smalll">
+          Vehicle Title Deed Template - United States
+        </div>
         <img src={image[0]} alt="" />
       </div>
     </div>
@@ -316,9 +406,11 @@ const Switzerland = ({ image, texts }) => {
   return (
     <div>
       <div className="section_first">
+        Proof of registration FAHRZEUGAUSWIES
         <img src={image[0]} alt="" />
       </div>
       <div className="section_second">
+        Agreement / Invoice - EXAMPLE
         <img src={image[1]} alt="" />
       </div>
     </div>
@@ -344,13 +436,18 @@ const Italy = ({ image, texts }) => {
   return (
     <div>
       <div className="section_first">
+        Proof of registration <br />
+        CARTA DI CIRCOLAZIONE
         <img src={image[0]} alt="" />
         <img src={image[1]} alt="" />
       </div>
       <div className="section_second">
+        Proof of ownership <br />
+        CERTICATO DI PROPIERTA
         <img src={image[2]} alt="" />
       </div>
       <div className="section_third">
+        Agreement / Invoice - EXAMPLE
         <img src={image[3]} alt="" />
       </div>
     </div>

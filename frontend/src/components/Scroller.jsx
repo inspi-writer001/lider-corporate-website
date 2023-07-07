@@ -56,11 +56,27 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
 
             return (
               <Step data={value} key={value}>
-                <div className="step" style={{ background, color: whiteText }}>
+                <div
+                  className="step"
+                  style={{
+                    background,
+                    color: whiteText,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    display: "flex",
+                    flexDirection: "column"
+                  }}
+                >
                   <h1 style={{ textAlign: "center", fontWeight: "bolder" }}>
                     {Headers[index]}
-                  </h1>
-                  <p style={{ display: visibility, fontSize: ".7rem" }}>
+                  </h1>{" "}
+                  <p
+                    style={{
+                      display: visibility,
+                      fontSize: ".7rem",
+                      textAlign: "center"
+                    }}
+                  >
                     {BodyContent[index]}
                   </p>
                 </div>
@@ -69,9 +85,7 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
           })}
         </Scrollama>
       </div>
-      <console>
-        <log>hello world</log>
-      </console>
+
       <div
         className="graphic"
         style={{
@@ -79,7 +93,7 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
           position: isSticky ? "sticky" : "static",
           width: "100%",
           height: "600px",
-          top: "20vh",
+          top: "15vh",
           bottom: "auto",
           // backgroundColor: "#aaa",
           display: "flex",
