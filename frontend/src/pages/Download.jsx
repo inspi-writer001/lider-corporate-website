@@ -108,11 +108,7 @@ const Download = () => {
                       position: "relative"
                     }}
                   >
-                    <DocumentViewer
-                      selectedDoc={
-                        "https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/Deklaracja%20AKC-US.pdf?alt=media&token=944dfde4-c5dc-496f-aa5e-361e44b7a7ca"
-                      }
-                    />
+                    <DocumentViewer selectedDoc={document.documentLink} />
                   </div>
                 </ModalBody>
 

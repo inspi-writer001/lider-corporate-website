@@ -1,0 +1,19 @@
+.section_first,
+.section_second,
+.section_third,
+.section_fourth,
+.section_fifth,
+.section_sixth,
+.section_seventh {
+  display: flex;
+  flex-direction: column;
+  font-size: 120%;
+  margin-bottom: 10%;
+  font-weight: 800;
+}
+
+.smalll {
+  font-size: medium;
+  font-weight: 400;
+  margin-bottom: 10px;
+}

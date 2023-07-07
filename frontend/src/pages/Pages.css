@@ -303,6 +303,8 @@
   .hero {
     min-height: 100vh;
     margin: 100px !important;
+    height: 100vh !important;
+    scroll-snap-align: center !important;
   }
   .header2 {
     font-size: 125px;
@@ -322,6 +324,7 @@
     margin-bottom: 20px;
   }
   .s_container {
+    height: 100vh !important;
     width: 100%;
     /* scroll-padding: 0 0 50% 0;  */
     scroll-snap-type: y mandatory;
@@ -330,7 +333,7 @@
     overflow-y: scroll;
   }
   .s_container .panel {
-    scroll-snap-align: start;
+    scroll-snap-align: start !important;
     height: 100vh;
   }
 
@@ -635,7 +638,7 @@ font-family: 'Montaga', serif; */
     /* background-color: red; */
     /* color: white; */
     background: rgba(255, 255, 255, 0.12);
-    background: rgba(3, 127, 194, 0.2);
+    background: rgba(3, 127, 194, 0.2) !important;
     /* background: rgba(0, 189, 93, 0.2); */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -737,6 +740,11 @@ font-family: 'Montaga', serif; */
     display: inline-block;
     white-space: nowrap;
     animation: ticker 8s linear infinite;
+  }
+
+  .grids-item {
+    min-height: 300px;
+    font-size: 150% !important;
   }
 
   .partner_image {

@@ -15,17 +15,25 @@ import {
 } from "@chakra-ui/react";
 import DocumentViewer from "../components/DocumentViewer";
 import { useState, useEffect } from "react";
-import { slopeObjects } from "../components/Post";
+import { slopeObjects, documentsList } from "../components/Post";
+import Drawer from "../components/Drawer";
 
 const Document = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [document, setDocument] = useState({ name: "", documentLink: "" });
+  const [document, setDocument] = useState({ name: "", documentLink: [] });
   let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div>
       <div className="insurance_body">
+        <Drawer
+          onnOpen={onOpen}
+          onnClose={onClose}
+          issOpen={isOpen}
+          fieldName={document.name}
+          images={document.documentLink}
+        />
         <div className="first_banner">
           <BlurryBlob
             height={90}
@@ -68,73 +76,27 @@ const Document = () => {
               {t("documents.documents")}{" "}
             </div>
           </div>
-          <div
-            className="poopup_environment"
-            style={{
-              display: "flex",
-              position: "absolute",
-              zIndex: "3",
-              width: "100vw",
-              height: "100svh",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            {/* <Button onClick={onOpen}>Open Modal</Button> */}
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent
-                style={{
-                  display: "flex",
-                  position: "relative",
-                  left: "0",
-                  right: "0",
-                  top: "4%",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  justifyContent: "center",
-                  alignSelf: "center"
-                }}
-              >
-                <ModalHeader>{document?.name}</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <div
-                    className="documents_container"
-                    style={{
-                      // display: "none",
-                      height: "50vh",
-                      width: "100%",
-                      position: "relative"
-                    }}
-                  >
-                    <DocumentViewer
-                      selectedDoc={
-                        "https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/Deklaracja%20AKC-US.pdf?alt=media&token=944dfde4-c5dc-496f-aa5e-361e44b7a7ca"
-                      }
-                    />
-                  </div>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button colorScheme="blue" mr={3} onClick={onClose}>
-                    Close
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
-          </div>
         </div>
         <div className="another_div">
           <div className="top_div" style={{ color: whiteText }}>
-            <div className="left_" style={{ fontSize: "2.5rem" }}>
-              {t("documents.why_us")}
+            <div
+              className="left_"
+              style={{ fontSize: "1.7rem", flexDirection: "column" }}
+            >
+              <div>foreign DOCUMENTS</div>
+
+              <div className="little" style={{ fontSize: "1.2rem" }}>
+                Don't waste your time searching. We did it for you.
+              </div>
+              {/* {t("documents.why_us")} */}
             </div>
             <div
               className="right_"
               style={{ background: "none", boxShadow: "none" }}
             >
-              {t("documents.text1")}
+              Select a country from the list to view document templates
+              applicable in that country.
+              {/* {t("documents.text1")} */}
             </div>
           </div>
           <div className="documents_list">
@@ -146,7 +108,7 @@ const Document = () => {
                 gap: "3%"
               }}
             >
-              {slopeObjects.map((item, index) => (
+              {documentsList.map((item, index) => (
                 <div
                   className="grids-item left_"
                   style={{
@@ -163,7 +125,7 @@ const Document = () => {
                   onClick={() => {
                     setDocument({
                       name: item?.name,
-                      documentLink: item?.documentLink
+                      documentLink: item?.imagesList
                     });
                     onOpen();
                   }}

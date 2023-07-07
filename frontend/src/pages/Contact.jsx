@@ -13,7 +13,9 @@ import Maps from "../components/Maps";
 const Contact = () => {
   const { t } = useTranslation();
   const [load, setLoad] = useState(false);
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState(
+    "Jana Kilińskiego 15, 34-400 Nowy Targ, Poland"
+  );
   const { colorMode, toggleColorMode } = useColorMode();
   let whiteText = colorMode == "light" ? "black" : "white";
   const handleSubmit = () => {
@@ -93,10 +95,7 @@ const Contact = () => {
               <Link
                 style={{ color: whiteText }}
                 onClick={() =>
-                  setLocation({
-                    lat: 48.6149919,
-                    lng: 15.564328
-                  })
+                  setLocation("Środkowa 162, 34-405 Białka Tatrzańska, Poland")
                 }
                 className="right_"
                 to={"tel:+48887770774"}

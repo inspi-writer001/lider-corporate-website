@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import Geocode from "react-geocode";
+import lidermap from "../assets/liderrr.png";
 
 const containerStyle = {
   width: "100%",
@@ -15,17 +17,30 @@ const containerStyle = {
 //   lat: 48.6149919,
 //   lng: 15.564328
 // };
+const leaf = "Jana Kilińskiego 15, 34-400 Nowy Targ, Poland";
+
+const key = import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY;
 
 const Maps = ({ center }) => {
+  const [latLng, setLatLng] = useState(null);
+  useEffect(() => {
+    Geocode.setApiKey(key);
+    Geocode.fromAddress(center).then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        setLatLng({ lat, lng });
+      },
+      (error) => {
+        console.error("Error while geocoding:", error);
+      }
+    );
+  }, [center]);
+
   return (
     <div>
-      <LoadScript googleMapsApiKey="">
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={4.7}
-        >
-          <Marker position={center} />
+      <LoadScript googleMapsApiKey={key}>
+        <GoogleMap mapContainerStyle={containerStyle} center={latLng} zoom={15}>
+          {latLng && <Marker position={latLng} />}{" "}
         </GoogleMap>
       </LoadScript>
     </div>

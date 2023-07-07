@@ -13,14 +13,14 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
     const { data, entry, direction } = e;
     setData(data);
 
-    console.log(Math.round(progress * 1000) / 10);
+    // console.log(Math.round(progress * 1000) / 10);
     // if(progress)
   };
 
   const onStepExit = ({ direction, data }) => {
     if (direction === "up" && data === steps[0]) {
       setData(0);
-      console.log("0 out");
+      // console.log("0 out");
     }
   };
 
@@ -28,7 +28,7 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
     setProgress(progress);
     console.log(progress);
     if (progress >= 0.5 && progress < 0.6) {
-      console.log("whooo");
+      // console.log("whooo");
       setIsSticky(true);
     }
   };
