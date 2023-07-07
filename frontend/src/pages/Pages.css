@@ -17,11 +17,24 @@
     margin: 100px !important;
   }
   .header2 {
-    font-size: 150px;
-    line-height: 120px;
+    font-size: 30px;
+    line-height: 40px;
     font-weight: bolder;
   }
 
+  .video_space {
+    min-height: 1vh;
+    margin-bottom: -250%;
+  }
+
+  .so {
+    font-size: 150% !important;
+    padding: 20px;
+  }
+
+  .scroller {
+    margin-top: -200%;
+  }
   .insurance_body {
     margin-top: 10rem;
   }

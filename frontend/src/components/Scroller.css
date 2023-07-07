@@ -31,7 +31,7 @@
 .pageSubtitle {
   text-align: center;
   font-size: 22px;
-  color: #888;
+  /* color: #888; */
 }
 
 .graphicContainer {
@@ -67,14 +67,14 @@
 
 .step {
   margin: 0 auto 0 auto;
-  padding: 30px 10px;
+  padding: 180px 0;
   height: 600px;
   /* border: 1px solid #333; */
 }
 .step p {
-  text-align: left;
+  text-align: center;
   padding: 1rem;
-  font-size: 1.3rem !important;
+  /* font-size: 1.3rem; */
   margin: 0;
 }
 .step:last-child {
@@ -132,4 +132,43 @@
 }
 .whoUsing > div:nth-child(even) {
   padding-left: 13px;
+}
+
+@media (max-width: 767px) {
+  .sl {
+    font-size: 20px !important;
+  }
+
+  .sll,
+  .loo {
+    font-size: 0.9rem;
+    /* font-weight: 600; */
+  }
+
+  .graphicContainer {
+    margin-top: -100%;
+    overflow-x: hidden;
+    /* overflow-y: visible; */
+    height: fit-content;
+    position: relative;
+  }
+
+  .scroller {
+    flex-basis: 100%;
+    margin-top: 10%;
+  }
+
+  .step {
+    /* width: 200%; */
+    /* flex-basis: 100%; */
+    justify-self: center;
+  }
+
+  .scroller {
+    width: 100vw !important;
+  }
+
+  .graphic {
+    display: none !important;
+  }
 }

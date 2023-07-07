@@ -67,13 +67,17 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
                     flexDirection: "column"
                   }}
                 >
-                  <h1 style={{ textAlign: "center", fontWeight: "bolder" }}>
+                  <h1
+                    className="sl"
+                    style={{ textAlign: "center", fontWeight: "bolder" }}
+                  >
                     {Headers[index]}
                   </h1>{" "}
                   <p
+                    className="sll loo"
                     style={{
                       display: visibility,
-                      fontSize: ".7rem",
+                      // fontSize: "1.3rem",
                       textAlign: "center"
                     }}
                   >

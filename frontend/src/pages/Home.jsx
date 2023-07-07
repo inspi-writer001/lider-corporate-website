@@ -220,9 +220,9 @@ const Home = () => {
             <h1 className="text-center fw-light" style={{ color: "#037fc2" }}>
               {t("header1")}
             </h1>
-            <h1 className="text-center header2">{t("header2")}</h1>
+            <h1 className="text-center header2 ">{t("header2")}</h1>
             <h3
-              className="text-center mt-4 text-light py-2"
+              className="text-center mt-4 text-light so py-2"
               style={{ backgroundColor: "#037fc2" }}
             >
               {t("header3")}
