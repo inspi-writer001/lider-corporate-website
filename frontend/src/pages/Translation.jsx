@@ -1,24 +1,24 @@
-import React from 'react';
-import './Pages.css';
-import BlurryBlob from '../components/BlurryBlob';
-import { Link } from 'react-router-dom';
-import flag1 from '../assets/flag1.png';
-import flago from '../assets/flago.png';
-import { useTranslation } from 'react-i18next';
-import 'animate.css';
+import React from "react";
+import "./Pages.css";
+import BlurryBlob from "../components/BlurryBlob";
+import { Link } from "react-router-dom";
+import flag1 from "../assets/flag1.png";
+import flago from "../assets/flago.png";
+import { useTranslation } from "react-i18next";
+import "animate.css";
 // import { motion } from "framer-motion";
-import { Text, useColorMode } from '@chakra-ui/react';
+import { Text, useColorMode } from "@chakra-ui/react";
 import {
   useInView,
   useScroll,
   motion,
   animate,
-  useTransform,
-} from 'framer-motion';
-import { motion as motion3 } from 'framer-motion-3d';
-import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-import { USDZLoader } from 'three/examples/jsm/loaders/USDZLoader';
+  useTransform
+} from "framer-motion";
+import { motion as motion3 } from "framer-motion-3d";
+import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+import { USDZLoader } from "three/examples/jsm/loaders/USDZLoader";
 
 import {
   Environment,
@@ -26,12 +26,12 @@ import {
   useFBX,
   ScrollControls,
   useFBO,
-  PerspectiveCamera,
-} from '@react-three/drei';
-import { Suspense, useRef, useEffect } from 'react';
-import { MathUtils } from 'three';
+  PerspectiveCamera
+} from "@react-three/drei";
+import { Suspense, useRef, useEffect } from "react";
+import { MathUtils } from "three";
 
-import obj from '/models/format_office.FBX';
+import obj from "/models/format_office.FBX";
 
 const Scene = () => {
   const objs = useFBX(obj);
@@ -60,9 +60,9 @@ const Scene = () => {
       scrollRef.current = window.scrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -89,7 +89,7 @@ const Scene = () => {
 const Translation = () => {
   const { t } = useTranslation();
   const { colorMode, toggleColorMode } = useColorMode();
-  let whiteText = colorMode == 'light' ? 'black' : 'white';
+  let whiteText = colorMode == "light" ? "black" : "white";
   const flagKeyframes = {
     // initial: {
     //   rotateZ: 0
@@ -115,7 +115,7 @@ const Translation = () => {
     initial: {
       rotateZ: 0,
       y: 0,
-      x: 0,
+      x: 0
     },
     hover: {
       rotateZ: [0, -1.4, 1.4, -1, 1, 0],
@@ -123,19 +123,19 @@ const Translation = () => {
       x: [0, -5, 5, -7, 7, 0],
       transition: {
         duration: 3,
-        ease: 'easeInOut',
+        ease: "easeInOut",
         times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1],
-        repeat: Infinity,
-      },
-    },
+        repeat: Infinity
+      }
+    }
   };
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div style={{ overflow: "hidden" }}>
       <Canvas
         style={{
-          position: 'absolute',
-          height: '80vh',
-          width: '100vw',
+          position: "absolute",
+          height: "80vh",
+          width: "100vw"
         }}
       >
         <Suspense fallback={null}>
@@ -163,18 +163,18 @@ const Translation = () => {
           <BlurryBlob
             height={90}
             style={{
-              position: 'absolute',
-              top: '-35rem',
-              left: 'auto',
-              right: 'auto',
-              marginLeft: '0',
-              marginRight: '0',
-              zIndex: '0 !important',
+              position: "absolute",
+              top: "-35rem",
+              left: "auto",
+              right: "auto",
+              marginLeft: "0",
+              marginRight: "0",
+              zIndex: "0 !important"
             }}
           />
         </div>
         <div className="arc_container">
-          <div className="top_arc" style={{ top: '10rem' }}></div>
+          <div className="top_arc" style={{ top: "10rem" }}></div>
         </div>
         <div className="second_banner">
           <div className="threed_scene">
@@ -191,78 +191,78 @@ const Translation = () => {
             <Text
               className="_low_price"
               color={whiteText}
-              style={{ marginTop: '9rem', fontSize: '1.8rem' }}
+              style={{ marginTop: "9rem", fontSize: "1.8rem" }}
             >
-              {t('translations.translations')}
+              {t("translations.translations")}
             </Text>
             <Text
               color={whiteText}
               className="_insurance"
               style={{
-                marginTop: '-11rem',
-                fontSize: '2.5rem',
+                marginTop: "-11rem",
+                fontSize: "2.5rem",
                 // color: "white",
-                fontWeight: 'bold',
+                fontWeight: "bold"
               }}
             >
-              {t('translations.documents')}{' '}
+              {t("translations.documents")}{" "}
             </Text>
           </div>
         </div>
         <div className="another_div">
           <div className="top_div">
             <Text color={whiteText} className="left_">
-              {t('translations.text1')}{' '}
+              {t("translations.text1")}{" "}
             </Text>
             <Text color={whiteText} className="right_">
-              {t('translations.text2')}
+              {t("translations.text2")}
             </Text>
           </div>
           <div className="second_banner">
-            <div className="background_ball" style={{ top: '0' }}>
+            <div className="background_ball" style={{ top: "0" }}>
               <Text
                 color={whiteText}
                 className="_low_price"
                 style={{
-                  marginTop: '9rem',
-                  fontSize: '1.8rem',
+                  marginTop: "9rem",
+                  fontSize: "1.8rem"
                   // color: "white"
                 }}
               >
-                {t('translations.low')}{' '}
+                {t("translations.low")}{" "}
               </Text>
               <Text
                 color={whiteText}
                 className="_insurance"
                 style={{
-                  textAlign: 'center',
+                  textAlign: "center"
                 }}
               >
-                {t('translations.prices')}{' '}
+                {t("translations.prices")}{" "}
               </Text>
             </div>
             <Text color={whiteText} className="text-center">
-              {t('translations.best_price')}
+              {t("translations.best_price")}
             </Text>
           </div>
-          <div className="bottom_div">
+          <div className="bottom_div smm">
             <Link>
               <Text
                 color={whiteText}
-                className="left_"
-                style={{ borderRadius: '50%' }}
+                className="left_ sl"
+                style={{ borderRadius: "50%" }}
               >
-                {t('translations.text3')}
+                {t("translations.text3")}
               </Text>
             </Link>
 
             <Link>
               <Text
                 color={whiteText}
-                className="right_"
-                style={{ borderRadius: '50%' }}
+                className="right_ slo"
+                style={{ borderRadius: "50%" }}
               >
-                {t('translations.text4')}
+                {t("translations.text4")}
               </Text>
             </Link>
           </div>
@@ -270,7 +270,7 @@ const Translation = () => {
         <div className="arc_container">
           <div
             className="top_arc"
-            style={{ top: '-18rem', transform: 'rotate(180deg)' }}
+            style={{ top: "-18rem", transform: "rotate(180deg)" }}
           ></div>
         </div>
         {/* <div className="best_offer second_banner" style={{ top: "12rem" }}>
@@ -299,17 +299,17 @@ const Translation = () => {
           <div className="background_ball">
             <div
               className="_low_price"
-              style={{ marginTop: '9rem', fontSize: '1.8rem', color: 'white' }}
+              style={{ marginTop: "9rem", fontSize: "1.8rem", color: "white" }}
             >
               {/* COMPREHENSIVE */}
             </div>
             <div
               className="_insurance"
               style={{
-                marginTop: '-11rem',
-                fontSize: '2.5rem',
-                color: 'white',
-                fontWeight: 'bold',
+                marginTop: "-11rem",
+                fontSize: "2.5rem",
+                color: "white",
+                fontWeight: "bold"
               }}
             >
               {/* FORMALISM */}
@@ -317,7 +317,7 @@ const Translation = () => {
           </div>
           <div
             className="trust_us"
-            style={{ position: 'relative', top: '-3rem' }}
+            style={{ position: "relative", top: "-3rem" }}
           >
             {/* We provide full professionalism completing formalities */}
           </div>
@@ -326,13 +326,13 @@ const Translation = () => {
           <BlurryBlob
             height={90}
             style={{
-              position: 'absolute',
-              top: '50rem',
-              left: 'auto',
-              right: 'auto',
-              marginLeft: '0',
-              marginRight: '0',
-              zIndex: '0 !important',
+              position: "absolute",
+              top: "50rem",
+              left: "auto",
+              right: "auto",
+              marginLeft: "0",
+              marginRight: "0",
+              zIndex: "0 !important"
             }}
           />
         </div>
