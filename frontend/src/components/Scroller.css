@@ -35,7 +35,6 @@
 }
 
 .graphicContainer {
-  padding: 40vh 2vw 20vh;
   display: flex;
   justify-content: space-between;
   /* height: 100vh; */

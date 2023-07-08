@@ -32,39 +32,33 @@
     "cheap": "Cheap insurance OC and AC"
   },
   "insurance": {
-    "price": "Comprehensive ",
-    "insurance": "Insurance Solutions",
-    "why_us": "Why Us",
-    "text1": "All risks, i.e. insurance against all risks - AC insurance covers damage to the vehicle, its destruction or loss due to all events.",
-    "text2": "The subject of insurance is the civil liability of any person who, while driving a motor vehicle during the duration of the insurance contract, caused damage in connection with the movement of that vehicle.",
-    "text3": " 'Lider ' offers you the best offers on the market of known insurance companies. We guarantee the greatest professionalism and advice regarding vehicle insurance.",
-    "best": "Best",
-    "offers": "Offers",
-    "trust": "THOSE WHO TRUST US"
+    "header1": "Auto Insurance",
+    "header2": "Home Insurance",
+    "header3": "Health Insurance",
+    "header4": "Life Insurance",
+    "header5": "Business Insurance",
+    "header6": "Insurable Interest",
+
+    "text1": "We offer comprehensive car insurance, including autocasco (AC), third party liability (OC) and accident insurance (NW). \n Our company provides a wide range of policies that protect both your car and you as the driver.",
+    "text2": "Secure your property with our property insurance.\n We offer homeowners insurance that protects your property against a variety of risks.",
+    "text3": "Life insurance is an investment in the future. It protects your loved ones in the event of your death by providing a cash benefit that can be used to pay off a mortgage, support current expenses or provide education for children. \n Our team of experts will help you choose the right life insurance policy tailored to your needs and expectations. \n We provide professional advice, individual approach and high quality of service so that you can take advantage of the full potential of life insurance.",
+    "text4": "Provide comprehensive protection for your farm with our agricultural insurance. We offer policies that protect your crops, animals and farming assets.",
+    "text5": "Ensure a peaceful and safe journey with our travel insurance. \n We offer policies that protect you from unforeseen situations during your holiday, such as canceled flights, loss of luggage, illness or accidents.",
+    "text6": "Protect your interests with our various insurances. \n We offer a wide range of policies that cover a variety of risks, including motor, property, life, health, travel and more. \n Use our services to gain peace and financial certainty in every sphere of life.",
+
+    "trust": "THOSE WHO TRUST US "
   },
   "registration": {
-    "register": "REGISTER",
-    "vehicle": "YOUR VEHICLE",
-    "why_us": "Why Us?",
-    "text1": "The 'LIDER' office offers mediation in the registration of vehicles both imported from abroad and purchased in Poland together with the necessary fees in all offices.",
-    "instant": "INSTANT",
-    "registration": "REGISTRATION",
-    "text2": "We register all types of vehicles, including passenger cars, trucks, specialized cars, agricultural tractors, mopeds, motorcycles, trailers, etc.",
-    "text3": "Comprehensive fees ( Customs Office, Tax Office, Department of Communication, document translations, recycling ) and complete re-registration of vehicles imported from abroad.",
-    "comprehensive": "COMPREHENSIVE",
-    "formalism": "FORMALISM",
-    "we_provide": "We provide full professionalism completing formalities"
+    "header1": "Personal Vehicle Registration",
+    "header2": "Out-of-State Vehicle Registration",
+    "header3": "Renewal of Vehicle Registration",
+    "text1": "Registering a car, regardless of whether it comes from Poland or from another country, is like a journey through registration lands. \n You have to overcome mountains of documents, cross the borders of bureaucracy and face exotic regulations. \n Registering a car, whether it comes from Poland or from another country, is like a journey through registration lands. You have to overcome mountains of documents, cross borders of bureaucracy and Office Leader' is your reliable guide in this registration safari!",
+    "text2": "Vintage car registration is a real journey back in time! It is a unique experience that requires special attention and care. The 'Leader' office is here to help you on this unique registration journey! \n Our enthusiasts of vintage vehicles understand the value and history of these cars. We know all the secrets of registering vintage cars and we know how to make your treasure officially recognized as an automotive gem. We will help you collect the necessary documents, fill in the appropriate forms and guide you through the labyrinths of bureaucracy.",
+    "text3": "Car registration is like a journey into the jungle of bureaucracy! So many documents, so many queues, so much confusion. But do not worry! Office 'Leader' is our commando team ready to take on this mission on your behalf!"
   },
   "translations": {
-    "translations": "TRANSLATIONS",
-    "documents": "DOCUMENTS",
-    "text1": "Years of experience have enabled us to provide you with the certainty of a perfect translation. By providing us with texts you receive their most faithful translation into any language you choose.",
-    "text2": "Excellent knowledge of foreign languages, careful tracking of all linguistic changes is our passion. We guarantee accurate and reliable translation, regardless of language and subject!",
-    "low": "LOW",
-    "prices": "PRICES",
-    "best_price": "The best prices on the market translations",
-    "text3": "We register all types of vehicles, including passenger cars, trucks, specialized cars, agricultural tractors, mopeds, motorcycles, trailers, etc.",
-    "text4": "Comprehensive fees ( Customs Office, Tax Office, Department of Communication, document translations, recycling ) and complete re-Translation of vehicles imported from abroad."
+    "header1": "Translations",
+    "text1": "Thanks to many years of experience, we can provide you with the certainty of a perfect translation. By providing us with texts, you receive the most accurate translations in the language of your choice. Our professional service guarantees the accuracy and reliability of translations, regardless of the language and subject. We know foreign languages ​​perfectly and follow all linguistic changes with passion."
   },
   "documents": {
     "design": "FOREIGN DESIGN",

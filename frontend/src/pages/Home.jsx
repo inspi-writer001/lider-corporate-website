@@ -12,6 +12,8 @@ import {
   animate,
   useTransform,
 } from 'framer-motion';
+import { useSpring, animated } from 'react-spring';
+import { Element } from 'react-scroll';
 import { motion as motion3 } from 'framer-motion-3d';
 import carJ from '../assets/carr_front.png';
 import carF from '../assets/car_back.png';
@@ -106,20 +108,33 @@ const Home = () => {
     setIsHovering(true);
   };
 
-  const handleMouseOut = () => {
-    setIsHovering(false);
-  };
   const carRef = useRef(null);
   const imageRef = useRef(null);
-  const component = useRef();
-  const slider = useRef();
+
   const sliderRef = useRef(null);
-  const isInView = useInView(carRef);
 
   const { t } = useTranslation();
   const TextList = [t('why_us.text1'), t('why_us.text2'), t('why_us.text3')];
 
   const ImagesList = [smilingCar, registration, purchase];
+
+  const [props, set] = useSpring(() => ({ opacity: 0 }));
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const elementTop = document
+        .getElementById('animated-section')
+        .getBoundingClientRect().top;
+
+      if (elementTop < windowHeight) {
+        set({ opacity: 1 });
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [set]);
 
   // const HeaderList = ["Why us?", t("why_us.super_fast"), t("why_us.attractive")];
   const HeaderList = [
@@ -130,25 +145,6 @@ const Home = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   let whiteText = colorMode == 'light' ? 'black' : 'white';
   const green = '#00bd5d';
-
-  const hoverboardKeyframes = {
-    initial: {
-      rotateZ: 0,
-      y: 0,
-      x: 0,
-    },
-    hover: {
-      rotateZ: [0, -1.4, 1.4, -1, 1, 0],
-      y: [0, -4, 4, -3, 3, 0],
-      x: [0, -5, 5, -7, 7, 0],
-      transition: {
-        duration: 3,
-        ease: 'easeInOut',
-        times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1],
-        repeat: Infinity,
-      },
-    },
-  };
 
   useEffect(() => {
     const imageElement = imageRef.current;
@@ -167,33 +163,6 @@ const Home = () => {
 
   return (
     <div ref={sliderRef}>
-      {/* <Canvas
-        style={{
-          position: "absolute",
-          height: "100vh",
-          width: "100vw"
-        }}
-      >
-        <Suspense fallback={null}>
-          <Scene />
-          <ambientLight intensity={2} />
-          <camera fov={75} near={0.1} far={1000} z={5} lookAt={[0, 20, 0]} />
-          <pointLight position={[200, 0, 0]} intensity={1.5} />
-          <pointLight position={[0, 0, 200]} intensity={3.5} />
-
-          <pointLight position={[0, 20, 0]} intensity={10.5} />
-
-          <OrbitControls
-            enablePan={false}
-            enableRotate={true}
-            enableZoom={false}
-            enableDamping={true}
-            dampingFactor={0.05}
-          />
-          <ScrollControls damping={0.25} pages={3} />
-        </Suspense>
-      </Canvas> */}
-      {/* Spline web view of 3d vehicle */}
       <BlurryBlob
         height={90}
         style={{ position: 'absolute', left: '-30rem', zIndex: '0' }}
@@ -242,7 +211,7 @@ const Home = () => {
         </div>
         <div className="extra"></div>
       </div>
-      <section className="scroller panel" style={{ minHeight: '100vh' }}>
+      <section className="scroller panel" style={{ minHeight: '100vh', margin:'100px' }}>
         <Scroller
           className="my-auto"
           BodyContent={TextList}
@@ -250,69 +219,6 @@ const Home = () => {
           carList={ImagesList}
           steps={[10, 20, 30]}
         />
-      </section>
-
-      <section
-        style={{
-          ...section1,
-          ...section2,
-          display: 'flex',
-          marginTop: '100px',
-          flexDirection: 'column',
-          position: 'relative',
-        }}
-        className="panel"
-      >
-        <BlurryBlob
-          height={80}
-          style={{
-            position: 'absolute',
-            left: '0',
-            right: '0',
-            top: '-10rem',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            width: '80rem',
-            // transform: "translate(50%, 50%)",
-            zIndex: '0',
-          }}
-        />
-        <div className="formalities_container">
-          <Text color={whiteText} className="formalities_banner">
-            <div className="threed_scene">
-              {/* <motion.img
-                initial="initial"
-                animate="hover"
-                variants={hoverboardKeyframes}
-                src={house}
-                className="dhouse grayscale_shadow"
-              /> */}
-            </div>
-            <div className="comprehensive">{t('why_us.comprehensive')}</div>
-            <div className="formalities">{t('why_us.formalities')}</div>
-            <div className="we_do">{t('why_us.formalities2')}</div>
-          </Text>
-          <div className="formalities_banner_div">
-            <Link to="/registration">
-              <div className="inner_formalities1 to_hover">
-                <div className="dix">{t('why_us.registration2')}</div>
-              </div>
-            </Link>
-            <Flex
-              borderBottom={
-                colorMode == 'light'
-                  ? '5px solid rgba(6, 5, 5, 0.3)'
-                  : '5px solid rgba(255, 255, 255, 0.3)'
-              }
-              className="rounded_formalities"
-            ></Flex>
-            <Link to="/insurance">
-              <div className="inner_formalities2 to_hover ">
-                <div className="dix">{t('why_us.cheap')}</div>
-              </div>
-            </Link>
-          </div>
-        </div>
       </section>
     </div>
   );
