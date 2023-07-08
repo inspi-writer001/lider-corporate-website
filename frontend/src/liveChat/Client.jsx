@@ -11,7 +11,7 @@ const Client = () => {
     s.parentNode.insertBefore(g, s);
     g.onload = function () {
       window.chatwootSDK.run({
-        websiteToken: 'EmAFB1GJ27vmSuxN7ujAYj63',
+        websiteToken: 'SpUNoyEWz64dDS9gM3FJWaoc',
         baseUrl: BASE_URL,
       });
     };

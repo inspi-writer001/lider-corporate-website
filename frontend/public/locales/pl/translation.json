@@ -24,48 +24,36 @@
 
     "offers": "Precyzja i rzetelność w tłumaczeniach",
 
-    "text3": " W biurze 'Lider' cenimy precyzję i rzetelność w tłumaczeniach. \n Jesteśmy pasjonatami języków obcych i śledzimy wszelkie zmiany lingwistyczne. \n Gwarantujemy, że każde tłumaczenie, bez względu na język i temat, będzie dokładne i profesjonalne",
-    
-    "comprehensive": "Kompleksowy",
-    "formalities": "Formalności",
-    "formalities2": "Zajmiemy się wszystkimi formalnościami oraz więcej.",
-    "registration2": "Sprawdź cenę rejestracji pojazdu w swoim regionie.",
-    "cheap": "Tanie ubezpieczenia OC i AC."
+    "text3": " W biurze 'Lider' cenimy precyzję i rzetelność w tłumaczeniach. \n Jesteśmy pasjonatami języków obcych i śledzimy wszelkie zmiany lingwistyczne. \n Gwarantujemy, że każde tłumaczenie, bez względu na język i temat, będzie dokładne i profesjonalne"
   },
   "insurance": {
-    "price": "Kompleksowe",
-    "insurance": "Rozwiązania Ubezpieczeniowe",
-    "why_us": "DLACZEGO MY",
-    "text1": "Wszystkie ryzyka, czyli ubezpieczenie od wszystkich ryzyk - ubezpieczenie AC obejmuje szkody na pojazdach, ich zniszczenie lub utratę z powodu wszystkich zdarzeń.",
-    "text2": "Przedmiotem ubezpieczenia jest odpowiedzialność cywilna każdej osoby, która, podczas prowadzenia pojazdu mechanicznego w czasie trwania umowy ubezpieczenia, spowodowała szkodę w związku z ruchem tego pojazdu.",
-    "text3": " 'Lider' oferuje najlepsze oferty na rynku od renomowanych firm ubezpieczeniowych. Gwarantujemy najwyższy poziom profesjonalizmu i doradztwo dotyczące ubezpieczeń pojazdów. ",
-    "best": "Najlepszy",
-    "offers": "Offers",
+    "header1": "Ubezpieczenie samochodu",
+    "header2": "Ubezpieczenie domu",
+    "header3": "Ubezpieczenie zdrowotne",
+    "header4": "Ubezpieczenie na życie",
+    "header5": "Ubezpieczenie biznesowe",
+    "header6": "Odsetki podlegające ubezpieczeniu",
+
+    "text1": "Oferujemy kompleksowe ubezpieczenia samochodowe, w tym ubezpieczenie autocasco (AC), odpowiedzialności cywilnej (OC) oraz ubezpieczenie od następstw nieszczęśliwych wypadków (NW). \n Nasza firma zapewnia szeroką gamę polis, które chronią zarówno Twoje auto, jak i Ciebie jako kierowcę.",
+    "text2": "Zabezpiecz swoją nieruchomość dzięki naszym ubezpieczeniom majątkowym.\n Oferujemy polisy na mieszkania, które chronią Twoje mienie przed różnymi ryzykami.",
+    "text3": "Ubezpieczenie na życie to inwestycja w przyszłość. Chroni Twoich najbliższych w przypadku Twojego zgonu, zapewniając świadczenie pieniężne, które mogą być wykorzystane na spłatę kredytu hipotecznego, utrzymanie bieżących wydatków czy zapewnienie edukacji dzieciom. \n Nasz zespół ekspertów pomoże Ci w doborze odpowiedniej polisy na życie, dostosowanej do Twoich potrzeb i oczekiwań. \n Zapewniamy profesjonalne doradztwo, indywidualne podejście i wysoką jakość obsługi, abyś mógł skorzystać z pełnego potencjału ubezpieczenia na życie. ",
+    "text4": "Zapewnij kompleksową ochronę swojemu gospodarstwu dzięki naszym ubezpieczeniom rolniczym. Oferujemy polisy, które chronią Twoje uprawy, zwierzęta i mienie związane z działalnością rolniczą. ",
+    "text5": "Zapewnij sobie spokojną i bezpieczną podróż dzięki naszym ubezpieczeniom turystycznym. \n Oferujemy polisy, które chronią Cię przed nieprzewidzianymi sytuacjami podczas wakacji, takimi jak odwołane loty, utrata bagażu, choroby czy wypadki.",
+    "text6": "Zabezpiecz swoje interesy dzięki naszym różnorodnym ubezpieczeniom. \n Oferujemy szeroki wybór polis, które chronią przed różnymi ryzykami, takimi jak ubezpieczenia komunikacyjne, majątkowe, na życie, zdrowotne, podróżne i wiele innych. \n Skorzystaj z naszych usług, aby zyskać spokój i pewność finansową w każdej sferze życia.",
+
     "trust": "CI, KTÓRZY NAM UFNAJĄ "
   },
   "registration": {
-    "register": "REJESTRUJ",
-    "vehicle": "TWÓJ POJAZD",
-    "why_us": "Dlaczego my?",
-    "text1": "Biuro 'LIDER' oferuje pośrednictwo w rejestracji pojazdów zarówno sprowadzanych z zagranicy, jak i zakupionych w Polsce wraz z koniecznymi opłatami we wszystkich urzędach.",
-    "instant": "NATYCHMIASTOWY",
-    "registration": "REJESTRACJA",
-    "text2": "Rejestrujemy wszelkie rodzaje pojazdów, w tym samochody osobowe, ciężarowe, samochody specjalizowane, ciągniki rolnicze, skutery, motocykle, przyczepy itp.",
-    "text3": "Oferujemy kompleksową obsługę związanych z rejestracją pojazdów sprowadzanych z zagranicy, włączając w to opłaty celne (Urząd Celny), podatkowe (Urząd Skarbowy), dział Komunikacji, tłumaczenia dokumentów oraz proces pełnej ponownej rejestracji pojazdów.",
-    "comprehensive": "WSZYSTKIESTRONNY",
-    "formalism": "FORMALIZM",
-    "we_provide": "Zapewniamy pełny profesjonalizm w realizacji formalności."
+    "header1": "Rejestracja pojazdu osobistego",
+    "header2": "Rejestracja pojazdu poza stanem",
+    "header3": "Odnowienie rejestracji pojazdu",
+    "text1": "Zarejestrowanie samochodu, niezależnie czy pochodzi z Polski czy z innego kraju, to niczym podróż przez rejestracyjne krainy. \n Musisz pokonać góry dokumentów, przekroczyć granice biurokracji i zmierzyć się z egzotycznymi przepisami. \n Zarejestrowanie samochodu, niezależnie czy pochodzi z Polski czy z innego kraju, to niczym podróż przez rejestracyjne krainy. Musisz pokonać góry dokumentów, przekroczyć granice biurokracji i Biuro Lider' jest Twoim niezawodnym przewodnikiem w tym rejestracyjnym safari! ",
+    "text2": "Rejestracja samochodów zabytkowych to prawdziwa podróż w czasie! To wyjątkowe doświadczenie, które wymaga specjalnej uwagi i troski. Biuro 'Lider' jest tu, aby Ci pomóc w tym unikalnym rejestracyjnym wyprawie! \n Nasi pasjonaci zabytkowych pojazdów rozumieją wartość i historię tych aut. Znamy wszystkie tajemnice rejestracji aut zabytkowych i wiemy, jak sprawić, aby Twój skarb został oficjalnie uznany za perełkę motoryzacji. Pomożemy Ci zebrać niezbędne dokumenty, wypełnić odpowiednie formularze i pokierować Cię przez labirynty biurokracji. ",
+    "text3": "Rejestracja samochodu to jak wyprawa w głąb dżungli biurokracji! Tyle dokumentów, tyle kolejek, tyle zamieszania. Ale nie martw się! Biuro 'Lider' to nasza komandoska drużyna gotowa podjąć się tej misji w Twoim imieniu!"
   },
   "translations": {
-    "translations": "TŁUMACZENIA",
-    "documents": "DOKUMENTY",
-    "text1": "Lata doświadczenia umożliwiły nam zapewnienie Państwu pewności doskonałego tłumaczenia. Dostarczając nam teksty, otrzymują Państwo ich najwierniejsze przekłady w wybranym przez siebie języku.",
-    "text2": "Doskonała znajomość języków obcych, staranne śledzenie wszelkich zmian językowych to nasza pasja. Gwarantujemy precyzyjne i niezawodne tłumaczenia, bez względu na język i temat!",
-    "low": "NISKI",
-    "prices": "CENY",
-    "best_price": "Najlepsze ceny na rynku tłumaczeń w języku polskim.",
-    "text3": "Rejestrujemy wszelkie rodzaje pojazdów, w tym samochody osobowe, ciężarowe, samochody specjalizowane, ciągniki rolnicze, skutery, motocykle, przyczepy itp.",
-    "text4": "Oferujemy kompleksową obsługę związanych z rejestracją pojazdów sprowadzanych z zagranicy, włączając w to opłaty celne (Urząd Celny), podatkowe (Urząd Skarbowy), dział Komunikacji, tłumaczenia dokumentów oraz proces pełnej ponownej rejestracji pojazdów."
+    "header1": "Tłumaczenia",
+    "text1": "Dzięki wieloletniemu doświadczeniu, możemy zapewnić Państwu pewność perfekcyjnego tłumaczenia. Przekazując nam teksty, otrzymują Państwo najwierniejsze przekłady w wybranym języku. Nasza profesjonalna obsługa gwarantuje dokładność i rzetelność tłumaczeń, niezależnie od języka i tematu. Doskonale znamy języki obce i śledzimy wszelkie zmiany lingwistyczne z pasją."
   },
   "documents": {
     "design": "OBCE PROJEKTOWANIE",
