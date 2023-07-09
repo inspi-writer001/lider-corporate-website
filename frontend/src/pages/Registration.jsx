@@ -1,22 +1,22 @@
-import './Pages.css';
-import BlurryBlob from '../components/BlurryBlob';
-import { useTranslation } from 'react-i18next';
-import office from '../assets/office_empty.jpg';
-import oldCar from '../assets/old-car.png';
-import newCar from '../assets/new-car.png';
-import farmCar from '../assets/farm.png';
-import regCar from '../assets/put_tag_registration.png';
+import "./Pages.css";
+import BlurryBlob from "../components/BlurryBlob";
+import { useTranslation } from "react-i18next";
+import office from "../assets/office_empty.jpg";
+import oldCar from "../assets/old-car.png";
+import newCar from "../assets/new-car.png";
+import farmCar from "../assets/farm.png";
+import regCar from "../assets/put_tag_registration.png";
 // import { motion } from "framer-motion";
-import { Text, useColorMode } from '@chakra-ui/react';
+import { Text, useColorMode } from "@chakra-ui/react";
 import {
   useInView,
   useScroll,
   motion,
   animate,
-  useTransform,
-} from 'framer-motion';
-import { motion as motion3 } from 'framer-motion-3d';
-import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber';
+  useTransform
+} from "framer-motion";
+import { motion as motion3 } from "framer-motion-3d";
+import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
 
 import {
   Environment,
@@ -24,14 +24,14 @@ import {
   useFBX,
   useGLTF,
   ScrollControls,
-  useTexture,
-} from '@react-three/drei';
-import { Suspense, useRef, useEffect } from 'react';
+  useTexture
+} from "@react-three/drei";
+import { Suspense, useRef, useEffect } from "react";
 
-import obj from '/models/plane_model.fbx';
-import Scroller from '../components/Scroller';
-import homeImage from '../assets/night-house.png';
-import carImage from '../assets/new-car.png';
+import obj from "/models/plane_model.fbx";
+import Scroller from "../components/Scroller";
+import homeImage from "../assets/night-house.png";
+import carImage from "../assets/new-car.png";
 
 // import mdx from "../components/Post.mdx";
 
@@ -52,9 +52,9 @@ const Scene = () => {
       scrollRef.current = window.scrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -80,20 +80,20 @@ const Scene = () => {
 
 const Registration = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  let whiteText = colorMode == 'light' ? 'black' : 'white';
+  let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
 
   const RegisterationCarList = [newCar, oldCar, regCar];
   const RegisterationHeaders = [
-    `${t('registration.header1')}`,
-    `${t('registration.header2')}`,
-    `${t('registration.header3')}`,
+    `${t("registration.header1")}`,
+    `${t("registration.header2")}`,
+    `${t("registration.header3")}`
   ];
 
   const RegisterationBodyContent = [
-    `${t('registration.text1')}`,
-    `${t('registration.text2')}`,
-    `${t('registration.text3')}`,
+    `${t("registration.text1")}`,
+    `${t("registration.text2")}`,
+    `${t("registration.text3")}`
   ];
 
   return (

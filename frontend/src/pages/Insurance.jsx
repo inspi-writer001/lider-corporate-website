@@ -1,34 +1,34 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
-import 'react-multi-carousel/lib/styles.css';
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
+import "react-multi-carousel/lib/styles.css";
 
-import BlurryBlob from '../components/BlurryBlob';
-import PartnersList from '../components/PartnersList';
-import { useTranslation } from 'react-i18next';
-import { Text, useColorMode } from '@chakra-ui/react';
-import { Card } from 'react-bootstrap';
+import BlurryBlob from "../components/BlurryBlob";
+import PartnersList from "../components/PartnersList";
+import { useTranslation } from "react-i18next";
+import { Text, useColorMode } from "@chakra-ui/react";
+import { Card } from "react-bootstrap";
 
 import {
   useInView,
   useScroll,
   motion,
   animate,
-  useTransform,
-} from 'framer-motion';
-import { motion as motion3 } from 'framer-motion-3d';
-import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber';
-import * as THREE from 'three';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-import { USDZLoader } from 'three/examples/jsm/loaders/USDZLoader';
-import caravan from '../assets/carravan_registration.png';
-import putTag from '../assets/put_tag_registration.png';
-import confusedRegistration from '../assets/confused_registration.png';
-import ferrari from '../assets/ferarri_registration.png';
-import tagRegistration from '../assets/tag_registration.png';
-import house from '../assets/night-house.png';
-import consultation from '../assets/consultant.png';
-import family from '../assets/family.png';
-import office from '../assets/office_empty.jpg';
-import carousel from 'react-multi-carousel';
+  useTransform
+} from "framer-motion";
+import { motion as motion3 } from "framer-motion-3d";
+import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
+import * as THREE from "three";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+import { USDZLoader } from "three/examples/jsm/loaders/USDZLoader";
+import caravan from "../assets/carravan_registration.png";
+import putTag from "../assets/put_tag_registration.png";
+import confusedRegistration from "../assets/confused_registration.png";
+import ferrari from "../assets/ferarri_registration.png";
+import tagRegistration from "../assets/tag_registration.png";
+import house from "../assets/night-house.png";
+import consultation from "../assets/consultant.png";
+import family from "../assets/family.png";
+import office from "../assets/office_empty.jpg";
+import carousel from "react-multi-carousel";
 
 import {
   Environment,
@@ -37,27 +37,27 @@ import {
   ScrollControls,
   useFBO,
   useTexture,
-  PerspectiveCamera,
-} from '@react-three/drei';
-import { Suspense } from 'react';
+  PerspectiveCamera
+} from "@react-three/drei";
+import { Suspense } from "react";
 
-import obj from '/models/house_scene.fbx';
-import tx1 from '/models/textures_compressed/Concrete.jpg';
-import tx2 from '/models/textures_compressed/Curb.jpg';
-import tx3 from '/models/textures_compressed/Ground.jpg';
-import tx4 from '/models/textures_compressed/Marble.jpg';
-import tx5 from '/models/textures_compressed/Pool.jpg';
-import tx6 from '/models/textures_compressed/Stairs.jpg';
-import tx7 from '/models/textures_compressed/Tarmac.jpg';
-import tx8 from '/models/textures_compressed/Walkway.jpg';
-import tx9 from '/models/textures_compressed/Wood1.jpg';
-import tx10 from '/models/textures_compressed/Wood2.jpg';
-import tx11 from '/models/textures_compressed/glass.jpg';
-import tx12 from '/models/textures_compressed/wallo.png';
+import obj from "/models/house_scene.fbx";
+import tx1 from "/models/textures_compressed/Concrete.jpg";
+import tx2 from "/models/textures_compressed/Curb.jpg";
+import tx3 from "/models/textures_compressed/Ground.jpg";
+import tx4 from "/models/textures_compressed/Marble.jpg";
+import tx5 from "/models/textures_compressed/Pool.jpg";
+import tx6 from "/models/textures_compressed/Stairs.jpg";
+import tx7 from "/models/textures_compressed/Tarmac.jpg";
+import tx8 from "/models/textures_compressed/Walkway.jpg";
+import tx9 from "/models/textures_compressed/Wood1.jpg";
+import tx10 from "/models/textures_compressed/Wood2.jpg";
+import tx11 from "/models/textures_compressed/glass.jpg";
+import tx12 from "/models/textures_compressed/wallo.png";
 // import tx13 from "/models/textures_compressed/Concrete.jpg";
-import './Pages.css';
-import Scroller from '../components/Scroller';
-import Carousel from 'react-multi-carousel';
+import "./Pages.css";
+import Scroller from "../components/Scroller";
+import Carousel from "react-multi-carousel";
 
 const Scene = () => {
   const objs = useFBX(obj);
@@ -95,38 +95,38 @@ const Scene = () => {
     if (child.isMesh) {
       // Assign texture1 to material1
       console.log(child.name);
-      if (child.name === 'water') {
+      if (child.name === "water") {
         child.material.map = pool;
       }
       // Assign texture2 to material2
-      if (child.name === 'Ground') {
+      if (child.name === "Ground") {
         child.material.map = ground;
       }
-      if (child.name === 'Patio') {
+      if (child.name === "Patio") {
         child.material.map = concrete;
       }
-      if (child.name == 'Fence03') {
+      if (child.name == "Fence03") {
         child.material.map = wood1;
       }
-      if (child.name == 'Shades') {
+      if (child.name == "Shades") {
         child.material.map = curb;
       }
-      if (child.name == 'Walls_Main') {
+      if (child.name == "Walls_Main") {
         child.material.map = wall;
       }
-      if (child.name == 'Railing') {
+      if (child.name == "Railing") {
         child.material.map = glass;
       }
-      if (child.name === 'Balcony') {
+      if (child.name === "Balcony") {
         child.material.map = glass;
       }
-      if (child.name === 'Ground_floor_glasswall') {
+      if (child.name === "Ground_floor_glasswall") {
         child.material.map = glass;
       }
       if (
-        child.name === 'Window002' ||
-        child.name === 'Window001' ||
-        child.name === 'Window'
+        child.name === "Window002" ||
+        child.name === "Window001" ||
+        child.name === "Window"
       ) {
         child.material.map = glass;
       }
@@ -150,9 +150,9 @@ const Scene = () => {
       scrollRef.current = window.scrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -180,43 +180,43 @@ const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 6,
+    items: 6
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 6,
+    items: 6
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 3,
+    items: 3
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 2,
-  },
+    items: 2
+  }
 };
 const Insurance = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  let whiteText = colorMode == 'light' ? 'black' : 'white';
+  let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
   const Images = [ferrari, house, consultation, family, office];
 
   const TextLis = [
-    `${t('insurance.text1')}`,
-    `${t('insurance.text2')}`,
-    `${t('insurance.text3')}`,
-    `${t('insurance.text4')}`,
-    `${t('insurance.text5')}`,
-    `${t('insurance.text6')}`,
+    `${t("insurance.text1")}`,
+    `${t("insurance.text2")}`,
+    `${t("insurance.text3")}`,
+    `${t("insurance.text4")}`,
+    `${t("insurance.text5")}`,
+    `${t("insurance.text6")}`
   ];
 
   const HeaderLis = [
-    `${t('insurance.header1')}`,
-    `${t('insurance.header2')}`,
-    `${t('insurance.header3')}`,
-    `${t('insurance.header4')}`,
-    `${t('insurance.header5')}`,
-    `${t('insurance.header6')}`,
+    `${t("insurance.header1")}`,
+    `${t("insurance.header2")}`,
+    `${t("insurance.header3")}`,
+    `${t("insurance.header4")}`,
+    `${t("insurance.header5")}`,
+    `${t("insurance.header6")}`
   ];
   return (
     <div>
@@ -230,7 +230,7 @@ const Insurance = () => {
       </section>
 
       <h2 color={whiteText} className="text-center mb-5">
-        {t('insurance.trust')}
+        {t("insurance.trust")}
       </h2>
       {/* <div className="those">THOSE</div> */}
 
@@ -242,7 +242,7 @@ const Insurance = () => {
         arrows={false}
       >
         {PartnersList.map((item, index) => (
-          <Card key={index} style={{ backgroundColor: 'transparent' }}>
+          <Card key={index} style={{ backgroundColor: "transparent" }}>
             <Card.Img variant="top" src={item.img} />
           </Card>
         ))}
