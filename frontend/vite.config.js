@@ -4,24 +4,7 @@ import csp from "vite-plugin-csp";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    csp({
-      policies: {
-        "script-src": [
-          "'self'",
-          "'unsafe-eval'",
-          "'report-sample'",
-          "'nonce-BPodzRMzcGJrNTCZVKC5sg'",
-          "'nonce-8V4yErRm84LJirZlfj6Iiw'",
-          "'nonce-bCMFOWNxviz0Tc3PZuuF0w'",
-          "'nonce-AGmzBRbK4Q4DRseDr0N9oA'",
-          "'unsafe-inline'",
-          "'strict-dynamic'"
-        ] // Add additional sources if needed
-      }
-    })
-  ],
+  plugins: [react()],
   assetsInclude: [
     "**/*.fbx",
     "**/*.usdz",
