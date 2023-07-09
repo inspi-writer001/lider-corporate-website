@@ -1,5 +1,5 @@
 import { Scrollama, Step } from "react-scrollama";
-import { Button, useColorMode } from "@chakra-ui/react";
+import { Button, useColorMode, useMediaQuery } from "@chakra-ui/react";
 import React, { useState } from "react";
 import "./Scroller.css";
 
@@ -35,6 +35,7 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
       setIsSticky(true);
     }
   };
+  const [isLargerThan767] = useMediaQuery("(max-width: 767px)");
 
   return (
     <div className="graphicContainer" style={{ position: "relative" }}>
@@ -61,6 +62,8 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
                   style={{
                     background,
                     color: whiteText,
+                    backgroundImage:
+                      isLargerThan767 && `url(${carList[index]})`,
                     justifyContent: "center",
                     alignItems: "center",
                     display: "flex",
