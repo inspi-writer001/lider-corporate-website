@@ -145,7 +145,6 @@
   }
 
   .graphicContainer {
-    margin-top: -100%;
     overflow-x: hidden;
     /* overflow-y: visible; */
     height: fit-content;

@@ -105,10 +105,7 @@ const Registration = () => {
         <div className="second_banner">
           <div className="threed_scene"></div>
         </div>
-        <section
-          className="scroller panel"
-          style={{ minHeight: '100vh', margin: '100px' }}
-        >
+        <section className="" style={{ margin: '100px 20px' }}>
           <Scroller
             BodyContent={RegisterationBodyContent}
             Headers={RegisterationHeaders}

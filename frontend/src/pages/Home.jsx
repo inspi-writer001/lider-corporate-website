@@ -162,84 +162,68 @@ const Home = () => {
   }, []);
 
   return (
-    <div ref={sliderRef}>
-      <BlurryBlob
-        height={90}
-        style={{ position: 'absolute', left: '-30rem', zIndex: '0' }}
-      />
-      <BlurryBlob
-        height={120}
-        style={{
-          position: 'absolute',
-          left: 'auto',
-          right: 'auto',
-          marginLeft: '0',
-          marginRight: '0',
-          zIndex: '0',
-        }}
-      />
-      <div className="s_container ">
-        <div className="hero">
-          <div className="d-flex" style={{}}>
-            <img
-              src={lider}
-              ref={imageRef}
-              alt="lider logo"
-              className="lider_logo animate__animated animate__backInDown mx-auto"
-              style={{ width: '200px' }}
-            />
+    <>
+      <div ref={sliderRef}>
+        <BlurryBlob
+          height={90}
+          style={{ position: 'absolute', left: '-30rem', zIndex: '0' }}
+        />
+
+        <div className="">
+          <div className="hero">
+            <div className="d-flex">
+              <img
+                src={lider}
+                ref={imageRef}
+                alt="lider logo"
+                className="lider_logo animate__animated animate__backInDown mx-auto"
+                style={{ width: '200px' }}
+              />
+            </div>
+            <div className="mt-5">
+              <h1 className="text-center fw-light" style={{ color: '#037fc2' }}>
+                {t('header1')}
+              </h1>
+              <h1 className="text-center header2 ">{t('header2')}</h1>
+              <h3
+                className="text-center mt-4 text-light so py-2"
+                style={{ backgroundColor: '#037fc2' }}
+              >
+                {t('header3')}
+              </h3>
+            </div>
           </div>
-          <div className="mt-5">
-            <h1 className="text-center fw-light" style={{ color: '#037fc2' }}>
-              {t('header1')}
-            </h1>
-            <h1 className="text-center header2 ">{t('header2')}</h1>
-            <h3
-              className="text-center mt-4 text-light so py-2"
-              style={{ backgroundColor: '#037fc2' }}
-            >
-              {t('header3')}
-            </h3>
-          </div>
-        </div>
-        <div className="video_space panel" style={{ ...section1, section2 }}>
-          <div className="image_container">
+
+          <div className="">
             <video loop width="100%" autoPlay muted>
               <source src={officeVideo} type="video/mp4" />
             </video>
           </div>
+
+          <BlurryBlob
+            height={120}
+            style={{
+              position: 'absolute',
+              left: 'auto',
+              right: 'auto',
+              marginLeft: '0',
+              marginRight: '0',
+              zIndex: '0',
+            }}
+          />
         </div>
-        <div className="extra"></div>
+        <section className="" style={{ margin: '100px 20px' }}>
+          <Scroller
+            className=""
+            BodyContent={TextList}
+            Headers={HeaderList}
+            carList={ImagesList}
+            steps={[10, 20, 30]}
+          />
+        </section>
       </div>
-      <section className="scroller panel" style={{ minHeight: '100vh', margin:'100px' }}>
-        <Scroller
-          className="my-auto"
-          BodyContent={TextList}
-          Headers={HeaderList}
-          carList={ImagesList}
-          steps={[10, 20, 30]}
-        />
-      </section>
-    </div>
+    </>
   );
 };
 
 export default Home;
-
-const section1 = {
-  minHeight: '100vh',
-  // color: "white",
-  fontFamily: 'Montaga',
-  fontSize: '60px',
-  position: 'relative',
-  overflow: 'hidden',
-  zIndex: '2',
-};
-
-const section2 = {
-  display: 'flex',
-  flexDirection: 'column',
-  width: '100%',
-  padding: '20px',
-  // minHeight: "120vh"
-};

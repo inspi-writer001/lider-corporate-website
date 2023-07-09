@@ -1,7 +1,7 @@
-import "./Pages.css";
-import BlurryBlob from "../components/BlurryBlob";
-import { useTranslation } from "react-i18next";
-import { Text, useColorMode } from "@chakra-ui/react";
+import './Pages.css';
+import BlurryBlob from '../components/BlurryBlob';
+import { useTranslation } from 'react-i18next';
+import { Text, useColorMode } from '@chakra-ui/react';
 import {
   Modal,
   ModalOverlay,
@@ -11,16 +11,16 @@ import {
   Button,
   ModalBody,
   useDisclosure,
-  ModalCloseButton
-} from "@chakra-ui/react";
-import DocumentViewer from "../components/DocumentViewer";
-import { useState, useEffect } from "react";
-import { slopeObjects } from "../components/Post";
+  ModalCloseButton,
+} from '@chakra-ui/react';
+import DocumentViewer from '../components/DocumentViewer';
+import { useState, useEffect } from 'react';
+import { slopeObjects } from '../components/Post';
 
 const Download = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [document, setDocument] = useState({ name: "", documentLink: "" });
-  let whiteText = colorMode == "light" ? "black" : "white";
+  const [document, setDocument] = useState({ name: '', documentLink: '' });
+  let whiteText = colorMode == 'light' ? 'black' : 'white';
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -30,18 +30,18 @@ const Download = () => {
           <BlurryBlob
             height={90}
             style={{
-              position: "absolute",
-              top: "-35rem",
-              left: "auto",
-              right: "auto",
-              marginLeft: "0",
-              marginRight: "0",
-              zIndex: "0 !important"
+              position: 'absolute',
+              top: '-35rem',
+              left: 'auto',
+              right: 'auto',
+              marginLeft: '0',
+              marginRight: '0',
+              zIndex: '0 !important',
             }}
           />
         </div>
         <div className="arc_container">
-          <div className="top_arc" style={{ top: "10rem" }}></div>
+          <div className="top_arc" style={{ top: '10rem' }}></div>
         </div>
 
         <div className="second_banner">
@@ -49,35 +49,35 @@ const Download = () => {
             <div
               className="_low_price"
               style={{
-                marginTop: "9rem",
-                fontSize: "1.8rem",
-                color: whiteText
+                marginTop: '9rem',
+                fontSize: '1.8rem',
+                color: whiteText,
               }}
             >
-              {t("documents.design")}{" "}
+              {t('documents.design')}
             </div>
             <div
               className="_insurance"
               style={{
-                marginTop: "-11rem",
-                fontSize: "2.5rem",
+                marginTop: '-11rem',
+                fontSize: '2.5rem',
                 color: whiteText,
-                fontWeight: "bold"
+                fontWeight: 'bold',
               }}
             >
-              {t("documents.documents")}{" "}
+              {t('documents.documents')}
             </div>
           </div>
           <div
             className="poopup_environment"
             style={{
-              display: "flex",
-              position: "absolute",
-              zIndex: "3",
-              width: "100vw",
-              height: "100svh",
-              justifyContent: "center",
-              alignItems: "center"
+              display: 'flex',
+              position: 'absolute',
+              zIndex: '3',
+              width: '100vw',
+              height: '100svh',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
             {/* <Button onClick={onOpen}>Open Modal</Button> */}
@@ -85,15 +85,15 @@ const Download = () => {
               <ModalOverlay />
               <ModalContent
                 style={{
-                  display: "flex",
-                  position: "relative",
-                  left: "0",
-                  right: "0",
-                  top: "4%",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  justifyContent: "center",
-                  alignSelf: "center"
+                  display: 'flex',
+                  position: 'relative',
+                  left: '0',
+                  right: '0',
+                  top: '4%',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  justifyContent: 'center',
+                  alignSelf: 'center',
                 }}
               >
                 <ModalHeader>{document?.name}</ModalHeader>
@@ -103,9 +103,9 @@ const Download = () => {
                     className="documents_container"
                     style={{
                       // display: "none",
-                      height: "50vh",
-                      width: "100%",
-                      position: "relative"
+                      height: '50vh',
+                      width: '100%',
+                      position: 'relative',
                     }}
                   >
                     <DocumentViewer selectedDoc={document.documentLink} />
@@ -123,24 +123,24 @@ const Download = () => {
         </div>
         <div className="another_div">
           <div className="top_div" style={{ color: whiteText }}>
-            <div className="left_" style={{ fontSize: "1.5rem" }}>
+            <div className="left_" style={{ fontSize: '1.5rem' }}>
               Download Useful Document Template
               {/* {t("documents.why_us")} */}
             </div>
             <div
               className="right_"
               style={{
-                background: "none",
-                boxShadow: "none",
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "center",
-                fontWeight: "bolder",
-                fontSize: "1.4rem"
+                background: 'none',
+                boxShadow: 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                textAlign: 'center',
+                fontWeight: 'bolder',
+                fontSize: '1.4rem',
               }}
             >
-              With us you save time, health and money{" "}
-              <div style={{ fontSize: "0.9rem", fontWeight: "lighter" }}>
+              With us you save time, health and money{' '}
+              <div style={{ fontSize: '0.9rem', fontWeight: 'lighter' }}>
                 In order to leave documents for vehicle registration, you must
                 sign the relevant documents.
               </div>
@@ -151,29 +151,29 @@ const Download = () => {
             <div
               className="grids-container"
               style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "3%"
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '3%',
               }}
             >
               {slopeObjects.map((item, index) => (
                 <div
                   className="grids-item left_"
                   style={{
-                    flexBasis: "47%",
-                    flexGrow: "1",
-                    fontSize: ".7rem",
-                    height: "1.7rem",
-                    width: "1.7rem",
-                    marginBottom: "3%",
-                    cursor: "pointer",
-                    borderRadius: "10px 0 0 0"
+                    flexBasis: '47%',
+                    flexGrow: '1',
+                    fontSize: '.7rem',
+                    height: '1.7rem',
+                    width: '1.7rem',
+                    marginBottom: '3%',
+                    cursor: 'pointer',
+                    borderRadius: '10px 0 0 0',
                   }}
                   key={item}
                   onClick={() => {
                     setDocument({
                       name: item?.name,
-                      documentLink: item?.documentLink
+                      documentLink: item?.documentLink,
                     });
                     onOpen();
                   }}

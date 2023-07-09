@@ -154,10 +154,7 @@ const Translation = () => {
             }}
           />
         </div>
-        <section
-          className="scroller panel"
-          style={{ minHeight: '100vh', margin: '100px' }}
-        >
+        <section className="" style={{ margin: '100px 20px' }}>
           <Scroller
             BodyContent={body}
             Headers={headers}
