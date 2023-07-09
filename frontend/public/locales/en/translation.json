@@ -60,18 +60,32 @@
     "header1": "Translations",
     "text1": "Thanks to many years of experience, we can provide you with the certainty of a perfect translation. By providing us with texts, you receive the most accurate translations in the language of your choice. Our professional service guarantees the accuracy and reliability of translations, regardless of the language and subject. We know foreign languages ​​perfectly and follow all linguistic changes with passion."
   },
+
+  "downloads": {
+    "text1": "Download Useful Document Template",
+    "text2": "With us you save time, health and money",
+    "text3": "In order to leave documents for vehicle registration, you must sign the relevant documents.",
+    "link1": "Polish - English agreement",
+    "link2": "Polish-German agreement",
+    "link3": "Polish-Italian agreement",
+    "link4": "Polish-Dutch agreement",
+    "link5": "Donation agreement",
+    "link6": "PCC-3 Declaration",
+    "link7": "Statement under criminal liability",
+    "link8": "Sale and purchase agreement",
+    "link9": "AKC-US declaration",
+    "link10": "Notification of the sale of the area Nowotarski",
+    "link11": "Notification of the sale of the area Tatra",
+    "link12": "GDPR consent",
+    "link13": "Power of Attorney and Statement"
+  },
+
   "documents": {
     "design": "FOREIGN DESIGN",
     "documents": "DOCUMENTS",
-    "why_us": "Why Us?",
-    "text1": "The  'LIDER' office offers mediation in the Document of vehicles both imported from abroad and purchased in Poland together with the necessary fees in all offices.",
-    "instant": "INSTANT",
-    "registration": "REGITERATION",
-    "text2": "We register all types of vehicles, including passenger cars, trucks, specialized cars, agricultural tractors, mopeds, motorcycles, trailers, etc.",
-    "text3": "Comprehensive fees ( Customs Office, Tax Office, Department of Communication, document translations, recycling ) and complete re-Document of vehicles imported from abroad.",
-    "comprehensive": "COMPREHENSIVE",
-    "formalism": "FORMALISM",
-    "we_provide": "We provide full professionalism completing formalities"
+    "text1": "foreign DOCUMENTS",
+    "text2": "Don't waste your time searching. We did it for you.",
+    "text3": "Select a country from the list to view document templates applicable in that country."
   },
   "contact": {
     "contact": "CONTACT US",

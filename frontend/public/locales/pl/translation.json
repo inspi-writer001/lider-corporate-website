@@ -55,18 +55,30 @@
     "header1": "Tłumaczenia",
     "text1": "Dzięki wieloletniemu doświadczeniu, możemy zapewnić Państwu pewność perfekcyjnego tłumaczenia. Przekazując nam teksty, otrzymują Państwo najwierniejsze przekłady w wybranym języku. Nasza profesjonalna obsługa gwarantuje dokładność i rzetelność tłumaczeń, niezależnie od języka i tematu. Doskonale znamy języki obce i śledzimy wszelkie zmiany lingwistyczne z pasją."
   },
+  "downloads": {
+    "text1": "Pobierz przydatny szablon dokumentu",
+    "text2": "Z nami oszczędzasz czas, zdrowie i pieniądze",
+    "text3": "Aby zostawić dokumenty do rejestracji pojazdu, należy podpisać odpowiednie dokumenty.",
+    "link1": "Umowa polsko - angielska",
+    "link2": "Umowa polsko-niemiecka",
+    "link3": "Umowa polsko-włoska",
+    "link4": "Umowa polsko-holenderska",
+    "link5": "Umowa darowizny",
+    "link6": "Deklaracja PCC-3",
+    "link7": "Oświadczenie pod odpowiedzialnością karną",
+    "link8": "Umowa kupna-sprzedaży",
+    "link9": "Deklaracja AKC-US",
+    "link10": "Zgłoszenie zbycia pow. Nowotarski",
+    "link11": "Zgłoszenie zbycia pow. Tatrzański",
+    "link12": "Zgody RODO",
+    "link13": "Pełnomocnictwo i Oświadczenie"
+  },
   "documents": {
     "design": "OBCE PROJEKTOWANIE",
     "documents": "DOKUMENTY",
-    "why_us": "Dlaczego my?",
-    "text1": "Biuro 'LIDER' oferuje pośrednictwo w rejestracji pojazdów zarówno sprowadzanych z zagranicy, jak i zakupionych w Polsce wraz z koniecznymi opłatami we wszystkich urzędach.",
-    "instant": "NATYCHMIASTOWY",
-    "registration": "REJESTRACJA",
-    "text2": "Rejestrujemy wszelkie rodzaje pojazdów, w tym samochody osobowe, ciężarowe, samochody specjalizowane, ciągniki rolnicze, skutery, motocykle, przyczepy itp.",
-    "text3": "Oferujemy kompleksową obsługę związanych z rejestracją pojazdów sprowadzanych z zagranicy, włączając w to opłaty celne (Urząd Celny), podatkowe (Urząd Skarbowy), dział Komunikacji, tłumaczenia dokumentów oraz proces pełnej ponownej rejestracji pojazdów.",
-    "comprehensive": "WSZYSTKIESTRONNY",
-    "formalism": "FORMALIZM",
-    "we_provide": "Zapewniamy pełny profesjonalizm w realizacji formalności."
+    "text1": "DOKUMENTY zagraniczne",
+    "text2": "Nie trać czasu na szukanie. Zrobiliśmy to za Ciebie.",
+    "text3": "Wybierz kraj z listy, aby wyświetlić szablony dokumentów obowiązujące w tym kraju."
   },
   "contact": {
     "contact": "SKONTAKTUJ SIĘ Z NAMI",

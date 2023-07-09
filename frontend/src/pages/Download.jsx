@@ -15,7 +15,6 @@ import {
 } from '@chakra-ui/react';
 import DocumentViewer from '../components/DocumentViewer';
 import { useState, useEffect } from 'react';
-import { slopeObjects } from '../components/Post';
 
 const Download = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -23,6 +22,79 @@ const Download = () => {
   let whiteText = colorMode == 'light' ? 'black' : 'white';
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const slopeObjects = [
+    {
+      name: `${t('downloads.link1')}`,
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/umowa%20polsko%20-%20angielska.pdf?alt=media&token=f66574ba-99cc-4ee9-a9e7-9eb6bca81d2b',
+    },
+    {
+      name: `${t('downloads.link2')}`,
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/umowapolsko-niemiecka.pdf?alt=media&token=08a0ffc8-dd7c-406f-90f9-05f0b4ccbab3',
+    },
+    {
+      name: `${t('downloads.link3')}`,
+
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/umowa_kupna_sprzedazy_samochodu_polsko_wloska.pdf?alt=media&token=28768335-31e8-4dd4-a07d-1c65605c826a',
+    },
+    {
+      name: `${t('downloads.link4')}`,
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/umowa-kupna-sprzedazy-samochodu-polsko-holenderska.pdf?alt=media&token=95a57421-2b39-4b30-bc6a-c4bfad44b62b',
+    },
+    {
+      name: `${t('downloads.link5')}`,
+
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/UMOWA%20DAROWIZNY.doc?alt=media&token=fbb088b3-1dc6-4b04-b5b4-97f1ed4dc36e',
+    },
+    {
+      name: `${t('downloads.link6')}`,
+
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/PCC-3.pdf?alt=media&token=a461bfde-d6a3-4541-a5e8-ce1dfc395c01',
+    },
+    {
+      name: `${t('downloads.link7')}`,
+
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/oswiadczenie.jpg?alt=media&token=8bcb7b66-f5fa-417c-b6da-a7a25e2e6ffd',
+    },
+    {
+      name: `${t('downloads.link8')}`,
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/Umowa.pdf?alt=media&token=03deeb5f-e57b-422c-a965-94af40959c05',
+    },
+    {
+      name: `${t('downloads.link9')}`,
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/Deklaracja%20AKC-US.pdf?alt=media&token=944dfde4-c5dc-496f-aa5e-361e44b7a7ca',
+    },
+    {
+      name: `${t('downloads.link10')}`,
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/zg%C5%82oszenie%20zbycia%20pow.%20Nowotarski.pdf?alt=media&token=42e45936-4bff-4e5d-971c-5aa929970c2a',
+    },
+    {
+      name: `${t('downloads.link11')}`,
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/zg%C5%82oszenie%20zbycia%20pow.%20Tatrzan%CC%81ski.pdf?alt=media&token=113b1a28-daef-42f0-905e-137376f80151',
+    },
+    {
+      name: `${t('downloads.link12')}`,
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/Zgody%20RODO.pdf?alt=media&token=c3ea12d3-4a2f-4f12-b18a-23d4ab81c91f',
+    },
+    {
+      name: `${t('downloads.link13')}`,
+      documentLink:
+        'https://firebasestorage.googleapis.com/v0/b/gram-nation-agency.appspot.com/o/oswiadczenie_pelnomocnictwo.jpg?alt=media&token=be0cf29e-3d42-44b6-822e-040a9810bd47',
+    },
+  ];
+
   return (
     <div>
       <div className="insurance_body">
@@ -124,7 +196,7 @@ const Download = () => {
         <div className="another_div">
           <div className="top_div" style={{ color: whiteText }}>
             <div className="left_" style={{ fontSize: '1.5rem' }}>
-              Download Useful Document Template
+              {t('downloads.text1')}
               {/* {t("documents.why_us")} */}
             </div>
             <div
@@ -139,10 +211,9 @@ const Download = () => {
                 fontSize: '1.4rem',
               }}
             >
-              With us you save time, health and money{' '}
+              {t('downloads.text2')}
               <div style={{ fontSize: '0.9rem', fontWeight: 'lighter' }}>
-                In order to leave documents for vehicle registration, you must
-                sign the relevant documents.
+                {t('downloads.text3')}
               </div>
               {/* {t("documents.text1")} */}
             </div>
