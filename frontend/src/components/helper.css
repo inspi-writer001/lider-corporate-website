@@ -16,3 +16,9 @@
 .lang_selector {
   font-size: 3vw !important;
 }
+
+@media (max-width: 767px) {
+  .lang_selector {
+    font-size: 9vw !important;
+  }
+}
