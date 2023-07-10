@@ -112,13 +112,13 @@ export default function WithSubnavigation() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item
+              {/* <Dropdown.Item
                 className="lang d-flex"
                 onClick={() => i18next.changeLanguage("en")}
               >
                 <img className="language me-2" src={english_logo} />{" "}
                 <div className="text_lang">English</div>
-              </Dropdown.Item>
+              </Dropdown.Item> */}
               <Dropdown.Item
                 className="lang d-flex"
                 onClick={() => i18next.changeLanguage("pl")}
