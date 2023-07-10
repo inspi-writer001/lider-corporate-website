@@ -43,8 +43,11 @@ import officeVideo from "../assets/office_q.mp4";
 import Scroller from "../components/Scroller";
 
 import smilingCar from "../assets/smiling_in_car.jpg";
-import registration from "../assets/official_registration.png";
+import officePeople from "../assets//office_light.jpg";
+import registration from "../assets/put_tag_registration.png";
 import purchase from "../assets/happy_purchase.jpg";
+import classyOfficer from "../assets/classy_officer.png";
+
 export const FLOOR_HEIGHT = 2.3;
 export const NB_FLOORS = 1;
 
@@ -118,7 +121,7 @@ const Home = () => {
   const { t } = useTranslation();
   const TextList = [t("why_us.text1"), t("why_us.text2"), t("why_us.text3")];
 
-  const ImagesList = [smilingCar, registration, purchase];
+  const ImagesList = [officePeople, registration, classyOfficer];
 
   const [props, set] = useSpring(() => ({ opacity: 0 }));
 
@@ -168,7 +171,7 @@ const Home = () => {
       <div ref={sliderRef}>
         <BlurryBlob
           height={90}
-          style={{ position: 'absolute', left: '-30rem', zIndex: '0' }}
+          style={{ position: "absolute", left: "-30rem", zIndex: "0" }}
         />
 
         <div className="">
@@ -179,19 +182,19 @@ const Home = () => {
                 ref={imageRef}
                 alt="lider logo"
                 className="lider_logo animate__animated animate__backInDown mx-auto"
-                style={{ width: '200px' }}
+                style={{ width: "200px" }}
               />
             </div>
             <div className="mt-5">
-              <h1 className="text-center fw-light" style={{ color: '#037fc2' }}>
-                {t('header1')}
+              <h1 className="text-center fw-light" style={{ color: "#037fc2" }}>
+                {t("header1")}
               </h1>
-              <h1 className="text-center header2 ">{t('header2')}</h1>
+              <h1 className="text-center header2 ">{t("header2")}</h1>
               <h3
                 className="text-center mt-4 text-light so py-2"
-                style={{ backgroundColor: '#037fc2' }}
+                style={{ backgroundColor: "#037fc2" }}
               >
-                {t('header3')}
+                {t("header3")}
               </h3>
             </div>
           </div>
@@ -205,16 +208,16 @@ const Home = () => {
           <BlurryBlob
             height={120}
             style={{
-              position: 'absolute',
-              left: 'auto',
-              right: 'auto',
-              marginLeft: '0',
-              marginRight: '0',
-              zIndex: '0',
+              position: "absolute",
+              left: "auto",
+              right: "auto",
+              marginLeft: "0",
+              marginRight: "0",
+              zIndex: "0"
             }}
           />
         </div>
-        <section className="" style={{ margin: '100px 20px' }}>
+        <section className="" style={{ margin: "100px 20px" }}>
           <Scroller
             className=""
             BodyContent={TextList}

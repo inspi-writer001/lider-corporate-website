@@ -4,8 +4,10 @@ import { useTranslation } from "react-i18next";
 import office from "../assets/office_empty.jpg";
 import oldCar from "../assets/old-car.png";
 import newCar from "../assets/new-car.png";
+import ferarri from "../assets/ferarri_registration.png";
 import farmCar from "../assets/farm.png";
 import regCar from "../assets/put_tag_registration.png";
+import sadface from "../assets/confused_registration.png";
 // import { motion } from "framer-motion";
 import { Text, useColorMode } from "@chakra-ui/react";
 import {
@@ -83,7 +85,7 @@ const Registration = () => {
   let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
 
-  const RegisterationCarList = [newCar, oldCar, regCar];
+  const RegisterationCarList = [sadface, ferarri, oldCar];
   const RegisterationHeaders = [
     `${t("registration.header1")}`,
     `${t("registration.header2")}`,
@@ -105,7 +107,7 @@ const Registration = () => {
         <div className="second_banner">
           <div className="threed_scene"></div>
         </div>
-        <section className="" style={{ margin: '100px 20px' }}>
+        <section className="" style={{ margin: "100px 20px" }}>
           <Scroller
             BodyContent={RegisterationBodyContent}
             Headers={RegisterationHeaders}

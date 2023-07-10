@@ -25,9 +25,13 @@ import confusedRegistration from "../assets/confused_registration.png";
 import ferrari from "../assets/ferarri_registration.png";
 import tagRegistration from "../assets/tag_registration.png";
 import house from "../assets/night-house.png";
+import farm from "../assets/farm.png";
 import consultation from "../assets/consultant.png";
 import family from "../assets/family.png";
 import office from "../assets/office_empty.jpg";
+import team from "../assets/official_registration.png";
+import audi from "../assets/new-car.png";
+import vacation from "../assets/beach-lady.png";
 import carousel from "react-multi-carousel";
 
 import {
@@ -199,7 +203,7 @@ const Insurance = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
-  const Images = [ferrari, house, consultation, family, office];
+  const Images = [audi, house, family, farm, vacation, team];
 
   const TextLis = [
     `${t("insurance.text1")}`,
@@ -220,7 +224,7 @@ const Insurance = () => {
   ];
   return (
     <div>
-      <section className="" style={{ margin: '100px 20px' }}>
+      <section className="" style={{ margin: "100px 20px" }}>
         <Scroller
           Headers={HeaderLis}
           BodyContent={TextLis}

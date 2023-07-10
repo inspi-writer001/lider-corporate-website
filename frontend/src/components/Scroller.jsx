@@ -10,7 +10,7 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
   const [progress, setProgress] = useState(0);
   const [tracker, setTracker] = useState(0);
   const { colorMode, toggleColorMode } = useColorMode();
-  let whiteText = colorMode == 'light' ? 'black' : 'white';
+  let whiteText = colorMode == "light" ? "black" : "white";
 
   const onStepEnter = (e) => {
     const { data, entry, direction } = e;
@@ -21,7 +21,7 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
   };
 
   const onStepExit = ({ direction, data }) => {
-    if (direction === 'up' && data === steps[0]) {
+    if (direction === "up" && data === steps[0]) {
       setData(0);
       // console.log("0 out");
     }
@@ -52,8 +52,8 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
             const isVisible = value === data;
             const background = isVisible
               ? `rgba(44,127,184, ${progress})`
-              : 'rgba(44,127,184, 0.02)';
-            const visibility = isVisible ? 'flex' : 'hidden';
+              : "rgba(44,127,184, 0.02)";
+            const visibility = isVisible ? "flex" : "hidden";
 
             return (
               <Step data={value} key={value}>
@@ -72,16 +72,16 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
                 >
                   <h1
                     className="sl"
-                    style={{ textAlign: 'center', fontWeight: 'bolder' }}
+                    style={{ textAlign: "center", fontWeight: "bolder" }}
                   >
                     {Headers[index]}
-                  </h1>{' '}
+                  </h1>{" "}
                   <p
                     className="sll loo"
                     style={{
                       display: visibility,
                       // fontSize: "1.3rem",
-                      textAlign: 'center',
+                      textAlign: "center"
                     }}
                   >
                     {BodyContent[index]}
@@ -96,20 +96,20 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
       <div
         className="graphic"
         style={{
-          flexBasis: '50%',
-          position: isSticky ? 'sticky' : 'static',
-          width: '100%',
-          height: '600px',
-          top: '15vh',
-          bottom: 'auto',
+          flexBasis: "50%",
+          position: isSticky ? "sticky" : "static",
+          width: "100%",
+          height: "600px",
+          top: "15vh",
+          bottom: "auto",
           // backgroundColor: "#aaa",
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
         }}
       >
         <img
-          style={{ height: '100%', objectFit: 'cover' }}
+          style={{ height: "100%", objectFit: "cover" }}
           src={
             data == 10
               ? carList[0]
@@ -121,6 +121,8 @@ const Scroller = ({ Headers, BodyContent, carList, steps }) => {
               ? carList[3]
               : data == 50
               ? carList[4]
+              : data == 60
+              ? carList[5]
               : carList[0]
           }
         />

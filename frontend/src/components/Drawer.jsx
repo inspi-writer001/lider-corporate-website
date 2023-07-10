@@ -60,7 +60,7 @@ const Draawer = ({ fieldName, images, onnOpen, issOpen, onnClose }) => {
             ) : fieldName == "Greece" ? (
               <Greece image={images} />
             ) : fieldName == "Spain" ? (
-              <Spain image={images} />
+              <Spanish image={images} />
             ) : fieldName == "Netherlands" ? (
               <Netherlands image={images} />
             ) : fieldName == "Ireland" ? (

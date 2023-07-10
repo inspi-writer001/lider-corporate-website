@@ -373,6 +373,17 @@
     height: 100vh;
   }
 
+  .snapper {
+    height: 100vh;
+    scroll-snap-align: start;
+  }
+
+  .el_snap {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+
   .image-section {
     display: flex;
     align-items: end;
