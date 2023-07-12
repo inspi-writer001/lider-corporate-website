@@ -1,12 +1,21 @@
 {
-  "navbar": [
-    { "title": "Home", "link": "/" },
-    { "title": "Insurance", "link": "/insurance" },
-    { "title": "Registration", "link": "/registration" },
-    { "title": "Translations", "link": "/translations" },
-    { "title": "Downloads", "link": "/downloads" },
-    { "title": "Documents", "link": "/documents" }
-  ],
+  "navbar": {
+    "home": "Home",
+    "homeLink": "/",
+    "insurance": "Insurance",
+    "insuranceLink": "/insurance",
+    "registration": "Registration",
+    "registrationLink": "/registration",
+    "translation": "Translations",
+    "translationLink": "/translations",
+    "downloads": "Downloads",
+    "downloadsLink": "/downloads",
+    "document": "Documents",
+    "documentLink": "/documents",
+    "admin": "Admin",
+    "adminLink": "/admin"
+  },
+
   "contact_us": "Contact Us",
   "language": "🇬🇧",
 
@@ -15,7 +24,7 @@
   "header3": "Your trusted partner for insurance, vehicle registration and translations",
   "why_us": {
     "title": "Our experience since 2006",
-    "text1": "Since 2006, 'Lider' has been operating as the first office in our region, offering a wide range of motor, property, life and agricultural insurance. \n We provide comprehensive service and support in the selection of appropriate insurance policies. Photo of office or any with this type of professional services",
+    "text1": "Since 2006, 'Lider' has been operating as the first office in our region, offering a wide range of motor, property, life and agricultural insurance. \n We provide comprehensive service and support in the selection of appropriate insurance policies.",
 
     "realization": "Vehicle registration in Poland and abroad",
 

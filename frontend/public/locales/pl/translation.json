@@ -1,13 +1,21 @@
 {
-  "navbar": [
-    { "title": "Dom", "link": "/" },
-    { "title": "Ubezpieczenie", "link": "/insurance" },
-    { "title": "Rejestracja", "link": "/registration" },
-    { "title": "Tłumaczenia", "link": "/translations" },
-    { "title": "Pobieranie", "link": "/downloads" },
-    { "title": "Dokumenty", "link": "/documents" },
-    { "title": "Dokumenty", "link": "/documents" }
-  ],
+  
+  "navbar": {
+    "home": "Dom",
+    "homeLink": "/",
+    "insurance": "Ubezpieczenie",
+    "insuranceLink": "/insurance",
+    "registration": "Rejestracja",
+    "registrationLink": "/registration",
+    "translation": "Tłumaczenia",
+    "translationLink": "/translations",
+    "downloads": "Pobieranie",
+    "downloadsLink": "/downloads",
+    "document": "Dokumenty",
+    "documentLink": "/documents",
+    "admin": "Admin",
+    "adminLink": "/admin"
+  },
   "contact_us": "Kontakt",
   "language": "🇵🇱",
   "header1": "Witamy w ",
@@ -16,7 +24,7 @@
 
   "why_us": {
     "title": "Nasze doświadczenie od 2006 roku",
-    "text1": "Od 2006 roku 'Lider' działa jako pierwsze biuro w naszym regionie, oferując szeroki wybór ubezpieczeń komunikacyjnych, majątkowych, na życie oraz rolniczych. \n Zapewniamy kompleksową obsługę i wsparcie w doborze odpowiednich polis ubezpieczeniowych. Photo of office or any with this type of professional services",
+    "text1": "Od 2006 roku 'Lider' działa jako pierwsze biuro w naszym regionie, oferując szeroki wybór ubezpieczeń komunikacyjnych, majątkowych, na życie oraz rolniczych. \n Zapewniamy kompleksową obsługę i wsparcie w doborze odpowiednich polis ubezpieczeniowych. ",
 
     "realization": "Rejestracja pojazdów w Polsce i zza granicy",
 
