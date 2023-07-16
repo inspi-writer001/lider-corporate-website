@@ -306,6 +306,51 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 
 const MobileNav = ({ funcction }) => {
   const { onToggle } = useDisclosure();
+  const { t } = useTranslation();
+
+  const _NAV_ITEMS = [
+    {
+      label: `${t('navbar.home')}`,
+      href: '/',
+    },
+    {
+      label: `${t('navbar.insurance')}`,
+      href: '/insurance',
+    },
+    {
+      label: `${t('navbar.registration')}`,
+      href: '/registration',
+      // children: [
+      //   {
+      //     label: "Job Board",
+      //     subLabel: "Find your dream design job",
+      //     href: "#"
+      //   },
+      //   {
+      //     label: "Translations",
+      //     subLabel: "An exclusive list for contract work",
+      //     href: "#"
+      //   }
+      // ]
+    },
+
+    {
+      label: `${t('navbar.translation')}`,
+      href: '/translations',
+    },
+    {
+      label: `${t('navbar.downloads')}`,
+      href: '/downloads',
+    },
+    {
+      label: `${t('navbar.document')}`,
+      href: '/documents',
+    },
+    {
+      label: `${t('navbar.admin')}`,
+      href: '/admin',
+    },
+  ];
   return (
     <Stack
       bg={useColorModeValue('white', 'gray.800')}
@@ -318,8 +363,8 @@ const MobileNav = ({ funcction }) => {
         width: '100vw',
       }}
     >
-      {NAVV_ITEMS.map((navItem) => (
-        <div onClick={funcction} className="map">
+      {_NAV_ITEMS.map((navItem, index) => (
+        <div onClick={funcction} key={index} className="map">
           <MobileNavItem key={navItem.label} {...navItem} />
         </div>
       ))}
