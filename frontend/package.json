@@ -31,6 +31,7 @@
     "framer-motion-3d": "^10.12.16",
     "google-translate": "^3.0.0",
     "gsap": "^3.12.1",
+    "helmet": "^7.0.0",
     "i18next": "^22.5.1",
     "i18next-browser-languagedetector": "^7.0.2",
     "i18next-xhr-backend": "^3.2.2",

@@ -2,10 +2,12 @@ import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { Helmet } from "react-helmet";
 import BlurryBlob from "../components/BlurryBlob";
 import "./Pages.css";
+
 import { Flex, Text, useColorMode, useMediaQuery } from "@chakra-ui/react";
 // import Spline from "@splinetool/react-spline";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 import {
   useInView,
   useScroll,
