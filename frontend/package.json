@@ -42,6 +42,7 @@
     "react-documents": "1.1.1",
     "react-dom": "^18.2.0",
     "react-geocode": "^0.2.3",
+    "react-helmet": "^6.1.0",
     "react-i18next": "^12.3.1",
     "react-jss": "^10.10.0",
     "react-md-spinner": "^1.0.0",

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
+import { Helmet } from "react-helmet";
 import BlurryBlob from "../components/BlurryBlob";
 import "./Pages.css";
 import { Flex, Text, useColorMode, useMediaQuery } from "@chakra-ui/react";
@@ -168,6 +169,13 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Multiagencji Lider</title>
+        <meta
+          name="description"
+          content="Twój zaufany partner w zakresie ubezpieczeń, rejestracji pojazdów i tłumaczeń"
+        />
+      </Helmet>
       <div ref={sliderRef}>
         <BlurryBlob
           height={90}
