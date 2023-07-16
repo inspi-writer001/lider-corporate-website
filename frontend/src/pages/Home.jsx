@@ -7,7 +7,7 @@ import { Flex, Text, useColorMode, useMediaQuery } from "@chakra-ui/react";
 // import Spline from "@splinetool/react-spline";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Helmet } from "react-helmet";
+
 import {
   useInView,
   useScroll,
