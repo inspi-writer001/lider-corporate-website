@@ -8,6 +8,7 @@ import {
   ModalContent,
   ModalHeader,
   ModalFooter,
+  Accordion,
   Button,
   ModalBody,
   useDisclosure,
