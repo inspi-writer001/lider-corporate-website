@@ -1,7 +1,7 @@
 import "./Pages.css";
 import BlurryBlob from "../components/BlurryBlob";
 import { useTranslation } from "react-i18next";
-import { Text, useColorMode } from "@chakra-ui/react";
+import { Text, useColorMode, Accordion } from "@chakra-ui/react";
 import {
   Modal,
   ModalOverlay,
