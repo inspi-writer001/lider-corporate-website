@@ -1,7 +1,7 @@
-import './Pages.css';
-import BlurryBlob from '../components/BlurryBlob';
-import { useTranslation } from 'react-i18next';
-import { Text, useColorMode } from '@chakra-ui/react';
+import "./Pages.css";
+import BlurryBlob from "../components/BlurryBlob";
+import { useTranslation } from "react-i18next";
+import { Text, useColorMode } from "@chakra-ui/react";
 import {
   Modal,
   ModalOverlay,
@@ -11,17 +11,17 @@ import {
   Button,
   ModalBody,
   useDisclosure,
-  ModalCloseButton,
-} from '@chakra-ui/react';
-import DocumentViewer from '../components/DocumentViewer';
-import { useState, useEffect } from 'react';
-import { slopeObjects, documentsList } from '../components/Post';
-import Drawer from '../components/Drawer';
+  ModalCloseButton
+} from "@chakra-ui/react";
+import DocumentViewer from "../components/DocumentViewer";
+import { useState, useEffect } from "react";
+import { slopeObjects, documentsList } from "../components/Post";
+import Drawer from "../components/Drawer";
 
 const Document = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [document, setDocument] = useState({ name: '', documentLink: [] });
-  let whiteText = colorMode == 'light' ? 'black' : 'white';
+  const [document, setDocument] = useState({ name: "", documentLink: [] });
+  let whiteText = colorMode == "light" ? "black" : "white";
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -38,18 +38,18 @@ const Document = () => {
           <BlurryBlob
             height={90}
             style={{
-              position: 'absolute',
-              top: '-35rem',
-              left: 'auto',
-              right: 'auto',
-              marginLeft: '0',
-              marginRight: '0',
-              zIndex: '0 !important',
+              position: "absolute",
+              top: "-35rem",
+              left: "auto",
+              right: "auto",
+              marginLeft: "0",
+              marginRight: "0",
+              zIndex: "0 !important"
             }}
           />
         </div>
         <div className="arc_container">
-          <div className="top_arc" style={{ top: '10rem' }}></div>
+          <div className="top_arc" style={{ top: "10rem" }}></div>
         </div>
 
         <div className="second_banner">
@@ -57,23 +57,23 @@ const Document = () => {
             <div
               className="_low_price"
               style={{
-                marginTop: '9rem',
-                fontSize: '1.8rem',
-                color: whiteText,
+                marginTop: "9rem",
+                fontSize: "1.8rem",
+                color: whiteText
               }}
             >
-              {t('documents.design')}{' '}
+              {t("documents.design")}{" "}
             </div>
             <div
               className="_insurance"
               style={{
-                marginTop: '-11rem',
-                fontSize: '2.5rem',
+                marginTop: "-11rem",
+                fontSize: "2.5rem",
                 color: whiteText,
-                fontWeight: 'bold',
+                fontWeight: "bold"
               }}
             >
-              {t('documents.documents')}
+              {t("documents.documents")}
             </div>
           </div>
         </div>
@@ -81,20 +81,20 @@ const Document = () => {
           <div className="top_div" style={{ color: whiteText }}>
             <div
               className="left_"
-              style={{ fontSize: '1.7rem', flexDirection: 'column' }}
+              style={{ fontSize: "1.7rem", flexDirection: "column" }}
             >
-              <div>{t('documents.text1')}</div>
+              <div>{t("documents.text1")}</div>
 
-              <div className="little" style={{ fontSize: '1.2rem' }}>
-                {t('documents.text2')}
+              <div className="little" style={{ fontSize: "1.2rem" }}>
+                {t("documents.text2")}
               </div>
               {/* {t("documents.why_us")} */}
             </div>
             <div
               className="right_"
-              style={{ background: 'none', boxShadow: 'none' }}
+              style={{ background: "none", boxShadow: "none" }}
             >
-              {t('documents.text3')}
+              {t("documents.text3")}
 
               {/* {t("documents.text1")} */}
             </div>
@@ -103,29 +103,29 @@ const Document = () => {
             <div
               className="grids-container"
               style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '3%',
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "3%"
               }}
             >
               {documentsList.map((item, index) => (
                 <div
                   className="grids-item left_"
                   style={{
-                    flexBasis: '47%',
-                    flexGrow: '1',
-                    fontSize: '.7rem',
-                    height: '1.7rem',
-                    width: '1.7rem',
-                    marginBottom: '3%',
-                    cursor: 'pointer',
-                    borderRadius: '10px 0 0 0',
+                    flexBasis: "47%",
+                    flexGrow: "1",
+                    fontSize: ".7rem",
+                    height: "1.7rem",
+                    width: "1.7rem",
+                    marginBottom: "3%",
+                    cursor: "pointer",
+                    borderRadius: "10px 0 0 0"
                   }}
                   key={item}
                   onClick={() => {
                     setDocument({
                       name: item?.name,
-                      documentLink: item?.imagesList,
+                      documentLink: item?.imagesList
                     });
                     onOpen();
                   }}
@@ -141,13 +141,13 @@ const Document = () => {
           <BlurryBlob
             height={90}
             style={{
-              position: 'absolute',
-              top: '50rem',
-              left: 'auto',
-              right: 'auto',
-              marginLeft: '0',
-              marginRight: '0',
-              zIndex: '0 !important',
+              position: "absolute",
+              top: "50rem",
+              left: "auto",
+              right: "auto",
+              marginLeft: "0",
+              marginRight: "0",
+              zIndex: "0 !important"
             }}
           />
         </div>
